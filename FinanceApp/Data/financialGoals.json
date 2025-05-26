@@ -1,0 +1,44 @@
+[
+  {
+    "Id": 1,
+    "Name": "ponovno",
+    "CurrentAmount": 4327.0,
+    "TargetAmount": 4.0
+  },
+  {
+    "Id": 5,
+    "Name": "ooojjj",
+    "CurrentAmount": 3.0,
+    "TargetAmount": 2132.0
+  },
+  {
+    "Id": 6,
+    "Name": "ooojjj novi",
+    "CurrentAmount": 323.0,
+    "TargetAmount": 2132.0
+  },
+  {
+    "Id": 7,
+    "Name": "ooojjj novi najnoviji",
+    "CurrentAmount": 344.0,
+    "TargetAmount": 2132.0
+  },
+  {
+    "Id": 8,
+    "Name": "532",
+    "CurrentAmount": 3.0,
+    "TargetAmount": 2132.0
+  },
+  {
+    "Id": 9,
+    "Name": "tertvwew",
+    "CurrentAmount": 3.0,
+    "TargetAmount": 2132.0
+  },
+  {
+    "Id": 10,
+    "Name": "ercaraasase",
+    "CurrentAmount": 3.0,
+    "TargetAmount": 2132.0
+  }
+]

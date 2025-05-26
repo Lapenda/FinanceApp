@@ -1,0 +1,297 @@
+﻿using FinanceApp.Manager;
+using FinanceApp.Managers;
+using FinanceApp.Models;
+using iText.Kernel.Font;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace FinanceApp.Forms
+{
+    public partial class DashboardForm : Form
+    {
+        private readonly CategoryManager categoryManager;
+        private readonly FinancialGoalManager financialGoalManager;
+        private readonly TransactionManager transactionManager;
+        private readonly object calculationLock = new object();
+        private readonly Mutex reportMutex = new Mutex(false, "FinanceAppSummaryReportMutex");
+        private Dictionary<string, float> expensesByCategory;
+        private List<string> goalProgressSummaries;
+        private int tasksCompleted = 0;
+        private readonly int totalTasks = 3;
+        private CountdownEvent calculationCountdown;
+
+        public DashboardForm()
+        {
+            InitializeComponent();
+            transactionManager = new TransactionManager();
+            categoryManager = new CategoryManager("categories.xml");
+            financialGoalManager = new FinancialGoalManager();
+            expensesByCategory = new Dictionary<string, float>();
+            goalProgressSummaries = new List<string>();
+            progressBar.Maximum = totalTasks;
+            calculationCountdown = new CountdownEvent(2);
+
+            SettingsManager.ApplyTheme(this);
+        }
+
+        private void startAnalysisBtn_Click(object sender, EventArgs e)
+        {
+            expensesByCategory.Clear();
+            goalProgressSummaries.Clear();
+            tasksCompleted = 0;
+            progressBar.Value = 0;
+            expensesLabel.Text = "Calculating expenses....";
+            goalsProgressLabel.Text = "Calculating goal progress....";
+            summaryTextBox.Text = "Generating summary....";
+            startAnalysisBtn.Enabled = false;
+
+            calculationCountdown.Reset(2);
+
+            ThreadPool.QueueUserWorkItem(task => CalculateExpensesByCategory());
+            ThreadPool.QueueUserWorkItem(task => CalculateGoalProgress());
+
+
+            ThreadPool.QueueUserWorkItem(task =>
+            {
+                calculationCountdown.Wait();
+                GenerateSummaryReport();
+            });
+        }
+
+        private void CalculateExpensesByCategory()
+        {
+            try
+            {
+                var transactions = transactionManager.GetAllTransactions();
+
+                if (transactions.Any())
+                {
+                    lock (calculationLock)
+                    {
+                        foreach (var tx in transactions)
+                        {
+                            if (!expensesByCategory.ContainsKey(tx.Category.Name))
+                            {
+                                expensesByCategory[tx.Category.Name] = 0;
+                            }
+                            expensesByCategory[tx.Category.Name] += tx.Amount;
+                        }
+                    }
+                }
+
+                this.Invoke((MethodInvoker)delegate
+                {
+                    expensesLabel.Text = $"Expenses by Category: \n {string.Join("\n", expensesByCategory.Select(kvp => $"{kvp.Key}: {kvp.Value}"))}";
+                    UpdateProgress();
+                });
+
+            }catch(Exception ex) 
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    expensesLabel.Text = $"Error: {ex.Message}";
+                    UpdateProgress();
+                });
+            }
+            finally
+            {
+                calculationCountdown.Signal();
+            }
+        }
+
+        private void CalculateGoalProgress()
+        {
+            try
+            {
+                var goals = financialGoalManager.ReadAllGoals();
+                List<string> localSummaries = new List<string>();
+
+                foreach (var goal in goals)
+                {
+                    float progress = (goal.CurrentAmount / goal.TargetAmount) * 100;
+                    localSummaries.Add($"{goal.Name}: {progress:F2}% ({goal.CurrentAmount:C}/{goal.TargetAmount:C})");
+                }
+
+                lock (calculationLock)
+                {
+                    goalProgressSummaries.AddRange(localSummaries);
+                }
+
+                this.Invoke((MethodInvoker)delegate
+                {
+                    goalsProgressLabel.Text = "Goal progress:\n" + (goalProgressSummaries.Any() ? string.Join("\n", goalProgressSummaries) : "No goals found");
+                    UpdateProgress();
+                });
+
+            }
+            catch(Exception ex)
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    goalsProgressLabel.Text = $"Error: {ex.Message}";
+                    UpdateProgress();
+                });
+            }
+            finally
+            {
+                calculationCountdown.Signal();
+            }
+        }
+
+        private void GenerateSummaryReport()
+        {
+            try
+            {
+                string report = "Financial Summary Report\r\n";
+                report += $"Generated on: {DateTime.Now.ToString("g")}\r\n";
+
+                lock (calculationLock)
+                {
+                    if (expensesByCategory.Any())
+                    {
+                        report += "\r\nTotal expenses by Category:\r\n";
+                        foreach (var kvp in expensesByCategory)
+                        {
+                            report += $"{kvp.Key}: {kvp.Value:C}\r\n";
+                            var categoryTransactions = transactionManager.GetAllTransactions().Where(t => t.Category.Name == kvp.Key).OrderBy(t => t.Date);
+                            foreach (var transaction in categoryTransactions)
+                            {
+                                report += $"  - {transaction.Description}s {transaction.Date.ToString("d")}: {transaction.Amount:C} (Transaction ID: {transaction.Id})\r\n";
+                            }
+                        }
+                        report += "\r\n";
+                    }
+
+                    if (expensesByCategory.ContainsKey("Savings"))
+                    {
+                        report += $"Total Savings: {expensesByCategory["Savings"]:C}\r\n\r\n";
+                    }
+
+                    if (goalProgressSummaries.Any())
+                    {
+                        report += "Financial Goals Progress:\r\n";
+                        report += string.Join("\r\n", goalProgressSummaries) + "\r\n";
+                    }
+                }
+
+                string reportFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/summaryReport.txt");
+                string pdfFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/financialSummaryReport.pdf");
+
+                reportMutex.WaitOne();
+                try
+                {
+                    File.WriteAllText(reportFilePath, report);
+
+                    using (var writer = new PdfWriter(pdfFilePath))
+                    using (var pdf = new PdfDocument(writer))
+                    using (var document = new Document(pdf))
+                    {
+                        try
+                        {
+                            var font = PdfFontFactory.CreateFont(iText.IO.Font.Constants.StandardFonts.HELVETICA);
+
+                            document.Add(new Paragraph(report)).SetFont(font);
+                            //document.Add(new Paragraph("Financial Summary Report").SetFont(font));
+                           /* document.Add(new Paragraph($"Generated on: {DateTime.Now:g}").SetFont(font));
+                            document.Add(new Paragraph("\n").SetFont(font));
+
+                            if (expensesByCategory.Any())
+                            {
+                                document.Add(new Paragraph("Expenses by Category:").SetFont(font));
+                                var table = new Table(3);
+                                table.AddHeaderCell(new Cell().Add(new Paragraph("Category").SetFont(font)));
+                                table.AddHeaderCell(new Cell().Add(new Paragraph("Amount").SetFont(font)));
+                                foreach (var kvp in expensesByCategory)
+                                {
+                                    table.AddCell(new Cell().Add(new Paragraph(kvp.Key).SetFont(font)));
+                                    table.AddCell(new Cell().Add(new Paragraph(kvp.Value.ToString("C")).SetFont(font)));
+                                }
+                                document.Add(table);
+                            }
+
+                            var goals = financialGoalManager.ReadAllGoals();
+                            if (goals.Any())
+                            {
+                                document.Add(new Paragraph("Financial Goals:").SetFont(font));
+                                var table = new Table(3);
+                                table.AddHeaderCell(new Cell().Add(new Paragraph("Goal").SetFont(font)));
+                                table.AddHeaderCell(new Cell().Add(new Paragraph("Current Amount").SetFont(font)));
+                                table.AddHeaderCell(new Cell().Add(new Paragraph("Target Amount").SetFont(font)));
+                                foreach (var goal in goals)
+                                {
+                                    table.AddCell(new Cell().Add(new Paragraph(goal.Name).SetFont(font)));
+                                    table.AddCell(new Cell().Add(new Paragraph(goal.CurrentAmount.ToString("C")).SetFont(font)));
+                                    table.AddCell(new Cell().Add(new Paragraph(goal.TargetAmount.ToString("C")).SetFont(font)));
+                                }
+                                document.Add(table);
+                            }*/
+                        }
+                        catch (iText.Kernel.Exceptions.PdfException ex)
+                        {
+                            throw new Exception($"Failed to generate PDF: {ex.Message}", ex);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        summaryTextBox.Text = $"PDF Generation Error: {ex.Message}";
+                        UpdateProgress();
+                    });
+                    return;
+                }
+                finally
+                {
+                    reportMutex.ReleaseMutex();
+                }
+
+                this.Invoke((MethodInvoker)delegate
+                {
+                    summaryTextBox.Text = report;
+                    UpdateProgress();
+                });
+            }
+            catch (Exception ex)
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    summaryTextBox.Text = $"Error: {ex.Message}";
+                    UpdateProgress();
+                });
+            }
+        }
+
+        private void UpdateProgress()
+        {
+            tasksCompleted++;
+            progressBar.Value = tasksCompleted;
+            if (tasksCompleted == totalTasks)
+            {
+                startAnalysisBtn.Enabled = true;
+            }
+        }
+
+        private void settingsBtn_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.Show();
+            this.Hide();
+        }
+    }
+}

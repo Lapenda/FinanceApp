@@ -1,0 +1,66 @@
+# .NET Build Outputs
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.exe.config
+
+# Visual Studio Files
+.vs/
+*.suo
+*.user
+*.sln.docstates
+*.vsidx
+*.futdcache.v2
+*.dtbcache.v2
+.vscode/
+
+# Visual Studio Build and Cache Files
+*.csproj.*.cache
+*.AssemblyReference.cache
+*.CoreCompileInputs.cache
+*.FileListAbsolute.txt
+*.GenerateResource.cache
+*.SuggestedBindingRedirects.cache
+DesignTimeResolveAssemblyReferencesInput.cache
+DesignTimeResolveAssemblyReferences.cache
+TempPE/
+
+# NuGet Packages
+packages/
+*.nupkg
+*.nuget.*
+
+# Generated Files
+*.resources.dll
+*.resources
+*.AssemblyInfo.cs
+*.GlobalUsings.g.cs
+*.GeneratedMSBuildEditorConfig.editorconfig
+*.assets.cache
+
+
+# Dependency DLLs in bin/
+FinanceApp/bin/Debug/*.dll
+FinanceApp/bin/Debug/*.xml
+
+# Other Temporary Files
+*.log
+*.cache
+*.bak
+*.tmp
+
+# Ignore Solution-Level Files
+*.sln
+
+# Ignore Environment-Specific Configs
+appsettings.Development.json
+
+
+# OS-Generated Files
+.DS_Store
+Thumbs.db
+
+# Ignore Lock Files
+read.lock
