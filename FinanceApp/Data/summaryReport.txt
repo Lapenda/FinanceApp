@@ -1,9 +1,9 @@
 Financial Summary Report
-Generated on: 26.5.2025. 18:06
+Generated on: 27.5.2025. 1:11
 
 Total expenses by Category:
-omg: 21,00 kn
-  - Hejs 26.5.2025.: 21,00 kn (Transaction ID: 0)
+omg: 321,00 kn
+  - 123s 27.5.2025.: 321,00 kn (Transaction ID: 0)
 
 Financial Goals Progress:
 ponovno: 108175,00% (4.327,00 kn/4,00 kn)

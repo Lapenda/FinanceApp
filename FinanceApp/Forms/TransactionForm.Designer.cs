@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionForm));
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.welcomeLabel = new System.Windows.Forms.Label();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.amountTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,6 +41,7 @@
             this.editCategoriesBtn = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.descTextBox = new System.Windows.Forms.TextBox();
+            this.logoutBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -48,10 +49,10 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
-            // label2
+            // welcomeLabel
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.welcomeLabel, "welcomeLabel");
+            this.welcomeLabel.Name = "welcomeLabel";
             // 
             // categoryComboBox
             // 
@@ -108,10 +109,18 @@
             resources.ApplyResources(this.descTextBox, "descTextBox");
             this.descTextBox.Name = "descTextBox";
             // 
+            // logoutBtn
+            // 
+            resources.ApplyResources(this.logoutBtn, "logoutBtn");
+            this.logoutBtn.Name = "logoutBtn";
+            this.logoutBtn.UseVisualStyleBackColor = true;
+            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
+            // 
             // TransactionForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.logoutBtn);
             this.Controls.Add(this.descTextBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.editCategoriesBtn);
@@ -122,7 +131,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.amountTextBox);
             this.Controls.Add(this.categoryComboBox);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.welcomeLabel);
             this.Controls.Add(this.label1);
             this.Name = "TransactionForm";
             this.ResumeLayout(false);
@@ -133,7 +142,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label welcomeLabel;
         private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.TextBox amountTextBox;
         private System.Windows.Forms.Label label3;
@@ -144,5 +153,6 @@
         private System.Windows.Forms.Button editCategoriesBtn;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox descTextBox;
+        private System.Windows.Forms.Button logoutBtn;
     }
 }

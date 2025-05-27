@@ -1,4 +1,5 @@
 ﻿using FinanceApp.Manager;
+using FinanceApp.Managers;
 using FinanceApp.Models;
 using FinanceApp.Properties;
 using System;
@@ -16,28 +17,52 @@ namespace FinanceApp.Forms
 {
     public partial class LoginForm : Form
     {
+        private readonly string connectionString;
+        private readonly string jwtSecretKey;
+
         public LoginForm()
         {
             InitializeComponent();
             SettingsManager.LanguageChanged += (s, e) => SettingsManager.UpdateFormLanguage(this);
             InitializeLanguageComboBox();
             SettingsManager.ApplyTheme(this);
+
+            connectionString = Environment.GetEnvironmentVariable("FINANCEAPP_CONNECTION_STRING");
+            jwtSecretKey = Environment.GetEnvironmentVariable("FINANCEAPP_JWT_SECRET");
+
+            if (string.IsNullOrEmpty(connectionString) || string.IsNullOrEmpty(jwtSecretKey))
+            {
+                MessageBox.Show("Environment variables FINANCEAPP_CONNECTION_STRING and FINANCEAPP_JWT_SECRET must be set.", "Configuration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+                return;
+            }
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            User user = new User(2, usernameTextBox.Text, passwordTextBox.Text);
-            if(user.Login(usernameTextBox.Text, passwordTextBox.Text))
+            try
             {
-                MessageBox.Show(Resources.LoginSuccessfulMessage);
-                this.Hide();
+                var userManager = new UserManager(connectionString, jwtSecretKey);
 
-                TransactionForm txForm = new TransactionForm();
-                txForm.Show();
+                string username = usernameTextBox.Text;
+                string password = passwordTextBox.Text;
+
+                string jwtToken = userManager.Login(username, password);
+
+                if(!string.IsNullOrEmpty(jwtToken))
+                {
+                    Settings.Default.JwtToken = jwtToken;
+                    Settings.Default.Save();
+
+                    MessageBox.Show(Resources.LoginSuccessfulMessage);
+                    this.Hide();
+                    TransactionForm transactionForm = new TransactionForm();
+                    transactionForm.Show();
+                }
             }
-            else
+            catch(Exception ex) 
             {
-                MessageBox.Show(Resources.InvalidCredentialsMessage);
+                Console.WriteLine("Login Error: " + ex.Message);
             }
         }
 

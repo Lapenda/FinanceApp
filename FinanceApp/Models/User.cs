@@ -1,38 +1,96 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Security.Cryptography;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace FinanceApp.Models
 {
     public class User
     {
-        private int Id { get; set; }
-        private string Username { get; set; }
-        private string Role { get; set; }
+        public int Id { get; private set; }
+        public string Username { get; private set; }
+        public string Password { get; private set; }
+        public string Role { get; private set; }
+        public DateTime CreatedAt { get; private set; }
 
-        public User(int id, string username, string role)
+        public User(int id, string username, string password, string role)
         {
+            if (id < 0) throw new ArgumentException("User ID cannot be negative.", nameof(id));
+            if (string.IsNullOrWhiteSpace(username)) throw new ArgumentException("Username cannot be empty.", nameof(username));
+            if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Password cannot be empty.", nameof(password));
+            if (string.IsNullOrWhiteSpace(role)) throw new ArgumentException("Role cannot be empty.", nameof(role));
+
             Id = id;
             Username = username;
             Role = role;
+            CreatedAt = DateTime.Now;
+
+            Password = HashPassword(password);
         }
 
-        public bool Login(string username, string password)
+        public User(int id, string username, string hashedPassword, string role, DateTime createdAt)
         {
-            return username == Username && password == "pass123";
+            Id = id;
+            Username = username;
+            Password = hashedPassword;
+            Role = role;
+            CreatedAt = createdAt;
         }
 
-        public void Logout()
+        public bool ValidatePepper(string password, string storedHashPass)
         {
-            MessageBox.Show($"{ Username } logged out!");
+            string salt = GenerateSalt();
+
+            string[] possiblePeppers = { "papar1", "papar2,", "mojMaliPapar", "papar3" };
+
+            foreach(var pepper in possiblePeppers)
+            {
+                string testHash = HashPasswordWithPepper(password + salt, pepper);
+                if(testHash == storedHashPass) return true;
+            }
+
+            Console.WriteLine("No matching pepper found");
+            return false;
         }
 
-        public void SignIn(string username, string password)
+        public bool VerifyPassword(string password)
         {
-           
+            if (string.IsNullOrWhiteSpace(password)) return false;
+            string hashedInput = HashPassword(password);
+            return Password == hashedInput;
+        }
+
+        private string HashPassword(string password)
+        {
+            string salt = GenerateSalt();
+            return HashPasswordWithPepper(password + salt, GetPepper());
+        }
+
+        private string GenerateSalt()
+        {
+            var combined = Username + Username.Reverse();
+            using(var sha256 = SHA256.Create())
+            {
+                byte[] saltBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(combined));
+                return Convert.ToBase64String(saltBytes);
+            }
+        }
+
+        private static string HashPasswordWithPepper(string input, string pepper)
+        {
+            string saltPepPass = input + pepper;
+
+            using (var sha256 = SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(saltPepPass));
+                return Convert.ToBase64String(hashedBytes);
+            }
+        }
+
+        private static string GetPepper()
+        {
+            return "mojMaliPapar";
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Text;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +20,9 @@ namespace FinanceApp.Forms
     {
         private readonly CategoryManager categoryManager;
         private readonly TransactionManager transactionManager;
+        private readonly UserManager userManager;
+        private readonly string connectionString;
+        private readonly string jwtSecretKey;
 
         public TransactionForm()
         {
@@ -27,10 +31,36 @@ namespace FinanceApp.Forms
             categoryManager = new CategoryManager("categories.xml");
             transactionManager = new TransactionManager();
 
-            SettingsManager.ApplyTheme(this);
+            connectionString = Environment.GetEnvironmentVariable("FINANCEAPP_CONNECTION_STRING");
+            jwtSecretKey = Environment.GetEnvironmentVariable("FINANCEAPP_JWT_SECRET");
 
-            InitializeCategoryComboBox();
+            userManager = new UserManager(connectionString, jwtSecretKey);
+            string storedToken = Properties.Settings.Default.JwtToken;
+
+            if (string.IsNullOrEmpty(storedToken) || !userManager.ValidateToken(storedToken, out var claimsPrincipal))
+            {
+                MessageBox.Show("Invalid or expired session. Please log in again.");
+
+                this.Close();
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+                return;
+            }
+
+            InitializeForm(claimsPrincipal);
         }
+
+        private void InitializeForm(ClaimsPrincipal claimsPrincipal)
+        {
+            SettingsManager.ApplyTheme(this);
+            InitializeCategoryComboBox();
+
+            string username = claimsPrincipal.FindFirst(ClaimTypes.Name)?.Value;
+            string role = claimsPrincipal.FindFirst(ClaimTypes.Role)?.Value;
+
+             welcomeLabel.Text = $"Transaction Form - Welcome, {username} ({role})";
+        }
+
 
         private void saveButton_Click(object sender, EventArgs e)
         {
@@ -56,7 +86,7 @@ namespace FinanceApp.Forms
                 return;
             }
 
-            Transaction tx = new Transaction(0, amount, description, selectedCategory, datePicker.Value);
+            Transaction tx = new Transaction(0, 0, amount, description, selectedCategory, datePicker.Value);
             transactionManager.Save(tx);
 
             if (selectedCategory.Name.ToLower() == "savings")
@@ -143,7 +173,19 @@ namespace FinanceApp.Forms
         {
             CategoryForm categoryForm = new CategoryForm();
             categoryForm.Show();
-            this.Close();
+            this.Hide();
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.JwtToken = null;
+            Properties.Settings.Default.Save();
+
+            MessageBox.Show("Goodbye!");
+
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
         }
     }
 }
