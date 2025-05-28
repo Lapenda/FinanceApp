@@ -55,7 +55,7 @@ namespace FinanceApp.Forms
         {
             categoryComboBox.Items.Clear();
 
-            var categories = categoryManager.ReadAllCategories();
+            var categories = categoryManager.ReadAllUserCategories();
 
             categoryComboBox.DisplayMember = "Name";
             categoryComboBox.DataSource = categories;

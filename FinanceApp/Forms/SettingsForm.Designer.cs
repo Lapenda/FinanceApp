@@ -44,12 +44,12 @@
             resources.ApplyResources(this.backButton, "backButton");
             this.backButton.Name = "backButton";
             this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.logoutButton_Click);
+            this.backButton.Click += new System.EventHandler(this.returnButton_Click);
             // 
             // languageComboBox
             // 
-            resources.ApplyResources(this.languageComboBox, "languageComboBox");
             this.languageComboBox.FormattingEnabled = true;
+            resources.ApplyResources(this.languageComboBox, "languageComboBox");
             this.languageComboBox.Name = "languageComboBox";
             // 
             // languageComboLabel
@@ -66,8 +66,8 @@
             // 
             // themeComboBox
             // 
-            resources.ApplyResources(this.themeComboBox, "themeComboBox");
             this.themeComboBox.FormattingEnabled = true;
+            resources.ApplyResources(this.themeComboBox, "themeComboBox");
             this.themeComboBox.Name = "themeComboBox";
             // 
             // label1
@@ -82,8 +82,8 @@
             // 
             // currencyComboBox
             // 
-            resources.ApplyResources(this.currencyComboBox, "currencyComboBox");
             this.currencyComboBox.FormattingEnabled = true;
+            resources.ApplyResources(this.currencyComboBox, "currencyComboBox");
             this.currencyComboBox.Name = "currencyComboBox";
             // 
             // SettingsForm

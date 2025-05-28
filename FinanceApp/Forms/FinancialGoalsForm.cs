@@ -42,7 +42,7 @@ namespace FinanceApp.Forms
         {
             goalsDataGridView.DataSource = null;
             goalsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            var goals = financialGoalManager.ReadAllGoals();
+            var goals = financialGoalManager.ReadAllUserGoals();
             if(goals.Count == 0 )
             {
                 MessageBox.Show($"You don't have any goals yet, please enter some");
@@ -73,7 +73,7 @@ namespace FinanceApp.Forms
                 return;
             }
 
-            var goals = financialGoalManager.ReadAllGoals();
+            var goals = financialGoalManager.ReadAllUserGoals();
 
             if(goals.Any(g => g.Name.Trim() == name.Trim()))
             {
@@ -81,7 +81,7 @@ namespace FinanceApp.Forms
                 return;
             }
 
-            financialGoalManager.CreateGoal(new Models.FinancialGoal(name, currentAmount, targetAmount));
+            financialGoalManager.CreateGoal(new Models.FinancialGoal(SessionManager.currentUserId, name, currentAmount, targetAmount));
 
             LoadDataGrid();
 
@@ -114,7 +114,7 @@ namespace FinanceApp.Forms
                 return;
             }
 
-            var goals = financialGoalManager.ReadAllGoals();
+            var goals = financialGoalManager.ReadAllUserGoals();
 
             var existingGoal = goals.FirstOrDefault(g => g.Id == int.Parse(selectedRow.Cells["Id"].Value.ToString()));
 
@@ -129,7 +129,7 @@ namespace FinanceApp.Forms
         {
             var selectedRow = goalsDataGridView.SelectedRows[0];
 
-            var goals = financialGoalManager.ReadAllGoals();
+            var goals = financialGoalManager.ReadAllUserGoals();
 
             var existingGoal = goals.FirstOrDefault(g => g.Id == int.Parse(selectedRow.Cells["Id"].Value.ToString()));
 

@@ -1,43 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Categories xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Category>
-    <Id>6</Id>
-    <Name>34323</Name>
-    <Description>3</Description>
-  </Category>
-  <Category>
-    <Id>7</Id>
-    <Name>omg</Name>
-    <Description>omg</Description>
-  </Category>
-  <Category>
-    <Id>8</Id>
-    <Name>hej</Name>
-    <Description>hej2</Description>
-  </Category>
-  <Category>
-    <Id>9</Id>
-    <Name>alo</Name>
-    <Description>aloooo</Description>
-  </Category>
-  <Category>
-    <Id>10</Id>
-    <Name>omg novi</Name>
-    <Description>omg novi</Description>
-  </Category>
-  <Category>
-    <Id>11</Id>
-    <Name>wowic</Name>
-    <Description>mali wowic</Description>
-  </Category>
-  <Category>
-    <Id>12</Id>
+    <Id>1</Id>
+    <UserId>3</UserId>
     <Name>Savings</Name>
     <Description>Savings category</Description>
   </Category>
   <Category>
-    <Id>13</Id>
-    <Name>ewrq</Name>
-    <Description>ewqrwqw</Description>
+    <Id>2</Id>
+    <UserId>3</UserId>
+    <Name>kategorija Borna</Name>
+    <Description>Borna</Description>
+  </Category>
+  <Category>
+    <Id>3</Id>
+    <UserId>4</UserId>
+    <Name>Savings</Name>
+    <Description>Savings category</Description>
+  </Category>
+  <Category>
+    <Id>4</Id>
+    <UserId>4</UserId>
+    <Name>kat User</Name>
+    <Description>User</Description>
+  </Category>
+  <Category>
+    <Id>5</Id>
+    <UserId>4</UserId>
+    <Name>kategorija 12</Name>
+    <Description>jke</Description>
+  </Category>
+  <Category>
+    <Id>6</Id>
+    <UserId>3</UserId>
+    <Name>kategorija lipo napisana</Name>
+    <Description>kategorija</Description>
+  </Category>
+  <Category>
+    <Id>7</Id>
+    <UserId>5</UserId>
+    <Name>Savings</Name>
+    <Description>Savings category</Description>
+  </Category>
+  <Category>
+    <Id>8</Id>
+    <UserId>7</UserId>
+    <Name>Savings</Name>
+    <Description>Savings category</Description>
   </Category>
 </Categories>

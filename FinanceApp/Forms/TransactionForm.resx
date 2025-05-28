@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>385, 158</value>
+    <value>399, 208</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>199, 20</value>
@@ -150,7 +150,7 @@
     <value>True</value>
   </data>
   <data name="welcomeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>573, 50</value>
+    <value>632, 98</value>
   </data>
   <data name="welcomeLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -174,7 +174,7 @@
     <value>11</value>
   </data>
   <data name="categoryComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>622, 234</value>
+    <value>636, 284</value>
   </data>
   <data name="categoryComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 28</value>
@@ -195,7 +195,7 @@
     <value>10</value>
   </data>
   <data name="amountTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>622, 158</value>
+    <value>636, 208</value>
   </data>
   <data name="amountTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 26</value>
@@ -219,7 +219,7 @@
     <value>True</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>464, 237</value>
+    <value>478, 287</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 20</value>
@@ -246,7 +246,7 @@
     <value>True</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>483, 326</value>
+    <value>497, 376</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 20</value>
@@ -294,7 +294,7 @@
     <value>6</value>
   </data>
   <data name="datePicker.Location" type="System.Drawing.Point, System.Drawing">
-    <value>622, 321</value>
+    <value>636, 371</value>
   </data>
   <data name="datePicker.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 26</value>
@@ -339,7 +339,7 @@
     <value>4</value>
   </data>
   <data name="editCategoriesBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1047, 238</value>
+    <value>1055, 265</value>
   </data>
   <data name="editCategoriesBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 65</value>
@@ -362,35 +362,8 @@
   <data name="&gt;&gt;editCategoriesBtn.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>448, 102</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 20</value>
-  </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Enter Description:</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="descTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>622, 102</value>
+    <value>636, 152</value>
   </data>
   <data name="descTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 26</value>
@@ -433,6 +406,37 @@
   </data>
   <data name="&gt;&gt;logoutBtn.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>462, 152</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 20</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Enter Description:</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

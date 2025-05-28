@@ -28,37 +28,34 @@ namespace FinanceApp.Forms
         {
             InitializeComponent();
 
-            categoryManager = new CategoryManager("categories.xml");
-            transactionManager = new TransactionManager();
-
             connectionString = Environment.GetEnvironmentVariable("FINANCEAPP_CONNECTION_STRING");
             jwtSecretKey = Environment.GetEnvironmentVariable("FINANCEAPP_JWT_SECRET");
 
+            categoryManager = new CategoryManager("categories.xml");
+            transactionManager = new TransactionManager();
             userManager = new UserManager(connectionString, jwtSecretKey);
+
             string storedToken = Properties.Settings.Default.JwtToken;
 
-            if (string.IsNullOrEmpty(storedToken) || !userManager.ValidateToken(storedToken, out var claimsPrincipal))
+            if (!SessionManager.isLoggedIn)
             {
                 MessageBox.Show("Invalid or expired session. Please log in again.");
 
-                this.Close();
+                this.Hide();
                 LoginForm loginForm = new LoginForm();
                 loginForm.Show();
                 return;
             }
 
-            InitializeForm(claimsPrincipal);
+            InitializeForm();
         }
 
-        private void InitializeForm(ClaimsPrincipal claimsPrincipal)
+        private void InitializeForm()
         {
             SettingsManager.ApplyTheme(this);
             InitializeCategoryComboBox();
 
-            string username = claimsPrincipal.FindFirst(ClaimTypes.Name)?.Value;
-            string role = claimsPrincipal.FindFirst(ClaimTypes.Role)?.Value;
-
-             welcomeLabel.Text = $"Transaction Form - Welcome, {username} ({role})";
+             welcomeLabel.Text = $"Transaction Form - Welcome, {SessionManager.currentUsername} ({SessionManager.currentUserRole})";
         }
 
 
@@ -86,16 +83,16 @@ namespace FinanceApp.Forms
                 return;
             }
 
-            Transaction tx = new Transaction(0, 0, amount, description, selectedCategory, datePicker.Value);
-            transactionManager.Save(tx);
-
             if (selectedCategory.Name.ToLower() == "savings")
             {
                 FinancialGoalManager goalManager = new FinancialGoalManager();
-                var goals = goalManager.ReadAllGoals();
+                var goals = goalManager.ReadAllUserGoals();
                 if (goals.Count == 0)
                 {
                     MessageBox.Show("No financial goals found. Please create a goal first.");
+                    FinancialGoalsForm financialGoalsForm = new FinancialGoalsForm();
+                    financialGoalsForm.Show();
+                    return;
                 }
                 else
                 {
@@ -124,6 +121,10 @@ namespace FinanceApp.Forms
                 }
             }
 
+
+            Transaction tx = new Transaction(SessionManager.currentUserId, amount, description, selectedCategory, datePicker.Value);
+            transactionManager.Save(tx);
+
             SettingsManager.GetSettings().LastTransactionCategory = selectedCategory.Name;
             SettingsManager.GetSettings().Save();
 
@@ -131,7 +132,6 @@ namespace FinanceApp.Forms
             budgetForm.UpdateBudget(tx.Amount, tx.Category);
             budgetForm.Show();
             this.Hide();
-
         }
 
         private void InitializeCategoryComboBox()
@@ -141,7 +141,18 @@ namespace FinanceApp.Forms
 
             categoryComboBox.DisplayMember = "Name";
 
-            var categories = categoryManager.ReadAllCategories();
+            var categories = categoryManager.ReadAllUserCategories();
+
+
+            var savingsCategoryExists = categories.Any(c => c.Name.ToLower() == "savings");
+
+            if (!savingsCategoryExists)
+            {
+                Category savingsCat = new Category(SessionManager.currentUserId, "Savings", "Savings category");
+                categoryManager.CreateCategory(savingsCat);
+                categories = categoryManager.ReadAllUserCategories();
+            }
+
             if (categories.Count == 0)
             {
                 MessageBox.Show("You have no categories yet so please enter a category first.");
@@ -149,15 +160,6 @@ namespace FinanceApp.Forms
             }
 
             categoryComboBox.Items.AddRange(categories.ToArray());
-
-            var savingsCategoryExists = categories.Any(c => c.Name.ToLower() == "savings");
-
-            if(!savingsCategoryExists)
-            {
-                Category savingsCat = new Category("Savings", "Savings category");
-                categoryManager.CreateCategory(savingsCat);
-                categoryComboBox.Items.Add(savingsCat.Name);
-            }
 
 
             var lastCategory = SettingsManager.GetSettings().LastTransactionCategory;
@@ -180,6 +182,7 @@ namespace FinanceApp.Forms
         {
             Properties.Settings.Default.JwtToken = null;
             Properties.Settings.Default.Save();
+            SessionManager.EndSession();
 
             MessageBox.Show("Goodbye!");
 

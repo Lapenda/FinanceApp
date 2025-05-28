@@ -9,13 +9,20 @@ namespace FinanceApp.Models
     public class Category
     {
         public int Id { get; set; }
+        public int UserId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
 
         public Category() { }
 
-        public Category(string name, string description)
+        public Category(int id)
         {
+            Id = id;
+        }
+
+        public Category(int userId, string name, string description)
+        {
+            UserId = userId;
             Name = name;
             Description = description;
         }

@@ -117,51 +117,56 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;settingsButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;settingsButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;settingsButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="settingsButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 47</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>363, 174</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>ReportForm</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 20</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>9, 20</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Korisničko ime:</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="settingsButton.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>409, 267</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1374, 716</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 20</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Lozinka:</value>
   </data>
-  <data name="settingsButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1058, 154</value>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>350, 363</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>ReportForm</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 20</value>
   </data>
-  <data name="&gt;&gt;settingsButton.Name" xml:space="preserve">
-    <value>settingsButton</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Ponovite lozinku:</value>
   </data>
-  <data name="settingsButton.Text" xml:space="preserve">
-    <value>Settings</value>
+  <data name="usernameTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>520, 174</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>hr</value>
-  </metadata>
+  <data name="passwordTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>520, 267</value>
+  </data>
+  <data name="repeatPassTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>520, 357</value>
+  </data>
+  <data name="registerBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>581, 519</value>
+  </data>
+  <data name="registerBtn.Text" xml:space="preserve">
+    <value>Registracija</value>
+  </data>
+  <data name="backToLoginBtn.Text" xml:space="preserve">
+    <value>Povratak na prijavu</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 20</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Registracija</value>
+  </data>
 </root>

@@ -24,7 +24,7 @@ namespace FinanceApp.Managers
             }
         }
 
-        public List<FinancialGoal> ReadAllGoals()
+        private List<FinancialGoal> ReadAllGoals()
         {
             lock(fileLock)
             {
@@ -37,6 +37,29 @@ namespace FinanceApp.Managers
 
                     string json = File.ReadAllText(filePath);
                     return JsonConvert.DeserializeObject<List<FinancialGoal>>(json) ?? new List<FinancialGoal>();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error reading json form on path: {filePath}, error: {ex.Message}");
+                    return new List<FinancialGoal>();
+                }
+            }
+        }
+
+        public List<FinancialGoal> ReadAllUserGoals()
+        {
+            lock (fileLock)
+            {
+                try
+                {
+                    if (!File.Exists(filePath))
+                    {
+                        return new List<FinancialGoal>();
+                    }
+
+                    string json = File.ReadAllText(filePath);
+                    var allFinancialGoals = JsonConvert.DeserializeObject<List<FinancialGoal>>(json) ?? new List<FinancialGoal>();
+                    return allFinancialGoals.Where(g => g.UserId == SessionManager.currentUserId).ToList();
                 }
                 catch (Exception ex)
                 {

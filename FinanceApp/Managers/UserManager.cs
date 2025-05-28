@@ -28,7 +28,7 @@ namespace FinanceApp.Managers
             LoadUsersFromDatabase();
         }
 
-        public void Register(string username, string password, string role)
+        public bool Register(string username, string password, string role)
         {
             int newId = users.Count > 0 ? users.Keys.Max() + 1 : 1;
             var user = new User(newId, username, password, role);
@@ -38,7 +38,7 @@ namespace FinanceApp.Managers
             if(existingUser.Value != null)
             {
                 MessageBox.Show("Username is taken");
-                return;
+                return false;
             }
 
             using (var connection = new MySqlConnection(connectionString))
@@ -54,22 +54,16 @@ namespace FinanceApp.Managers
             }
 
             users[user.Id] = user;
-            Console.WriteLine(user.Id);
+            return true;
         }
 
         public string Login(string username, string password)
         {
             var user = users.Values.FirstOrDefault(u => u.Username == username);
-            if(user == null || !user.VerifyPassword(password))
+            if(user == null || !user.ValidatePepper(password, user.Password))
             {
                 MessageBox.Show(Resources.InvalidCredentialsMessage);
                 throw new InvalidOperationException("Invalid username or password.");
-            }
-
-            bool isPepperValid = user.ValidatePepper(password, user.Password);
-            if (!isPepperValid)
-            {
-                throw new InvalidOperationException("Pepper validation failed.");
             }
 
             return GenerateJwtToken(user);

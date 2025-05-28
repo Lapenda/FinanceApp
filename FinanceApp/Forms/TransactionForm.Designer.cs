@@ -39,9 +39,9 @@
             this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.saveButton = new System.Windows.Forms.Button();
             this.editCategoriesBtn = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.descTextBox = new System.Windows.Forms.TextBox();
             this.logoutBtn = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -99,11 +99,6 @@
             this.editCategoriesBtn.UseVisualStyleBackColor = true;
             this.editCategoriesBtn.Click += new System.EventHandler(this.editCategoriesBtn_Click);
             // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
-            // 
             // descTextBox
             // 
             resources.ApplyResources(this.descTextBox, "descTextBox");
@@ -115,6 +110,11 @@
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.UseVisualStyleBackColor = true;
             this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
             // 
             // TransactionForm
             // 
@@ -151,8 +151,8 @@
         private System.Windows.Forms.DateTimePicker datePicker;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button editCategoriesBtn;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox descTextBox;
         private System.Windows.Forms.Button logoutBtn;
+        private System.Windows.Forms.Label label6;
     }
 }

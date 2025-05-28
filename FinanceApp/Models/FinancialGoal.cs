@@ -10,14 +10,16 @@ namespace FinanceApp.Models
     public class FinancialGoal
     {
         public int Id { get; set; }
+        public int UserId { get; set; }
         public string Name { get; set; }
         public float CurrentAmount { get; set; }
         public float TargetAmount { get; set; }
 
         public FinancialGoal() { }
 
-        public FinancialGoal(string name, float currentAmount, float targetAmount)
+        public FinancialGoal(int userId, string name, float currentAmount, float targetAmount)
         {
+            UserId = userId;
             Name = name;
             TargetAmount = targetAmount;
             CurrentAmount = currentAmount;

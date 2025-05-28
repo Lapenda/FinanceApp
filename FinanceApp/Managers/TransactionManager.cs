@@ -1,4 +1,5 @@
 ﻿using FinanceApp.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +10,38 @@ namespace FinanceApp.Managers
 {
     internal class TransactionManager
     {
+        private readonly CategoryManager categoryManager;
         private static readonly Dictionary<int, Transaction> transactions = new Dictionary<int, Transaction>();
+        private readonly string connectionString = Environment.GetEnvironmentVariable("FINANCEAPP_CONNECTION_STRING");
 
         public IReadOnlyCollection<Transaction> GetAllTransactions() => transactions.Values.ToList().AsReadOnly();
+
+        public TransactionManager()
+        {
+            transactions.Clear();
+            categoryManager = new CategoryManager("categories.xml");
+            GetTransactionsFromDatabase();
+        }
 
         public void Save(Transaction transaction)
         {
             if (transaction == null) throw new ArgumentNullException(nameof(transaction));
-            if (transactions.ContainsKey(transaction.Id))
-                throw new InvalidOperationException($"A transaction with ID {transaction.Id} already exists.");
 
-            transactions[transaction.Id] = transaction;
+            using(var connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = new MySqlCommand("INSERT INTO transactions (UserId, Amount, Description, CategoryId, TransactionDate) " +
+                    "VALUES (@UserId, @Amount, @Description, @CategoryId, @TransactionDate)", connection);
+                command.Parameters.AddWithValue("@UserId", transaction.UserId);
+                command.Parameters.AddWithValue("@Amount", transaction.Amount);
+                command.Parameters.AddWithValue("@Description", transaction.Description);
+                command.Parameters.AddWithValue("@CategoryId", transaction.Category.Id);
+                command.Parameters.AddWithValue("@TransactionDate", transaction.Date);
+
+                command.ExecuteNonQuery();
+            }
+
+            GetTransactionsFromDatabase();
         }
 
         public void Delete(Transaction transaction)
@@ -36,6 +58,37 @@ namespace FinanceApp.Managers
                 throw new InvalidOperationException($"Transaction with ID {updatedTransaction.Id} not found.");
 
             transactions[updatedTransaction.Id] = updatedTransaction;
+        }
+
+        private void GetTransactionsFromDatabase()
+        {
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = new MySqlCommand("SELECT * FROM transactions WHERE UserId = @UserId", connection);
+                command.Parameters.AddWithValue("@UserId", SessionManager.currentUserId);
+
+                var categories = categoryManager.ReadAllUserCategories();
+
+                using(var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var category = categories.First(c => c.Id == reader.GetInt32("CategoryId"));
+
+                        var transaction = new Transaction(
+                            reader.GetInt32("Id"),
+                            reader.GetInt32("UserId"),
+                            reader.GetFloat("Amount"),
+                            reader.GetString("Description"),
+                            category,
+                            reader.GetDateTime("TransactionDate")
+                            );
+
+                        transactions[transaction.Id] = transaction;
+                    }
+                }                
+            }
         }
     }
 }

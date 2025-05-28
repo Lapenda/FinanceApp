@@ -22,7 +22,7 @@ namespace FinanceApp.Managers
             filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/" + fileName);
         }
 
-        public List<Category> ReadAllCategories()
+        private List<Category> ReadAllCategories()
         {
             lock (fileLock)
             {
@@ -38,6 +38,33 @@ namespace FinanceApp.Managers
                     using (StreamReader sr = new StreamReader(filePath))
                     {
                         return (List<Category>)serializer.Deserialize(sr);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error reading from xml: {ex.Message}");
+                    return new List<Category>();
+                }
+            }
+        }
+
+        public List<Category> ReadAllUserCategories()
+        {
+            lock (fileLock)
+            {
+                try
+                {
+                    if (!File.Exists(filePath))
+                    {
+                        Console.WriteLine($"No file in {filePath}");
+                        return new List<Category>();
+                    }
+
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<Category>), new XmlRootAttribute("Categories"));
+                    using (StreamReader sr = new StreamReader(filePath))
+                    {
+                        var allCategories = (List<Category>)serializer.Deserialize(sr);
+                        return allCategories.Where(c => c.UserId == SessionManager.currentUserId).ToList();
                     }
                 }
                 catch (Exception ex)

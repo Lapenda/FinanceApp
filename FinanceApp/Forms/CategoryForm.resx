@@ -216,7 +216,7 @@
     <value>10</value>
   </data>
   <data name="createCategoryBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>142, 275</value>
+    <value>157, 317</value>
   </data>
   <data name="createCategoryBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 56</value>
@@ -240,10 +240,10 @@
     <value>9</value>
   </data>
   <data name="editCategoryBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>782, 275</value>
+    <value>783, 322</value>
   </data>
   <data name="editCategoryBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 47</value>
+    <value>172, 51</value>
   </data>
   <data name="editCategoryBtn.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -288,7 +288,7 @@
     <value>7</value>
   </data>
   <data name="categoriesComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>757, 36</value>
+    <value>757, 84</value>
   </data>
   <data name="categoriesComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 28</value>
@@ -316,7 +316,7 @@
     <value>NoControl</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>524, 36</value>
+    <value>524, 84</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 20</value>
@@ -340,7 +340,7 @@
     <value>2</value>
   </data>
   <data name="newDescriptionTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>746, 184</value>
+    <value>746, 232</value>
   </data>
   <data name="newDescriptionTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>444, 26</value>
@@ -361,7 +361,7 @@
     <value>3</value>
   </data>
   <data name="newNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>746, 110</value>
+    <value>746, 158</value>
   </data>
   <data name="newNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>209, 26</value>
@@ -385,7 +385,7 @@
     <value>True</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>579, 184</value>
+    <value>579, 232</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 20</value>
@@ -412,7 +412,7 @@
     <value>True</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>616, 113</value>
+    <value>616, 161</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 20</value>
@@ -436,7 +436,7 @@
     <value>6</value>
   </data>
   <data name="deleteCategoryBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1033, 26</value>
+    <value>1033, 74</value>
   </data>
   <data name="deleteCategoryBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 46</value>

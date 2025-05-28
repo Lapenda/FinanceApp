@@ -54,8 +54,12 @@ namespace FinanceApp.Forms
                     Settings.Default.JwtToken = jwtToken;
                     Settings.Default.Save();
 
+                    userManager.ValidateToken(jwtToken, out var claimsPrincipal);
+                    SessionManager.StartSession(claimsPrincipal);
+
                     MessageBox.Show(Resources.LoginSuccessfulMessage);
                     this.Hide();
+
                     TransactionForm transactionForm = new TransactionForm();
                     transactionForm.Show();
                 }
@@ -105,6 +109,13 @@ namespace FinanceApp.Forms
             this.Hide();
             SettingsForm settingsForm = new SettingsForm();
             settingsForm.Show();
+        }
+
+        private void registerBtn_Click(object sender, EventArgs e)
+        {
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.Show();
+            this.Hide();
         }
     }
 }

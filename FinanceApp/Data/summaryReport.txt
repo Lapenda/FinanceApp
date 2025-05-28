@@ -1,15 +1,21 @@
 Financial Summary Report
-Generated on: 27.5.2025. 1:11
+Generated on: 28.5.2025. 14:46
 
 Total expenses by Category:
-omg: 321,00 kn
-  - 123s 27.5.2025.: 321,00 kn (Transaction ID: 0)
+Savings: 908,00 kn
+  - hejs 28.5.2025.: 10,00 kn (Transaction ID: 9)
+  - update gols 28.5.2025.: 100,00 kn (Transaction ID: 11)
+  - savings 28.5.2025.: 798,00 kn (Transaction ID: 23)
+kategorija Borna: 4.435,00 kn
+  - prvas 28.5.2025.: 10,00 kn (Transaction ID: 10)
+  - 12s 28.5.2025.: 12,00 kn (Transaction ID: 12)
+  - 102s 28.5.2025.: 102,00 kn (Transaction ID: 13)
+  - 3jndqweks 28.5.2025.: 4.311,00 kn (Transaction ID: 17)
+kategorija lipo napisana: 21.313.200,00 kn
+  - qweeqqs 28.5.2025.: 21.312.400,00 kn (Transaction ID: 18)
+  - novas 28.5.2025.: 798,00 kn (Transaction ID: 20)
+
+Total Savings: 908,00 kn
 
 Financial Goals Progress:
-ponovno: 108175,00% (4.327,00 kn/4,00 kn)
-ooojjj: 0,14% (3,00 kn/2.132,00 kn)
-ooojjj novi: 15,15% (323,00 kn/2.132,00 kn)
-ooojjj novi najnoviji: 16,14% (344,00 kn/2.132,00 kn)
-532: 0,14% (3,00 kn/2.132,00 kn)
-tertvwew: 0,14% (3,00 kn/2.132,00 kn)
-ercaraasase: 0,14% (3,00 kn/2.132,00 kn)
+gol prvi: 90,80% (908,00 kn/1.000,00 kn)

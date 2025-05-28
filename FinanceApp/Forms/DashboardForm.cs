@@ -118,7 +118,7 @@ namespace FinanceApp.Forms
         {
             try
             {
-                var goals = financialGoalManager.ReadAllGoals();
+                var goals = financialGoalManager.ReadAllUserGoals();
                 List<string> localSummaries = new List<string>();
 
                 foreach (var goal in goals)
@@ -206,40 +206,6 @@ namespace FinanceApp.Forms
                             var font = PdfFontFactory.CreateFont(iText.IO.Font.Constants.StandardFonts.HELVETICA);
 
                             document.Add(new Paragraph(report)).SetFont(font);
-                            //document.Add(new Paragraph("Financial Summary Report").SetFont(font));
-                           /* document.Add(new Paragraph($"Generated on: {DateTime.Now:g}").SetFont(font));
-                            document.Add(new Paragraph("\n").SetFont(font));
-
-                            if (expensesByCategory.Any())
-                            {
-                                document.Add(new Paragraph("Expenses by Category:").SetFont(font));
-                                var table = new Table(3);
-                                table.AddHeaderCell(new Cell().Add(new Paragraph("Category").SetFont(font)));
-                                table.AddHeaderCell(new Cell().Add(new Paragraph("Amount").SetFont(font)));
-                                foreach (var kvp in expensesByCategory)
-                                {
-                                    table.AddCell(new Cell().Add(new Paragraph(kvp.Key).SetFont(font)));
-                                    table.AddCell(new Cell().Add(new Paragraph(kvp.Value.ToString("C")).SetFont(font)));
-                                }
-                                document.Add(table);
-                            }
-
-                            var goals = financialGoalManager.ReadAllGoals();
-                            if (goals.Any())
-                            {
-                                document.Add(new Paragraph("Financial Goals:").SetFont(font));
-                                var table = new Table(3);
-                                table.AddHeaderCell(new Cell().Add(new Paragraph("Goal").SetFont(font)));
-                                table.AddHeaderCell(new Cell().Add(new Paragraph("Current Amount").SetFont(font)));
-                                table.AddHeaderCell(new Cell().Add(new Paragraph("Target Amount").SetFont(font)));
-                                foreach (var goal in goals)
-                                {
-                                    table.AddCell(new Cell().Add(new Paragraph(goal.Name).SetFont(font)));
-                                    table.AddCell(new Cell().Add(new Paragraph(goal.CurrentAmount.ToString("C")).SetFont(font)));
-                                    table.AddCell(new Cell().Add(new Paragraph(goal.TargetAmount.ToString("C")).SetFont(font)));
-                                }
-                                document.Add(table);
-                            }*/
                         }
                         catch (iText.Kernel.Exceptions.PdfException ex)
                         {

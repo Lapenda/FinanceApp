@@ -9,16 +9,18 @@ namespace FinanceApp.Models
 {
     public class Budget
     {
-        private int Id { get; set; }
-        private float Limit { get; set; }
-        private float Spent { get; set; }
-        private Category Category { get; set; }
+        public int Id { get; private set; }
+        public int UserId { get; private set; }
+        public float Limit { get; private set; }
+        public float Spent { get; private set; }
+        public Category Category { get; private set; }
 
         public Budget() { }
 
-        public Budget(int id, float limit, float spent, Category category)
+        public Budget(int id, int userId, float limit, float spent, Category category)
         {
             Id = id;
+            UserId = userId;
             Limit = limit;
             Spent = spent;
             Category = category;
@@ -33,32 +35,6 @@ namespace FinanceApp.Models
         {
             Limit = newLimit;
             MessageBox.Show($"Budget limit updated to: {Limit}");
-        }
-
-        public Category getCategory()
-        {
-            return Category;
-        }
-
-        public void setCategory(Category category)
-        {
-            Category = category;
-        }
-
-        public float getSpent()
-        {
-            return Spent;
-        }
-
-        public void setSpent(float spent)
-        { 
-            Spent = spent;
-        }
-
-
-        public float getLimit()
-        {
-            return Limit;
         }
     }
 }

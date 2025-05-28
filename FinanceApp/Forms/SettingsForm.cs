@@ -11,6 +11,7 @@ using System.Threading;
 using System.Globalization;
 using FinanceApp.Manager;
 using FinanceApp.Properties;
+using FinanceApp.Managers;
 
 namespace FinanceApp.Forms
 {
@@ -23,8 +24,6 @@ namespace FinanceApp.Forms
             { "Light", Resources.LightTheme },
             { "Dark", Resources.DarkTheme }
         };
-
-
 
         public SettingsForm()
         {
@@ -41,14 +40,26 @@ namespace FinanceApp.Forms
 
 
 
-        private void logoutButton_Click(object sender, EventArgs e)
+        private void returnButton_Click(object sender, EventArgs e)
         {
-            TransactionForm transactionForm = new TransactionForm();
-            transactionForm.Show();
-            this.Hide();
+            var connectionString = Environment.GetEnvironmentVariable("FINANCEAPP_CONNECTION_STRING");
+            var jwtSecretKey = Environment.GetEnvironmentVariable("FINANCEAPP_JWT_SECRET");
+            var storedToken = Settings.Default.JwtToken;
+            var userManager = new UserManager(connectionString, jwtSecretKey);
+
+            if(!string.IsNullOrEmpty(storedToken) && userManager.ValidateToken(storedToken, out var claimsPrincipal))
+            {
+                TransactionForm transactionForm = new TransactionForm();
+                transactionForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+                this.Hide();
+            }
         }
-
-
 
         private void InitializeLanguageComboBox()
         {

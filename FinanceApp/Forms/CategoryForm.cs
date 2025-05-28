@@ -46,7 +46,7 @@ namespace FinanceApp.Forms
                 return;
             }
          
-            categoryManager.CreateCategory(new Category(catName, catDesc));
+            categoryManager.CreateCategory(new Category(SessionManager.currentUserId, catName, catDesc));
 
             InitializeCategoryComboBox();
             nameOfCatTextBox.Clear();
@@ -88,7 +88,7 @@ namespace FinanceApp.Forms
         private void InitializeCategoryComboBox()
         {
             categoriesComboBox.Items.Clear();
-            var categories = categoryManager.ReadAllCategories();
+            var categories = categoryManager.ReadAllUserCategories();
             if(categories.Count == 0)
             {
                 return;

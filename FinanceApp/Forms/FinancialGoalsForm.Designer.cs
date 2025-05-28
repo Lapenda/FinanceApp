@@ -46,7 +46,7 @@
             // goalsDataGridView
             // 
             this.goalsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.goalsDataGridView.Location = new System.Drawing.Point(294, 56);
+            this.goalsDataGridView.Location = new System.Drawing.Point(294, 75);
             this.goalsDataGridView.Name = "goalsDataGridView";
             this.goalsDataGridView.RowHeadersWidth = 62;
             this.goalsDataGridView.RowTemplate.Height = 28;

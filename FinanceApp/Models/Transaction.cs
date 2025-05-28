@@ -32,5 +32,20 @@ namespace FinanceApp.Models
             Description = description;
             Date = date;
         }
+
+        public Transaction(int userId, float amount, string description, Category category, DateTime date)
+        {
+            if (userId < 0) throw new ArgumentException("User ID cannot be negative.", nameof(userId));
+            if (amount < 0) throw new ArgumentException("Amount cannot be negative.", nameof(amount));
+            if (category == null) throw new ArgumentNullException(nameof(category));
+            if (date == default) throw new ArgumentException("Date must be specified.", nameof(date));
+            if (string.IsNullOrEmpty(description)) throw new ArgumentException("Description must be set.", nameof(description));
+
+            UserId = userId;
+            Amount = amount;
+            Category = category;
+            Description = description;
+            Date = date;
+        }
     }
 }
