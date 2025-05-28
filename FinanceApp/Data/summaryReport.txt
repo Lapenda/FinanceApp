@@ -1,13 +1,10 @@
 Financial Summary Report for user
-Generated on: 28.5.2025. 22:13
+Generated on: 29.5.2025. 0:06
 
 Total expenses by Category:
-kat user: 543,00 kn
-  - 908 28.5.2025.: 543,00 kn (Transaction ID: 30)
-Savings: 1,00 kn
-  - prvi savings 28.5.2025.: 1,00 kn (Transaction ID: 31)
-
-Total Savings: 1,00 kn
+kategorija 1: 190
+  - trans1 29.5.2025.: 100 (Transaction ID: 32)
+  - pokusaj 2 29.5.2025.: 90 (Transaction ID: 33)
 
 Financial Goals Progress:
-prvi gol user: 0,10% (1,00 kn/1.000,00 kn)
+hi: 0,00% (0/1000)

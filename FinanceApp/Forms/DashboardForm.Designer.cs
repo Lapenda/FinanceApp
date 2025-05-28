@@ -33,12 +33,12 @@
             this.goalsProgressLabel = new System.Windows.Forms.Label();
             this.summaryTextBox = new System.Windows.Forms.TextBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.settingsBtn = new System.Windows.Forms.Button();
+            this.navbar1 = new FinanceApp.Forms.Navbar();
             this.SuspendLayout();
             // 
             // startAnalysisBtn
             // 
-            this.startAnalysisBtn.Location = new System.Drawing.Point(765, 606);
+            this.startAnalysisBtn.Location = new System.Drawing.Point(605, 582);
             this.startAnalysisBtn.Name = "startAnalysisBtn";
             this.startAnalysisBtn.Size = new System.Drawing.Size(174, 48);
             this.startAnalysisBtn.TabIndex = 0;
@@ -76,33 +76,32 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(348, 606);
+            this.progressBar.Location = new System.Drawing.Point(90, 595);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(307, 35);
             this.progressBar.TabIndex = 4;
             // 
-            // settingsBtn
+            // navbar1
             // 
-            this.settingsBtn.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.settingsBtn.Location = new System.Drawing.Point(990, 606);
-            this.settingsBtn.Name = "settingsBtn";
-            this.settingsBtn.Size = new System.Drawing.Size(174, 48);
-            this.settingsBtn.TabIndex = 5;
-            this.settingsBtn.Text = "Settings";
-            this.settingsBtn.UseVisualStyleBackColor = true;
-            this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
+            this.navbar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.navbar1.Location = new System.Drawing.Point(0, 0);
+            this.navbar1.MinimumSize = new System.Drawing.Size(1430, 0);
+            this.navbar1.Name = "navbar1";
+            this.navbar1.Size = new System.Drawing.Size(1430, 55);
+            this.navbar1.TabIndex = 6;
             // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1414, 692);
-            this.Controls.Add(this.settingsBtn);
+            this.ClientSize = new System.Drawing.Size(1414, 694);
+            this.Controls.Add(this.navbar1);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.summaryTextBox);
             this.Controls.Add(this.goalsProgressLabel);
             this.Controls.Add(this.expensesLabel);
             this.Controls.Add(this.startAnalysisBtn);
+            this.MinimumSize = new System.Drawing.Size(1430, 750);
             this.Name = "DashboardForm";
             this.Text = "DashboardForm";
             this.ResumeLayout(false);
@@ -117,6 +116,6 @@
         private System.Windows.Forms.Label goalsProgressLabel;
         private System.Windows.Forms.TextBox summaryTextBox;
         private System.Windows.Forms.ProgressBar progressBar;
-        private System.Windows.Forms.Button settingsBtn;
+        private Navbar navbar1;
     }
 }

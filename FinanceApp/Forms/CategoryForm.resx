@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 87</value>
+    <value>60, 147</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 20</value>
@@ -144,13 +144,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>45, 178</value>
+    <value>60, 241</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>158, 20</value>
@@ -171,10 +171,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="nameOfCatTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>209, 84</value>
+    <value>245, 144</value>
   </data>
   <data name="nameOfCatTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>250, 26</value>
@@ -192,10 +192,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;nameOfCatTextBox.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="descOfCatTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>209, 178</value>
+    <value>245, 238</value>
   </data>
   <data name="descOfCatTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>250, 26</value>
@@ -213,10 +213,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;descOfCatTextBox.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="createCategoryBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 317</value>
+    <value>193, 377</value>
   </data>
   <data name="createCategoryBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 56</value>
@@ -237,10 +237,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;createCategoryBtn.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="editCategoryBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>783, 322</value>
+    <value>819, 382</value>
   </data>
   <data name="editCategoryBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>172, 51</value>
@@ -261,10 +261,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;editCategoryBtn.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="returnBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>425, 495</value>
+    <value>541, 494</value>
   </data>
   <data name="returnBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>131, 45</value>
@@ -285,10 +285,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;returnBtn.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="categoriesComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>757, 84</value>
+    <value>793, 144</value>
   </data>
   <data name="categoriesComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 28</value>
@@ -306,7 +306,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;categoriesComboBox.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -316,7 +316,7 @@
     <value>NoControl</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>524, 84</value>
+    <value>560, 144</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 20</value>
@@ -337,10 +337,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="newDescriptionTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>746, 232</value>
+    <value>782, 292</value>
   </data>
   <data name="newDescriptionTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>444, 26</value>
@@ -358,10 +358,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;newDescriptionTextBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="newNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>746, 158</value>
+    <value>782, 218</value>
   </data>
   <data name="newNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>209, 26</value>
@@ -379,13 +379,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;newNameTextBox.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>579, 232</value>
+    <value>615, 292</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 20</value>
@@ -406,13 +406,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>616, 161</value>
+    <value>652, 221</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 20</value>
@@ -433,10 +433,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="deleteCategoryBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1033, 74</value>
+    <value>1069, 134</value>
   </data>
   <data name="deleteCategoryBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 46</value>
@@ -457,6 +457,30 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;deleteCategoryBtn.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="navbar1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="navbar1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="navbar1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1408, 55</value>
+  </data>
+  <data name="navbar1.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;navbar1.Name" xml:space="preserve">
+    <value>navbar1</value>
+  </data>
+  <data name="&gt;&gt;navbar1.Type" xml:space="preserve">
+    <value>FinanceApp.Forms.Navbar, FinanceApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;navbar1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;navbar1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -466,7 +490,10 @@
     <value>9, 20</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1264, 571</value>
+    <value>1408, 694</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1430, 750</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>CategoryForm</value>

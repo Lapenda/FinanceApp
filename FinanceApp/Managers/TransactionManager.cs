@@ -30,12 +30,13 @@ namespace FinanceApp.Managers
             using(var connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                var command = new MySqlCommand("INSERT INTO transactions (UserId, Amount, Description, CategoryId, TransactionDate) " +
-                    "VALUES (@UserId, @Amount, @Description, @CategoryId, @TransactionDate)", connection);
+                var command = new MySqlCommand("INSERT INTO transactions (UserId, Amount, Description, CategoryId, Currency, TransactionDate) " +
+                    "VALUES (@UserId, @Amount, @Description, @CategoryId, @Currency, @TransactionDate)", connection);
                 command.Parameters.AddWithValue("@UserId", transaction.UserId);
                 command.Parameters.AddWithValue("@Amount", transaction.Amount);
                 command.Parameters.AddWithValue("@Description", transaction.Description);
                 command.Parameters.AddWithValue("@CategoryId", transaction.Category.Id);
+                command.Parameters.AddWithValue("@Currency", transaction.Currency);
                 command.Parameters.AddWithValue("@TransactionDate", transaction.Date);
 
                 command.ExecuteNonQuery();
@@ -44,14 +45,16 @@ namespace FinanceApp.Managers
             GetTransactionsFromDatabase();
         }
 
-        public void Delete(Transaction transaction)
+        public void DeleteTransaction(Transaction transaction)
         {
             if (transaction == null) throw new ArgumentNullException(nameof(transaction));
             if (!transactions.Remove(transaction.Id))
                 throw new InvalidOperationException($"Transaction with ID {transaction.Id} not found.");
+
+
         }
 
-        public void Replace(Transaction updatedTransaction)
+        public void EditTransaction(Transaction updatedTransaction)
         {
             if (updatedTransaction == null) throw new ArgumentNullException(nameof(updatedTransaction));
             if (!transactions.ContainsKey(updatedTransaction.Id))
@@ -82,6 +85,7 @@ namespace FinanceApp.Managers
                             reader.GetFloat("Amount"),
                             reader.GetString("Description"),
                             category,
+                            reader.GetString("Currency"),
                             reader.GetDateTime("TransactionDate")
                             );
 

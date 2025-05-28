@@ -24,7 +24,6 @@ namespace FinanceApp.Forms
 {
     public partial class DashboardForm : Form
     {
-        private readonly CategoryManager categoryManager;
         private readonly FinancialGoalManager financialGoalManager;
         private readonly TransactionManager transactionManager;
         private readonly object calculationLock = new object();
@@ -39,7 +38,6 @@ namespace FinanceApp.Forms
         {
             InitializeComponent();
             transactionManager = new TransactionManager();
-            categoryManager = new CategoryManager("categories.xml");
             financialGoalManager = new FinancialGoalManager();
             expensesByCategory = new Dictionary<string, float>();
             goalProgressSummaries = new List<string>();
@@ -124,7 +122,7 @@ namespace FinanceApp.Forms
                 foreach (var goal in goals)
                 {
                     float progress = (goal.CurrentAmount / goal.TargetAmount) * 100;
-                    localSummaries.Add($"{goal.Name}: {progress:F2}% ({goal.CurrentAmount:C}/{goal.TargetAmount:C})");
+                    localSummaries.Add($"{goal.Name}: {progress:F2}% ({goal.CurrentAmount}/{goal.TargetAmount})");
                 }
 
                 lock (calculationLock)
@@ -167,11 +165,11 @@ namespace FinanceApp.Forms
                         report += "\r\nTotal expenses by Category:\r\n";
                         foreach (var kvp in expensesByCategory)
                         {
-                            report += $"{kvp.Key}: {kvp.Value:C}\r\n";
+                            report += $"{kvp.Key}: {kvp.Value}\r\n";
                             var categoryTransactions = transactionManager.GetAllTransactions().Where(t => t.Category.Name == kvp.Key).OrderBy(t => t.Date);
                             foreach (var transaction in categoryTransactions)
                             {
-                                report += $"  - {transaction.Description} {transaction.Date.ToString("d")}: {transaction.Amount:C} (Transaction ID: {transaction.Id})\r\n";
+                                report += $"  - {transaction.Description} {transaction.Date.ToString("d")}: {transaction.Amount} (Transaction ID: {transaction.Id})\r\n";
                             }
                         }
                         report += "\r\n";
@@ -179,7 +177,7 @@ namespace FinanceApp.Forms
 
                     if (expensesByCategory.ContainsKey("Savings"))
                     {
-                        report += $"Total Savings: {expensesByCategory["Savings"]:C}\r\n\r\n";
+                        report += $"Total Savings: {expensesByCategory["Savings"]}\r\n\r\n";
                     }
 
                     if (goalProgressSummaries.Any())
@@ -251,13 +249,6 @@ namespace FinanceApp.Forms
             {
                 startAnalysisBtn.Enabled = true;
             }
-        }
-
-        private void settingsBtn_Click(object sender, EventArgs e)
-        {
-            SettingsForm settingsForm = new SettingsForm();
-            settingsForm.Show();
-            this.Hide();
         }
     }
 }

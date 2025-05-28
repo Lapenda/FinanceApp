@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FinanceApp.Models;
 using FinanceApp.Manager;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 namespace FinanceApp.Forms
 {
@@ -56,6 +57,13 @@ namespace FinanceApp.Forms
         private void deleteCategoryBtn_Click(object sender, EventArgs e)
         {
             var category = (Category)categoriesComboBox.SelectedItem;
+
+            var confirmResult = MessageBox.Show($"Are you sure you want to delete the category '{category.Name}'?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmResult != DialogResult.Yes)
+            {
+                return;
+            }
+
             categoryManager.DeleteCategory(category);
             InitializeCategoryComboBox();
             categoriesComboBox.SelectedIndex = 0;

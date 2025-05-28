@@ -40,6 +40,7 @@
             this.delBtn = new System.Windows.Forms.Button();
             this.clrTextBtn = new System.Windows.Forms.Button();
             this.returnBtn = new System.Windows.Forms.Button();
+            this.navbar1 = new FinanceApp.Forms.Navbar();
             ((System.ComponentModel.ISupportInitialize)(this.goalsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,11 +156,21 @@
             this.returnBtn.UseVisualStyleBackColor = true;
             this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
             // 
+            // navbar1
+            // 
+            this.navbar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.navbar1.Location = new System.Drawing.Point(0, 0);
+            this.navbar1.MinimumSize = new System.Drawing.Size(1430, 0);
+            this.navbar1.Name = "navbar1";
+            this.navbar1.Size = new System.Drawing.Size(1442, 55);
+            this.navbar1.TabIndex = 12;
+            // 
             // FinancialGoalsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1442, 713);
+            this.ClientSize = new System.Drawing.Size(1442, 734);
+            this.Controls.Add(this.navbar1);
             this.Controls.Add(this.returnBtn);
             this.Controls.Add(this.clrTextBtn);
             this.Controls.Add(this.delBtn);
@@ -172,6 +183,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.goalsDataGridView);
+            this.MinimumSize = new System.Drawing.Size(1430, 790);
             this.Name = "FinancialGoalsForm";
             this.Text = "FinancialGoalsForm";
             ((System.ComponentModel.ISupportInitialize)(this.goalsDataGridView)).EndInit();
@@ -194,5 +206,6 @@
         private System.Windows.Forms.Button delBtn;
         private System.Windows.Forms.Button clrTextBtn;
         private System.Windows.Forms.Button returnBtn;
+        private Navbar navbar1;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinanceApp.Manager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,9 +15,10 @@ namespace FinanceApp.Models
         public float Amount { get; private set; }
         public string Description { get; private set; }
         public Category Category { get; private set; }
+        public string Currency { get; private set; }
         public DateTime Date { get; private set; }
 
-        public Transaction(int id, int userId, float amount, string description, Category category, DateTime date)
+        public Transaction(int id, int userId, float amount, string description, Category category, string currency, DateTime date)
         {
             if (id < 0) throw new ArgumentException("Transaction ID cannot be negative.", nameof(id));
             if (userId < 0) throw new ArgumentException("User ID cannot be negative.", nameof(userId));
@@ -31,9 +33,10 @@ namespace FinanceApp.Models
             Category = category;
             Description = description;
             Date = date;
+            Currency = currency;
         }
 
-        public Transaction(int userId, float amount, string description, Category category, DateTime date)
+        public Transaction(int userId, float amount, string description, Category category, string currency, DateTime date)
         {
             if (userId < 0) throw new ArgumentException("User ID cannot be negative.", nameof(userId));
             if (amount < 0) throw new ArgumentException("Amount cannot be negative.", nameof(amount));
@@ -46,6 +49,7 @@ namespace FinanceApp.Models
             Category = category;
             Description = description;
             Date = date;
+            Currency = currency;
         }
     }
 }

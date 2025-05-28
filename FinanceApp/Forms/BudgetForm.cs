@@ -60,12 +60,5 @@ namespace FinanceApp.Forms
             categoryComboBox.DisplayMember = "Name";
             categoryComboBox.DataSource = categories;
         }
-
-        private void finGoalsBtn_Click(object sender, EventArgs e)
-        {
-            FinancialGoalsForm financialGoalsForm = new FinancialGoalsForm();
-            financialGoalsForm.Show();
-            this.Hide();
-        }
     }
 }

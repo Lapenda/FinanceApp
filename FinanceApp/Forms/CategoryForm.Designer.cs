@@ -43,6 +43,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.deleteCategoryBtn = new System.Windows.Forms.Button();
+            this.navbar1 = new FinanceApp.Forms.Navbar();
             this.SuspendLayout();
             // 
             // label1
@@ -127,10 +128,16 @@
             this.deleteCategoryBtn.UseVisualStyleBackColor = true;
             this.deleteCategoryBtn.Click += new System.EventHandler(this.deleteCategoryBtn_Click);
             // 
+            // navbar1
+            // 
+            resources.ApplyResources(this.navbar1, "navbar1");
+            this.navbar1.Name = "navbar1";
+            // 
             // CategoryForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.navbar1);
             this.Controls.Add(this.deleteCategoryBtn);
             this.Controls.Add(this.categoriesComboBox);
             this.Controls.Add(this.label7);
@@ -167,5 +174,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button deleteCategoryBtn;
+        private Navbar navbar1;
     }
 }

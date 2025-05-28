@@ -40,8 +40,8 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.editCategoriesBtn = new System.Windows.Forms.Button();
             this.descTextBox = new System.Windows.Forms.TextBox();
-            this.logoutBtn = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.navbar1 = new FinanceApp.Forms.Navbar();
             this.SuspendLayout();
             // 
             // label1
@@ -104,23 +104,21 @@
             resources.ApplyResources(this.descTextBox, "descTextBox");
             this.descTextBox.Name = "descTextBox";
             // 
-            // logoutBtn
-            // 
-            resources.ApplyResources(this.logoutBtn, "logoutBtn");
-            this.logoutBtn.Name = "logoutBtn";
-            this.logoutBtn.UseVisualStyleBackColor = true;
-            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
-            // 
             // label6
             // 
             resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
             // 
+            // navbar1
+            // 
+            resources.ApplyResources(this.navbar1, "navbar1");
+            this.navbar1.Name = "navbar1";
+            // 
             // TransactionForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.logoutBtn);
+            this.Controls.Add(this.navbar1);
             this.Controls.Add(this.descTextBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.editCategoriesBtn);
@@ -152,7 +150,7 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button editCategoriesBtn;
         private System.Windows.Forms.TextBox descTextBox;
-        private System.Windows.Forms.Button logoutBtn;
         private System.Windows.Forms.Label label6;
+        private Navbar navbar1;
     }
 }

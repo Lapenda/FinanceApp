@@ -122,7 +122,7 @@ namespace FinanceApp.Forms
             }
 
 
-            Transaction tx = new Transaction(SessionManager.currentUserId, amount, description, selectedCategory, datePicker.Value);
+            Transaction tx = new Transaction(SessionManager.currentUserId, amount, description, selectedCategory, SettingsManager.GetSettings().DefaultCurrency, datePicker.Value);
             transactionManager.Save(tx);
 
             SettingsManager.GetSettings().LastTransactionCategory = selectedCategory.Name;
@@ -176,19 +176,6 @@ namespace FinanceApp.Forms
             CategoryForm categoryForm = new CategoryForm();
             categoryForm.Show();
             this.Hide();
-        }
-
-        private void logoutBtn_Click(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.JwtToken = null;
-            Properties.Settings.Default.Save();
-            SessionManager.EndSession();
-
-            MessageBox.Show("Goodbye!");
-
-            this.Hide();
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
         }
     }
 }

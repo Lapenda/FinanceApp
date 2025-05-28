@@ -23,14 +23,13 @@ namespace FinanceApp.Forms
             InitializeComponent();
 
             financialGoalManager = new FinancialGoalManager();
+            goalsDataGridView.MultiSelect = false;
 
             LoadDataGrid();
 
             SettingsManager.ApplyTheme(this);
 
-            addBtn.Enabled = false;
-            delBtn.Enabled = false;
-            editBtn.Enabled = false;
+            UpdateButtonStates();
         }
 
         private void clrTextBtn_Click(object sender, EventArgs e)
@@ -48,6 +47,7 @@ namespace FinanceApp.Forms
                 MessageBox.Show($"You don't have any goals yet, please enter some");
             }
             goalsDataGridView.DataSource = goals;
+            UpdateButtonStates();
         }
 
         private void addBtn_Click(object sender, EventArgs e)
@@ -90,6 +90,12 @@ namespace FinanceApp.Forms
 
         private void editBtn_Click(object sender, EventArgs e)
         {
+            if (goalsDataGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a goal to edit");
+                return;
+            }
+
             var selectedRow = goalsDataGridView.SelectedRows[0];
 
             var name = nameTextBox.Text;
@@ -127,7 +133,21 @@ namespace FinanceApp.Forms
 
         private void delBtn_Click(object sender, EventArgs e)
         {
+            if (goalsDataGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a goal to edit");
+                return;
+            }
+
             var selectedRow = goalsDataGridView.SelectedRows[0];
+
+            var goalName = selectedRow.Cells["Name"].Value.ToString();
+
+            var confirmResult = MessageBox.Show($"Are you sure you want to delete the goal '{goalName}'?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmResult != DialogResult.Yes)
+            {
+                return;
+            }
 
             var goals = financialGoalManager.ReadAllUserGoals();
 
@@ -135,62 +155,40 @@ namespace FinanceApp.Forms
 
             financialGoalManager.DeleteGoal(existingGoal);
             LoadDataGrid();
-
             ClearInputs();
         }
 
         private void nameTextBox_TextChanged(object sender, EventArgs e)
         {
-            if(nameTextBox.Text.Length == 0)
-            {
-                addBtn.Enabled = false;
-                editBtn.Enabled = false;
-                delBtn.Enabled = false;
-            }
-            else
-            {
-                addBtn.Enabled = true;
-                editBtn.Enabled = true;
-                delBtn.Enabled = true;
-            }
+            UpdateButtonStates();
         }
 
         private void curAmountTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (curAmountTextBox.Text.Length == 0)
-            {
-                addBtn.Enabled = false;
-                editBtn.Enabled = false;
-                delBtn.Enabled = false;
-            }
-            else
-            {
-                addBtn.Enabled = true;
-                editBtn.Enabled = true;
-                delBtn.Enabled = true;
-            }
+            UpdateButtonStates();
         }
 
         private void tarAmountTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (tarAmountTextBox.Text.Length == 0)
-            {
-                addBtn.Enabled = false;
-                editBtn.Enabled = false;
-                delBtn.Enabled = false;
-            }
-            else
-            {
-                addBtn.Enabled = true;
-                editBtn.Enabled = true;
-                delBtn.Enabled = true;
-            }
+            UpdateButtonStates();
+        }
+
+        private void UpdateButtonStates()
+        {
+            bool hasGoals = financialGoalManager.ReadAllUserGoals().Count > 0;
+            bool hasSelection = goalsDataGridView.SelectedRows.Count > 0;
+            bool hasNameInput = !string.IsNullOrWhiteSpace(nameTextBox.Text);
+
+            addBtn.Enabled = hasNameInput;
+
+            editBtn.Enabled = hasGoals && hasSelection && hasNameInput;
+            delBtn.Enabled = hasGoals && hasSelection;
         }
 
         private void returnBtn_Click(object sender, EventArgs e)
         {
-            BudgetForm budgetForm = new BudgetForm();
-            budgetForm.Show();
+            TransactionForm transactionForm = new TransactionForm();
+            transactionForm.Show();
             this.Hide();
         }
 
@@ -203,6 +201,7 @@ namespace FinanceApp.Forms
                 curAmountTextBox.Text = selectedRow.Cells["CurrentAmount"].Value.ToString();
                 tarAmountTextBox.Text = selectedRow.Cells["TargetAmount"].Value.ToString();
             }
+            UpdateButtonStates();
         }
 
         private void ClearInputs()
@@ -211,6 +210,7 @@ namespace FinanceApp.Forms
             nameTextBox.Clear();
             tarAmountTextBox.Clear();
             curAmountTextBox.Clear();
+            UpdateButtonStates();
         }
     }
 }
