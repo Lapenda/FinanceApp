@@ -1,4 +1,5 @@
-﻿using FinanceApp.Models;
+﻿using FinanceApp.Encryption;
+using FinanceApp.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +21,11 @@ namespace FinanceApp.Managers
         public CategoryManager(string fileName)
         {
             filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/" + fileName);
+
+            if (!File.Exists(filePath))
+            {
+                SaveCategories(new List<Category>());
+            }
         }
 
         private List<Category> ReadAllCategories()
@@ -28,9 +34,9 @@ namespace FinanceApp.Managers
             {
                 try
                 {
-                    if (!File.Exists(filePath))
+                    if (!File.Exists(filePath) || new FileInfo(filePath).Length == 0)
                     {
-                        Console.WriteLine($"No file in {filePath}");
+                        Console.WriteLine($"No file or file is empty in {filePath}");
                         return new List<Category>();
                     }
 
@@ -54,9 +60,9 @@ namespace FinanceApp.Managers
             {
                 try
                 {
-                    if (!File.Exists(filePath))
+                    if (!File.Exists(filePath) || new FileInfo(filePath).Length == 0)
                     {
-                        Console.WriteLine($"No file in {filePath}");
+                        Console.WriteLine($"No file or file is empty in {filePath}");
                         return new List<Category>();
                     }
 
@@ -81,16 +87,10 @@ namespace FinanceApp.Managers
             {
                 try
                 {
-                    if (!File.Exists(filePath))
-                    {
-                        Console.WriteLine($"File doesn't exist in {filePath}");
-                        return;
-                    }
-
                     XmlSerializer serializer = new XmlSerializer(typeof(List<Category>), new XmlRootAttribute("Categories"));
-                    using (StreamWriter sr = new StreamWriter(filePath))
+                    using (StreamWriter sw = new StreamWriter(filePath))
                     {
-                        serializer.Serialize(sr, categories);
+                        serializer.Serialize(sw, categories);
                     }
                     Console.WriteLine($"Categories saved to: {filePath}");
                 }

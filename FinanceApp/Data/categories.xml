@@ -2,50 +2,26 @@
 <Categories xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Category>
     <Id>1</Id>
-    <UserId>3</UserId>
+    <UserId>4</UserId>
     <Name>Savings</Name>
-    <Description>Savings category</Description>
+    <Description>d9uRdPXHkit2oO9g2SUbEh66RMT8p/AmXl5f4H+BQa7RvwczxqpRuMiU1+f2AjDP+mQBC9N8Iv13ZdlFr2veDQ==</Description>
   </Category>
   <Category>
     <Id>2</Id>
     <UserId>3</UserId>
-    <Name>kategorija Borna</Name>
-    <Description>Borna</Description>
+    <Name>Savings</Name>
+    <Description>YU0gTUO6orG2J3hiVOq0AzTD7NwgffnGJo3xKHKeZfUb8W4jESCDCTY/HrK4AvYN7JHfuca5Dqsl0WsnsTlQHQ==</Description>
   </Category>
   <Category>
     <Id>3</Id>
-    <UserId>4</UserId>
-    <Name>Savings</Name>
-    <Description>Savings category</Description>
+    <UserId>3</UserId>
+    <Name>kategorija 1</Name>
+    <Description>sHKUKRw7Rb0Tou5EiK+CjYJRWLI2FJceKPRtAlU1+Qo61N5AtmYHOdYTps0SOaVc</Description>
   </Category>
   <Category>
     <Id>4</Id>
     <UserId>4</UserId>
-    <Name>kat User</Name>
-    <Description>User</Description>
-  </Category>
-  <Category>
-    <Id>5</Id>
-    <UserId>4</UserId>
-    <Name>kategorija 12</Name>
-    <Description>jke</Description>
-  </Category>
-  <Category>
-    <Id>6</Id>
-    <UserId>3</UserId>
-    <Name>kategorija lipo napisana</Name>
-    <Description>kategorija</Description>
-  </Category>
-  <Category>
-    <Id>7</Id>
-    <UserId>5</UserId>
-    <Name>Savings</Name>
-    <Description>Savings category</Description>
-  </Category>
-  <Category>
-    <Id>8</Id>
-    <UserId>7</UserId>
-    <Name>Savings</Name>
-    <Description>Savings category</Description>
+    <Name>kat user</Name>
+    <Description>5fmuUqWJ/+Bdn6DN8uSuXV+3gq0OsqtBFdf3ehPowoJmvIhV5KVqa92bwZY1C6zI</Description>
   </Category>
 </Categories>

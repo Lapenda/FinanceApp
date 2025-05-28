@@ -37,8 +37,8 @@ namespace FinanceApp.Forms
         {
             //if(budget.getCategory() == category || string.IsNullOrEmpty(budget.getCategory())) 
             //{
-                budget.setSpent(amount);
-                budget.setCategory(category);
+                budget.Spent = amount;
+                budget.Category = category;
             //}
             UpdateLabel();
         }

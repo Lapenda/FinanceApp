@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FinanceApp.Encryption;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +14,28 @@ namespace FinanceApp.Models
         public int Id { get; set; }
         public int UserId { get; set; }
         public string Name { get; set; }
-        public float CurrentAmount { get; set; }
-        public float TargetAmount { get; set; }
+        //public DateTime Deadline { get; set; }
+
+        [JsonProperty("TargetAmount")]
+        private string EncryptedTargetAmount { get; set; }
+
+        [JsonProperty("CurrentAmount")]
+        private string EncryptedCurrentAmount { get; set; }
+
+        [JsonIgnore]
+        public float CurrentAmount
+        {
+            get => RsaEncryptionHelper.DecryptFloat(EncryptedCurrentAmount);
+            set => EncryptedCurrentAmount = RsaEncryptionHelper.EncryptFloat(value);
+        }
+
+        [JsonIgnore]
+        public float TargetAmount
+        {
+            get => RsaEncryptionHelper.DecryptFloat(EncryptedTargetAmount);
+            set => EncryptedTargetAmount = RsaEncryptionHelper.EncryptFloat(value);
+        }
+
 
         public FinancialGoal() { }
 

@@ -157,7 +157,7 @@ namespace FinanceApp.Forms
         {
             try
             {
-                string report = "Financial Summary Report\r\n";
+                string report = $"Financial Summary Report for {SessionManager.currentUsername}\r\n";
                 report += $"Generated on: {DateTime.Now.ToString("g")}\r\n";
 
                 lock (calculationLock)
@@ -171,7 +171,7 @@ namespace FinanceApp.Forms
                             var categoryTransactions = transactionManager.GetAllTransactions().Where(t => t.Category.Name == kvp.Key).OrderBy(t => t.Date);
                             foreach (var transaction in categoryTransactions)
                             {
-                                report += $"  - {transaction.Description}s {transaction.Date.ToString("d")}: {transaction.Amount:C} (Transaction ID: {transaction.Id})\r\n";
+                                report += $"  - {transaction.Description} {transaction.Date.ToString("d")}: {transaction.Amount:C} (Transaction ID: {transaction.Id})\r\n";
                             }
                         }
                         report += "\r\n";

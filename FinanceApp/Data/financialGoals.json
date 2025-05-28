@@ -1,16 +1,16 @@
 [
   {
     "Id": 1,
-    "UserId": 4,
-    "Name": "gol #1",
-    "CurrentAmount": 90.0,
-    "TargetAmount": 200.0
+    "UserId": 3,
+    "Name": "gol prvi",
+    "TargetAmount": "pt8vpssNEM89Dn22l5rO7JQAaIig1tiwmlKkoPEcXO0p4fZoj52nphPTMDxc0x1B5bK7NhxHQzqxhxe69oKpSlJb7vaF8r71W2e5Owr8yJ5UZmWKmR7rk+LJA7JMRXvXCGUWk3BAI8X+5Ey1TQuw1J+GGiI0DXkH9ItZIl4IMFdZjFe/xbL+OISPOdL9kgZrKlLsH/Z0/ZzPJgL/UbFCa2qVvg5Hs4x8Du5nlHQ24ZE2cQq4qTO1JcSsOKl52INd05USzAEHpO2lnYdL1HrR3oP/235b8xSPifuqruHkM22aISuXsuzYfiG7QVbdeAs9JIyTu1KoXrjj15m8WriQ9w==",
+    "CurrentAmount": "tIxNWB++FRnIGkc7TM+DiBy3TzaUz0pvcJsUFm0MgKG/qMRX00/xM/sOLnMAUe9vK/WLXsGJiKuzd2UxQNYMpA8yuuSvSIwnRHixgf4VCqDTssKx4LpmZXhf3dwkvvwAchWmVltHqYPVjB4F7SAlll0IRUiVpLgQyXrVxpLWfEQ1YxC1CH011/Vh5akP2dxLJBlCZbdpYJoGvEvSTyWs1nxC6Fbn/GFs8O2LXnrCCEXocgaQbzalQfnDO+u53VaizFqyFk+j2WKyYVoWuF6hhKgPgeRQ30ep+Xd25pLcPTth78hI+nWq1sxbVrDoRFzQa+s62e4hmxRvGXnio2jY9w=="
   },
   {
     "Id": 2,
-    "UserId": 3,
-    "Name": "gol prvi",
-    "CurrentAmount": 908.0,
-    "TargetAmount": 1000.0
+    "UserId": 4,
+    "Name": "prvi gol user",
+    "TargetAmount": "XkoK+nArvZPPZABt3rQpwwXKrq773dQi6cCAGZ4/4Kxe+ChGQ+OlukT5KjbroKMY5QuP0SAuWb+O6NPCGIkuDRyMT2iaftI16qOyGUNbFKJh+0oTsv8HoLmTWevxnncyBUQ7/vt3doPaSsrTlK7g/P/KG298v89emtJnh8tIpGCfTJXmxSGnE3B1x9DBr2Gk4Ygs+CjRJ7u8BdjTLBTIkk6H6juUeOvyEGIAmDo4fTbsqjZe3ztV7t8jQ1iLAfH0cNpNrFPzKRzyy8gvp5yWiC0H/Hb19wDkNq7FC81tGB0d0yjUwDCzyed0fGSJHN2Cd7Wt1fkPWoIvsjSM4MVoKQ==",
+    "CurrentAmount": "N24VrzsBHoujuwWlDP8MbeGLAewl6b6LeZM4DTbvh0UAV7hs9AGFDf/D2aom6SlQTMx3gtrIftU93addd02PQMEEqh4ILC1LIPZI2u3LJ2Q7Rewu7b8YxOkvt9ECAo9NEsFk+g9WBFDbx8qtZhxEaohgk3jCLgNKjjnzffCTudq4A/0v4FRoGvrUgcFuCtbgJjWXJrOFWcQxNIW6GUzYH8ZLFd5tUnc7+mt/GgRiFPjMbCb9QzAyU3Go9O1TFg4x+xpflIszukbVTguQh5N9nK46uLgvPFaJR9HGBYVt6trY/KQtWN52z1ScH1imjDNosPxPtM3t9wrC7vMWKr2IGg=="
   }
 ]

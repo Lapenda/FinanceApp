@@ -185,6 +185,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Encryption\AesEncryptionHelper.cs" />
+    <Compile Include="Encryption\RsaEncryptionHelper.cs" />
     <Compile Include="Forms\BudgetForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -352,6 +354,7 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\rsaKey.xml" />
     <Content Include="Data\categories.xml" />
     <Content Include="Data\summaryReport.txt" />
   </ItemGroup>

@@ -12,8 +12,8 @@ namespace FinanceApp.Models
         public int Id { get; private set; }
         public int UserId { get; private set; }
         public float Limit { get; private set; }
-        public float Spent { get; private set; }
-        public Category Category { get; private set; }
+        public float Spent { get; set; }
+        public Category Category { get; set; }
 
         public Budget() { }
 
