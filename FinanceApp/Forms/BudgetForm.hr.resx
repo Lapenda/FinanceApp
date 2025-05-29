@@ -139,6 +139,33 @@
   <data name="reportButton.Text" xml:space="preserve">
     <value>Izvještaj</value>
   </data>
+  <data name="addBudgetBtn.Text" xml:space="preserve">
+    <value>Dodaj Budžet</value>
+  </data>
+  <data name="editBudgetBtn.Text" xml:space="preserve">
+    <value>Uredi Budžet</value>
+  </data>
+  <data name="delBudgetBtn.Text" xml:space="preserve">
+    <value>Izbriši Budžet</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>194, 356</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 20</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Kategorija:</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>556, 356</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 20</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Potrošeno:</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Budžet</value>
   </data>

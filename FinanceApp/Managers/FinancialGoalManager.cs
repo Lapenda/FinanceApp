@@ -48,25 +48,7 @@ namespace FinanceApp.Managers
 
         public List<FinancialGoal> ReadAllUserGoals()
         {
-            lock (fileLock)
-            {
-                try
-                {
-                    if (!File.Exists(filePath))
-                    {
-                        return new List<FinancialGoal>();
-                    }
-
-                    string json = File.ReadAllText(filePath);
-                    var allFinancialGoals = JsonConvert.DeserializeObject<List<FinancialGoal>>(json) ?? new List<FinancialGoal>();
-                    return allFinancialGoals.Where(g => g.UserId == SessionManager.currentUserId).ToList();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error reading json form on path: {filePath}, error: {ex.Message}");
-                    return new List<FinancialGoal>();
-                }
-            }
+            return ReadAllGoals().Where(g => g.UserId == SessionManager.currentUserId).ToList();
         }
 
         private void Save(List<FinancialGoal> goals) 
@@ -104,6 +86,7 @@ namespace FinanceApp.Managers
                 existingGoal.Name = newName;
                 existingGoal.TargetAmount = newTargetAmount;
                 existingGoal.CurrentAmount = newCurrentAmount;
+                existingGoal.IsAchieved = existingGoal.IsGoalAchieved();
                 Save(goals);
                 MessageBox.Show("Success");
             }

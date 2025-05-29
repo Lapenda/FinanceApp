@@ -163,7 +163,7 @@
     <value>Password:</value>
   </data>
   <data name="RemainingBudgetLabel" xml:space="preserve">
-    <value />
+    <value>No budget for selected category!</value>
   </data>
   <data name="ReportButton" xml:space="preserve">
     <value>Report</value>

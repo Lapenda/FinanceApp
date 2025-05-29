@@ -13,17 +13,25 @@ namespace FinanceApp.Models
         public int UserId { get; private set; }
         public float Limit { get; private set; }
         public float Spent { get; set; }
-        public Category Category { get; set; }
+        public int CategoryId { get; set; }
 
         public Budget() { }
 
-        public Budget(int id, int userId, float limit, float spent, Category category)
+        public Budget(int userId, float limit, float spent, int categoryId)
+        {
+            UserId = userId;
+            Limit = limit;
+            Spent = spent;
+            CategoryId = categoryId;
+        }
+
+        public Budget(int id, int userId, float limit, float spent, int categoryId)
         {
             Id = id;
             UserId = userId;
             Limit = limit;
             Spent = spent;
-            Category = category;
+            CategoryId = categoryId;
         }
 
         public float CalculateRemaining()
@@ -34,7 +42,11 @@ namespace FinanceApp.Models
         public void UpdateLimit(float newLimit)
         {
             Limit = newLimit;
-            MessageBox.Show($"Budget limit updated to: {Limit}");
+        }
+
+        public void setId(int id)
+        {
+            Id = id;
         }
     }
 }

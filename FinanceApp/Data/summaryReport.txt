@@ -1,10 +1,17 @@
-Financial Summary Report for user
-Generated on: 29.5.2025. 0:06
+Financial Summary Report for borna
+Generated on: 29.5.2025. 21:45
 
 Total expenses by Category:
-kategorija 1: 190
-  - trans1 29.5.2025.: 100 (Transaction ID: 32)
-  - pokusaj 2 29.5.2025.: 90 (Transaction ID: 33)
+
+kategorija 1: 900
+  - hej 29.5.2025.: 900 (Transaction ID: 44)
+
+Savings: 400
+  - mobitel 29.5.2025.: 200 (Transaction ID: 48)
+  - rodendan 29.5.2025.: 200 (Transaction ID: 49)
+
+Total Savings: 400
 
 Financial Goals Progress:
-hi: 0,00% (0/1000)
+gol prvi: 84,00% (252/300)
+za mobitel: 16,67% (200/1200)

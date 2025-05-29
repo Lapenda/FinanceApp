@@ -17,8 +17,7 @@ namespace FinanceApp.Forms
 {
     public partial class LoginForm : Form
     {
-        private readonly string connectionString;
-        private readonly string jwtSecretKey;
+        
 
         public LoginForm()
         {
@@ -26,23 +25,13 @@ namespace FinanceApp.Forms
             SettingsManager.LanguageChanged += (s, e) => SettingsManager.UpdateFormLanguage(this);
             InitializeLanguageComboBox();
             SettingsManager.ApplyTheme(this);
-
-            connectionString = Environment.GetEnvironmentVariable("FINANCEAPP_CONNECTION_STRING");
-            jwtSecretKey = Environment.GetEnvironmentVariable("FINANCEAPP_JWT_SECRET");
-
-            if (string.IsNullOrEmpty(connectionString) || string.IsNullOrEmpty(jwtSecretKey))
-            {
-                MessageBox.Show("Environment variables FINANCEAPP_CONNECTION_STRING and FINANCEAPP_JWT_SECRET must be set.", "Configuration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
-                return;
-            }
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
             try
             {
-                var userManager = new UserManager(connectionString, jwtSecretKey);
+                var userManager = new UserManager();
 
                 string username = usernameTextBox.Text;
                 string password = passwordTextBox.Text;

@@ -14,7 +14,7 @@ namespace FinanceApp.Models
         public int Id { get; set; }
         public int UserId { get; set; }
         public string Name { get; set; }
-        //public DateTime Deadline { get; set; }
+        public bool IsAchieved { get; set; }
 
         [JsonProperty("TargetAmount")]
         private string EncryptedTargetAmount { get; set; }
@@ -45,15 +45,17 @@ namespace FinanceApp.Models
             Name = name;
             TargetAmount = targetAmount;
             CurrentAmount = currentAmount;
+            IsAchieved = IsGoalAchieved();
         }
 
         public void UpdateProgress(float amount)
         {
             CurrentAmount += amount;
             MessageBox.Show($"Goal progress: {CurrentAmount}/{TargetAmount} => {Math.Floor(CurrentAmount/TargetAmount * 100)}%");
+            IsAchieved = IsGoalAchieved();
         }
 
-        public bool IsAchieved()
+        public bool IsGoalAchieved()
         {
             return CurrentAmount >= TargetAmount;
         }

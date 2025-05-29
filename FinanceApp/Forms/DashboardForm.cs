@@ -165,7 +165,7 @@ namespace FinanceApp.Forms
                         report += "\r\nTotal expenses by Category:\r\n";
                         foreach (var kvp in expensesByCategory)
                         {
-                            report += $"{kvp.Key}: {kvp.Value}\r\n";
+                            report += $"\r\n{kvp.Key}: {kvp.Value}\r\n";
                             var categoryTransactions = transactionManager.GetAllTransactions().Where(t => t.Category.Name == kvp.Key).OrderBy(t => t.Date);
                             foreach (var transaction in categoryTransactions)
                             {

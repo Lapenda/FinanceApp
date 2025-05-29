@@ -196,7 +196,7 @@ namespace FinanceApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to No budget for selected category!.
         /// </summary>
         internal static string RemainingBudgetLabel {
             get {

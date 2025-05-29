@@ -20,22 +20,15 @@ namespace FinanceApp.Forms
     {
         private readonly CategoryManager categoryManager;
         private readonly TransactionManager transactionManager;
-        private readonly UserManager userManager;
-        private readonly string connectionString;
-        private readonly string jwtSecretKey;
+        private readonly BudgetManager budgetManager;
 
         public TransactionForm()
         {
             InitializeComponent();
 
-            connectionString = Environment.GetEnvironmentVariable("FINANCEAPP_CONNECTION_STRING");
-            jwtSecretKey = Environment.GetEnvironmentVariable("FINANCEAPP_JWT_SECRET");
-
             categoryManager = new CategoryManager("categories.xml");
             transactionManager = new TransactionManager();
-            userManager = new UserManager(connectionString, jwtSecretKey);
-
-            string storedToken = Properties.Settings.Default.JwtToken;
+            budgetManager = new BudgetManager();
 
             if (!SessionManager.isLoggedIn)
             {
@@ -109,7 +102,7 @@ namespace FinanceApp.Forms
                             if (goalComboBox.SelectedItem != null)
                             {
                                 var selectedGoal = goals.First(g => g.Name == goalComboBox.SelectedItem.ToString());
-                                selectedGoal.CurrentAmount += (float)amount;
+                                selectedGoal.UpdateProgress(amount);
                                 goalManager.UpdateGoal(selectedGoal, selectedGoal.Name, selectedGoal.TargetAmount, selectedGoal.CurrentAmount);
                                 goalSelectionForm.Close();
                             }
@@ -121,17 +114,19 @@ namespace FinanceApp.Forms
                 }
             }
 
-
             Transaction tx = new Transaction(SessionManager.currentUserId, amount, description, selectedCategory, SettingsManager.GetSettings().DefaultCurrency, datePicker.Value);
-            transactionManager.Save(tx);
-
-            SettingsManager.GetSettings().LastTransactionCategory = selectedCategory.Name;
-            SettingsManager.GetSettings().Save();
-
             BudgetForm budgetForm = new BudgetForm();
-            budgetForm.UpdateBudget(tx.Amount, tx.Category);
-            budgetForm.Show();
-            this.Hide();
+            var transactionSuccessfull = budgetForm.UpdateBudget(tx.Amount, tx.Category);
+
+            if (transactionSuccessfull)
+            {
+                transactionManager.Save(tx);
+                SettingsManager.GetSettings().LastTransactionCategory = selectedCategory.Name;
+                SettingsManager.GetSettings().Save();
+
+                budgetForm.Show();
+                this.Hide();
+            }
         }
 
         private void InitializeCategoryComboBox()
@@ -176,6 +171,22 @@ namespace FinanceApp.Forms
             CategoryForm categoryForm = new CategoryForm();
             categoryForm.Show();
             this.Hide();
+        }
+
+        private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedCategory = (Category)categoryComboBox.SelectedItem;
+
+            var budget = budgetManager.ReadAllUserBudgets().FirstOrDefault(b => b.CategoryId == selectedCategory.Id);
+            
+            if (budget != null)
+            {
+                budgetLabel.Text = $"Remaining budget for the selected category is: {budget.CalculateRemaining()}";
+            }
+            else
+            {
+                budgetLabel.Text = "There is no budget for the selected category";
+            }
         }
     }
 }

@@ -14,17 +14,12 @@ namespace FinanceApp.Forms
     public partial class RegisterForm : Form
     {
         private readonly UserManager userManager;
-        private readonly string connectionString;
-        private readonly string jwtSecretKey;
 
         public RegisterForm()
         {
             InitializeComponent();
 
-            connectionString = Environment.GetEnvironmentVariable("FINANCEAPP_CONNECTION_STRING");
-            jwtSecretKey = Environment.GetEnvironmentVariable("FINANCEAPP_JWT_SECRET");
-
-            userManager = new UserManager(connectionString, jwtSecretKey);
+            userManager = new UserManager();
         }
 
         private void backToLoginBtn_Click(object sender, EventArgs e)

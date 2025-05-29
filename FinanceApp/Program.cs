@@ -37,16 +37,7 @@ namespace FinanceApp
 
                 SettingsManager.LoadLanguageFromIni();
 
-                string connectionString = Environment.GetEnvironmentVariable("FINANCEAPP_CONNECTION_STRING");
-                string jwtSecretKey = Environment.GetEnvironmentVariable("FINANCEAPP_JWT_SECRET");
-
-                if (string.IsNullOrEmpty(connectionString) || string.IsNullOrEmpty(jwtSecretKey))
-                {
-                    MessageBox.Show("Environment variables not found");
-                    return;
-                }
-
-                var userManager = new UserManager(connectionString, jwtSecretKey);
+                var userManager = new UserManager();
                 string storedToken = Properties.Settings.Default.JwtToken;
 
                 if (!string.IsNullOrEmpty(storedToken) && userManager.ValidateToken(storedToken, out var claimsPrincipal))

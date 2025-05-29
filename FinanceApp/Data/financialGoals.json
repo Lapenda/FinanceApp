@@ -2,15 +2,17 @@
   {
     "Id": 1,
     "UserId": 3,
-    "Name": "gol prvi",
-    "TargetAmount": "Xtbc6gEczTnDexSe9AIJnhwgrpE7ik6eHVqqxHO2b3mN66OF/QrMbJ9JzQIkmMF+U1aE6ypivWKzohqgLH6DByt2/AMqafxs8lDYopBaeu9ZLACmL1TgR3F5FLPk3TsYWDu+x8+Ad+PS3cXFb24P6Qoqfd8X4byejhgioRjPjJpApdnPxi//vdAN4Bzh734VcJ86BMAP+GmNVQ962cL+g3k+hDkn9uh04gIbwiavLP/eTcO3UbvwIu2+g4QvbeUl4PjzwtJ7GBxdq4sU4qTbWecxg9iuwyFpENdmnF8P6gKl83/vQ6QdR2DN50ViDhisfoOq9nXfX7vopNCVcns2qQ==",
-    "CurrentAmount": "gzqGlAq3B5aDI4W0FHSoV+G+1qhJOcRFpvStiUKQRDZ+76ORTgWZV+w2fDkE7Q7fHD9WZgmS4NU8J07zanNxle+QXdUzFL5TIoyI+fYUwxVnaDXLeQtWe1tFv0KvdTsGpL0pYlj5eulEVkZGeUCLxstd1dF+Zh7mHWxM6Oc9zkDZPCkmeajME18y/tqPIS02kaLGWZmOESvcBgkWJni3K6hCHpBvbYB0Wb1F8yqMZBK6qQaoqxvnAISkdW1Wz7HfeHxQo7tJg5gtVCnkwkFNwyiGDoIrl26pCi0rZiXc6Zc22XX660Bc2aySPjscDm5YeK2pUIUnex4BKHb7R+/KFQ=="
+    "Name": "mobitel",
+    "IsAchieved": true,
+    "TargetAmount": "GVyKOaPAY0KDFPYVVi8csHH7xUXfTjQyijTbDcpJUiHdFOIvqhUcSBhqdjLCvQyXaVwwkZt5Hi34RJ/Po25QSPMfMX7Jx6O7M/+vr2EAzHHDSCq1/oIfVk1oxXVUwAugL1hnWgoHj90x2ZSWmIl7lof8mdguc8wdxp54ElK5KjJrTE3ejQESvevNMFZkjPQ5m2GQ0CH8zT8E8iFPOvXrmUUXsboEAcg+9nZ2a/F2aLf7ZD+OtbCRQbnEt4da5UkQc+nnwlnqE19O4174HCbBYjn9G+25myk8OMeKwGCKGeZZQk/25EnmouHrzYqJeICxLUq7mQ92eS0eWKqZtSlzSA==",
+    "CurrentAmount": "h8MariJRo7vuMFCnpvQIvbktRjJbYWEuKq9ygHFyw4DFF4k/9en5Xrutf7UjQtWDXOGYJvxr8PdAvahS5Xq7d4X0f76RVcmemd5fSHtP1oDhNL5An/BFhwQ3F2U0HxQrmPXgN0WVIXqU5OCOr/lG96xL2foRxjnowvr/PkRn99Z7z11vOOqeKfs7PSkYogoK+vljocsgaIwxaX5XSQiNu6trkIgwarEnvcs8Nb+N338CFRHeS58F24FwlbMdkkZDbUklNMON0z/mPFiLac3yaBIYzTRbZMQ9Zj1lcCZ9nyE+4d3IynC4GmOkM+UCHtkCeifTd6eZ819jhGnJ2QUDkA=="
   },
   {
     "Id": 2,
-    "UserId": 4,
-    "Name": "hi",
-    "TargetAmount": "gl0bPkSx3crqa+r2y0XKFlzHe7UuWXez1T2VU5OewcHzW7obLzwfMhxq1hk0mu+xDsVFVoTT3KuacTVuCHrpQ8kDt8iBwWeKYZmkeDo13PXX6zwioBKjy84Alya/or5b0skCqciTDbKsmlVPUTgaVsUoOceYt+OGntgVuRWkPXoDRS2oG16q3pPulWEMKE8AKSCXI3W9AvFlidyng+d6MFMe69FeTLzzX9DppUTxIYSrNsqxNpapbwYjuAWOIB7GmM7gSeQJLWK/NbF2CJi/qdthyT1h3SfTN3A4ZtyY/NdBCUt6/CBMrj9i0EFGYJY7y/DMDNPLjcAdnLd1zEE+yw==",
-    "CurrentAmount": "ISp81V0msBeorDpkRXwhkuB/8gA8np8X5aF+wIgrmX0J1/IFPmxvgX2RBaA30OFQ276XJcC6obSSNTJzOQhIPu96ZTI8MpPHPjizEH8AeYz2TgaZp9Bx3l9vwt2CnK4+EJT1ibSxwD9URxyxi3TAp+TaLbUoSGMiKoanjT4M9UEDzwfhziCsPe4+0JQf2TxB6siMjCwF3q5YcRxFZaMLd2Ugp1C7ucJnWbk09n6HFcmteZySjOXLAf4iGSyYolSm+VYWeUFrPuy4SenZkUv/AsoDTy20kjrhrVju1xoIbu5iHronhu4fubvhmkM3pG5XUjM9kq2/Dp4hwd6Mj1z9gg=="
+    "UserId": 3,
+    "Name": "laptop",
+    "IsAchieved": false,
+    "TargetAmount": "PekqNkxMWhQsf+1lFW6DYIquI6NmEA2JUM16UBsQCG9ArAKh/28P2QMUZ+SXkPR6/SytihYY8ZjkWi7l/p+WHJQGS23pUK0r7cxlyGPCPJLT/4D0899/EG9X8DkxrDK+zUk4QNhSGlTWJfP0UoFpQ+xjTf3Z+5xXsAbdnc4qWtloG7+ypNihIBB9Ui9zjBB+NSJXsqv73lG+tpWd+IuzrFtpFKvZ/ae2eubDU6PT/qz/ajSUcKgmWnH3lyCDcfqxkB2jStwnWpwHaXVo12+0yLd/ANFEn2RW1zVNG7kHxux2zn4adowoO4tYabYlp2brzMUuylIZuZFb7o1LVJbdIg==",
+    "CurrentAmount": "Bn3m6q3DLDOa6qyJGBG/o9oSjj5mViN6NSCKYBqPPCWhCCQQviZ67Dg/ueAYnjNk48IZvPHagW7Ef+fotsEtG2Dowr2VF9fOTewxcyt/6pZWk8bqijEIptavSmeGqZhvonjey+4/kWz4cMduzGt8tZ/+PCTvz5Fm2Z8SNWH/Zg2SQp50ZhbrzLb9Gy+/oej0ahmzAmMnhynhemSc8q0wl6Eo+btfrg7Bc66faar5migBtFegXS6VHA9Ma7sIBYSPYkpjFO73UAA7EBgPcX537wmkE87L6sQnIYXJ1C03lEWwYXG7fpYGavdz0uxLFRsE6zLyJFzpn3kRXGSYk2fqwA=="
   }
 ]

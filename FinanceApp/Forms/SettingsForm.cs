@@ -42,10 +42,8 @@ namespace FinanceApp.Forms
 
         private void returnButton_Click(object sender, EventArgs e)
         {
-            var connectionString = Environment.GetEnvironmentVariable("FINANCEAPP_CONNECTION_STRING");
-            var jwtSecretKey = Environment.GetEnvironmentVariable("FINANCEAPP_JWT_SECRET");
             var storedToken = Settings.Default.JwtToken;
-            var userManager = new UserManager(connectionString, jwtSecretKey);
+            var userManager = new UserManager();
 
             if(!string.IsNullOrEmpty(storedToken) && userManager.ValidateToken(storedToken, out var claimsPrincipal))
             {

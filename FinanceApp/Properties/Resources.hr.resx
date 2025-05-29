@@ -163,7 +163,7 @@
     <value>Lozinka:</value>
   </data>
   <data name="RemainingBudgetLabel" xml:space="preserve">
-    <value />
+    <value>Nema budžeta za odabranu kategoriju!</value>
   </data>
   <data name="ReportButton" xml:space="preserve">
     <value>Izvještaj</value>

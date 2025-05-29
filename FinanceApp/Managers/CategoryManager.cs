@@ -56,29 +56,7 @@ namespace FinanceApp.Managers
 
         public List<Category> ReadAllUserCategories()
         {
-            lock (fileLock)
-            {
-                try
-                {
-                    if (!File.Exists(filePath) || new FileInfo(filePath).Length == 0)
-                    {
-                        Console.WriteLine($"No file or file is empty in {filePath}");
-                        return new List<Category>();
-                    }
-
-                    XmlSerializer serializer = new XmlSerializer(typeof(List<Category>), new XmlRootAttribute("Categories"));
-                    using (StreamReader sr = new StreamReader(filePath))
-                    {
-                        var allCategories = (List<Category>)serializer.Deserialize(sr);
-                        return allCategories.Where(c => c.UserId == SessionManager.currentUserId).ToList();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error reading from xml: {ex.Message}");
-                    return new List<Category>();
-                }
-            }
+            return ReadAllCategories().Where(c => c.UserId == SessionManager.currentUserId).ToList();
         }
 
         private void SaveCategories(List<Category> categories)

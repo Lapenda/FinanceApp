@@ -21,7 +21,19 @@
   <Category>
     <Id>4</Id>
     <UserId>4</UserId>
-    <Name>kategorija 1</Name>
-    <Description>Zgb2mkQnH5Lwk94qzM588ZQwlMpZsSthbl6NPo/JJc4cBuqB5E3+j9OTlBLw1M13</Description>
+    <Name>kat 12</Name>
+    <Description>SziYojZiLwdih0zjCHidiTbPnbWElpYeIbXWN/3fx7JxZb0fcteZv1e5WOleo56l</Description>
+  </Category>
+  <Category>
+    <Id>5</Id>
+    <UserId>4</UserId>
+    <Name>kat 2 user</Name>
+    <Description>vWuKZAAl3uP+6sw/iM7sJ8I7QquKF6CwY9QEJf066bgzkNipxbDTkdVvJk7yLpjw</Description>
+  </Category>
+  <Category>
+    <Id>6</Id>
+    <UserId>4</UserId>
+    <Name>roba</Name>
+    <Description>5btEKel+YsDMeseJl7I/Pz2Wq84ueVGiUj/V8+QdJa0zs/Uu7kWBXu/PxYSqfKgE</Description>
   </Category>
 </Categories>

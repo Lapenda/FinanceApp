@@ -10,42 +10,58 @@ using System.Windows.Forms;
 using FinanceApp.Manager;
 using FinanceApp.Models;
 using FinanceApp.Managers;
+using System.Runtime.CompilerServices;
 
 namespace FinanceApp.Forms
 {
     public partial class BudgetForm : Form
     {
-        private Budget budget = new Budget();
-
-        private readonly CategoryManager categoryManager;
+        private readonly CategoryManager _categoryManager;
+        private readonly BudgetManager _budgetManager;
 
         public BudgetForm()
         {
             InitializeComponent();
-            categoryManager = new CategoryManager("categories.xml");
+            _categoryManager = new CategoryManager("categories.xml");
+            _budgetManager = new BudgetManager();
             InitializeCategoryComboBox();
-            UpdateLabel();
             SettingsManager.ApplyTheme(this);
+            UpdateLabel(null);
+            UpdateButtonStatus();
         }
 
-        private void UpdateLabel()
+        private void UpdateLabel(Budget budget)
         {
-            //remainingBudgetLabel.Text = $"Category: {budget.getCategory().Name}, Spent: {budget.getSpent()}, Remaining: {budget.CalculateRemaining()}";
+            if(budget != null)
+            {
+                var category = _categoryManager.ReadAllUserCategories().FirstOrDefault(c => c.Id == budget.CategoryId);
+                remainingBudgetLabel.Text = $"Category: {category.Name}, Spent: {budget.Spent}, Remaining: {budget.CalculateRemaining()}";
+                return;
+            }
+            remainingBudgetLabel.Text = Properties.Resources.RemainingBudgetLabel;
         }
 
-        public void UpdateBudget(float amount, Category category)
+        public bool UpdateBudget(float amount, Category category)
         {
-            //if(budget.getCategory() == category || string.IsNullOrEmpty(budget.getCategory())) 
-            //{
-                budget.Spent = amount;
-                budget.Category = category;
-            //}
-            UpdateLabel();
+            var budgets = _budgetManager.ReadAllUserBudgets();
+            var budget = budgets.FirstOrDefault(b => b.CategoryId == category.Id);
+
+            if (budget != null)
+            {
+                budget.Spent += amount;
+                var budgetUpdated = _budgetManager.UpdateBudget(budget, budget.Limit, budget.Spent);
+                if (budgetUpdated != null)
+                {
+                    UpdateLabel(budget);
+                    return true;
+                }
+                return false;
+            }
+            return true;
         }
 
         private void reportButton_Click(object sender, EventArgs e)
         {
-            //ReportForm reportForm = new ReportForm();
             DashboardForm dashboardForm = new DashboardForm();
             dashboardForm.Show();
             this.Hide();
@@ -55,10 +71,141 @@ namespace FinanceApp.Forms
         {
             categoryComboBox.Items.Clear();
 
-            var categories = categoryManager.ReadAllUserCategories();
+            var categories = _categoryManager.ReadAllUserCategories();
 
             categoryComboBox.DisplayMember = "Name";
             categoryComboBox.DataSource = categories;
+        }
+
+        private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateTextBoxes();
+        }
+
+        private void UpdateTextBoxes()
+        {
+            var selectedCategory = (Category)categoryComboBox.SelectedItem;
+            if (selectedCategory != null)
+            {
+                var budgets = _budgetManager.ReadAllUserBudgets();
+                var budget = budgets.FirstOrDefault(b => b.CategoryId == selectedCategory.Id);
+
+                if (budget != null)
+                {
+                    UpdateLabel(budget);
+                    spentTextBox.Text = budget.Spent.ToString();
+                    limitTextBox.Text = budget.Limit.ToString();
+                }
+                else
+                {
+                    spentTextBox.Text = "Default is 0";
+                    limitTextBox.Text = string.Empty;
+                    UpdateLabel(null);
+                }
+
+                categoryTextBox.Text = selectedCategory.Name;
+            }
+
+            UpdateButtonStatus();
+        }
+
+        private void addBudgetBtn_Click(object sender, EventArgs e)
+        {
+            if(categoryComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a category!");
+                return;
+            }
+
+            if(!float.TryParse(limitTextBox.Text, out float limit) || limit < 0)
+            {                    
+                MessageBox.Show("Please enter a valid amount greater than 0");
+                return;
+            }
+
+            if(!float.TryParse(spentTextBox.Text, out float spent) || spent < 0)
+            {
+                spent = 0;
+            }
+
+            var category = (Category)categoryComboBox.SelectedItem;
+
+            var budget = new Budget(SessionManager.currentUserId, limit, spent, category.Id);
+
+            _budgetManager.CreateBudget(budget);
+
+            UpdateLabel(budget);
+            UpdateButtonStatus();
+        }
+
+        private void UpdateButtonStatus()
+        {
+            var category = (Category)categoryComboBox.SelectedItem;
+            var catHasBudget = _budgetManager.ReadAllUserBudgets().Any(b => b.CategoryId == category.Id);
+
+            if (catHasBudget)
+            {
+                editBudgetBtn.Enabled = true;
+                delBudgetBtn.Enabled = true;
+                addBudgetBtn.Enabled = false;
+            }
+            else
+            {
+                editBudgetBtn.Enabled = false;
+                delBudgetBtn.Enabled = false;
+                addBudgetBtn.Enabled = true;
+            }
+        }
+
+        private void editBudgetBtn_Click(object sender, EventArgs e)
+        {
+            if (categoryComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a category!");
+                return;
+            }
+
+            if (!float.TryParse(limitTextBox.Text, out float limit) || limit < 0)
+            {
+                MessageBox.Show("Please enter a valid amount greater than 0");
+                return;
+            }
+
+            if (!float.TryParse(spentTextBox.Text, out float spent) || spent < 0)
+            {
+                spent = 0;
+            }
+
+            var category = (Category)categoryComboBox.SelectedItem;
+
+            var budget = _budgetManager.ReadAllUserBudgets().FirstOrDefault(b => b.CategoryId == category.Id);
+
+            if(budget == null)
+            {
+                return;
+            }
+
+            UpdateLabel(_budgetManager.UpdateBudget(budget, limit, spent));
+            UpdateButtonStatus();
+            UpdateTextBoxes();
+        }
+
+        private void delBudgetBtn_Click(object sender, EventArgs e)
+        {
+            var category = (Category)categoryComboBox.SelectedItem;
+
+            var budget = _budgetManager.ReadAllUserBudgets().FirstOrDefault(b => b.CategoryId == category.Id);
+
+            var confirmResult = MessageBox.Show($"Are you sure you want to delete the budget for '{category.Name}'?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmResult != DialogResult.Yes)
+            {
+                return;
+            }
+
+            _budgetManager.DeleteBudget(budget);
+            UpdateLabel(null);
+            UpdateTextBoxes();
+            UpdateButtonStatus();
         }
     }
 }

@@ -242,6 +242,7 @@
       <DependentUpon>TransactionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Managers\AppSettings.cs" />
+    <Compile Include="Managers\BudgetManager.cs" />
     <Compile Include="Managers\CategoryManager.cs" />
     <Compile Include="Managers\FinancialGoalManager.cs" />
     <Compile Include="Managers\IniFileManager.cs" />
@@ -335,6 +336,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Config\settings.ini" />
+    <None Include="Data\budgets.bin" />
     <None Include="Data\financialGoals.json" />
     <None Include="Data\financialSummaryReport.pdf" />
     <None Include="packages.config" />

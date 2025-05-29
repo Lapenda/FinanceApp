@@ -148,9 +148,6 @@
   <data name="editCategoriesBtn.Text" xml:space="preserve">
     <value>Uredi kategorije</value>
   </data>
-  <data name="logoutBtn.Text" xml:space="preserve">
-    <value>Odjava</value>
-  </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>528, 158</value>
   </data>
@@ -159,6 +156,15 @@
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>Unesi opis:</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>557, 385</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 20</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Nema budžeta za odabranu kategoriju</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>1430, 56</value>

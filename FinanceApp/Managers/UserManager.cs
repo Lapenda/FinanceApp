@@ -21,10 +21,18 @@ namespace FinanceApp.Managers
 
         public IReadOnlyCollection<User> GetAllUsers() => users.Values.ToList().AsReadOnly();
 
-        public UserManager(string connectionString, string jwtSecretKey)
+        public UserManager()
         {
-            this.connectionString = connectionString;
-            this.jwtSecretKey = jwtSecretKey;
+            connectionString = Environment.GetEnvironmentVariable("FINANCEAPP_CONNECTION_STRING");
+            jwtSecretKey = Environment.GetEnvironmentVariable("FINANCEAPP_JWT_SECRET");
+
+            if (string.IsNullOrEmpty(connectionString) || string.IsNullOrEmpty(jwtSecretKey))
+            {
+                MessageBox.Show("Environment variables FINANCEAPP_CONNECTION_STRING and FINANCEAPP_JWT_SECRET must be set.");
+                Application.Exit();
+                throw new Exception("Environment variables FINANCEAPP_CONNECTION_STRING and FINANCEAPP_JWT_SECRET must be set.");
+            }
+
             LoadUsersFromDatabase();
         }
 
