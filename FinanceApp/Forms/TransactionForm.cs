@@ -26,8 +26,8 @@ namespace FinanceApp.Forms
         {
             InitializeComponent();
 
-            categoryManager = new CategoryManager("categories.xml");
             transactionManager = new TransactionManager();
+            categoryManager = new CategoryManager("categories.xml", transactionManager);
             budgetManager = new BudgetManager();
 
             if (!SessionManager.isLoggedIn)
@@ -48,7 +48,7 @@ namespace FinanceApp.Forms
             SettingsManager.ApplyTheme(this);
             InitializeCategoryComboBox();
 
-             welcomeLabel.Text = $"Transaction Form - Welcome, {SessionManager.currentUsername} ({SessionManager.currentUserRole})";
+            welcomeLabel.Text = $"Transaction Form - Welcome, {SessionManager.currentUsername} ({SessionManager.currentUserRole})";
         }
 
 
@@ -76,7 +76,26 @@ namespace FinanceApp.Forms
                 return;
             }
 
-            if (selectedCategory.Name.ToLower() == "savings")
+            Transaction tx = new Transaction(SessionManager.currentUserId, amount, description, selectedCategory, SettingsManager.GetSettings().DefaultCurrency, datePicker.Value);
+            BudgetForm budgetForm = new BudgetForm();
+            var transactionSuccessfull = budgetForm.UpdateBudget(tx.Amount, tx.Category);
+
+            if (transactionSuccessfull)
+            {
+                CheckIfCategoryIsSavings(selectedCategory.Name, amount);
+
+                transactionManager.Save(tx);
+                SettingsManager.GetSettings().LastTransactionCategory = selectedCategory.Name;
+                SettingsManager.GetSettings().Save();
+
+                budgetForm.Show();
+                this.Hide();
+            }
+        }
+
+        public void CheckIfCategoryIsSavings(string selectedCategory, float amount)
+        {
+            if (selectedCategory.ToLower() == "savings")
             {
                 FinancialGoalManager goalManager = new FinancialGoalManager();
                 var goals = goalManager.ReadAllUserGoals();
@@ -113,20 +132,6 @@ namespace FinanceApp.Forms
                     }
                 }
             }
-
-            Transaction tx = new Transaction(SessionManager.currentUserId, amount, description, selectedCategory, SettingsManager.GetSettings().DefaultCurrency, datePicker.Value);
-            BudgetForm budgetForm = new BudgetForm();
-            var transactionSuccessfull = budgetForm.UpdateBudget(tx.Amount, tx.Category);
-
-            if (transactionSuccessfull)
-            {
-                transactionManager.Save(tx);
-                SettingsManager.GetSettings().LastTransactionCategory = selectedCategory.Name;
-                SettingsManager.GetSettings().Save();
-
-                budgetForm.Show();
-                this.Hide();
-            }
         }
 
         private void InitializeCategoryComboBox()
@@ -137,7 +142,6 @@ namespace FinanceApp.Forms
             categoryComboBox.DisplayMember = "Name";
 
             var categories = categoryManager.ReadAllUserCategories();
-
 
             var savingsCategoryExists = categories.Any(c => c.Name.ToLower() == "savings");
 
@@ -155,7 +159,6 @@ namespace FinanceApp.Forms
             }
 
             categoryComboBox.Items.AddRange(categories.ToArray());
-
 
             var lastCategory = SettingsManager.GetSettings().LastTransactionCategory;
             categoryComboBox.SelectedItem = categories.FirstOrDefault(c => c.Name ==  lastCategory);
@@ -187,6 +190,13 @@ namespace FinanceApp.Forms
             {
                 budgetLabel.Text = "There is no budget for the selected category";
             }
+        }
+
+        private void seeTransBtn_Click(object sender, EventArgs e)
+        {
+            AllTransactionsForm allTransactionsForm = new AllTransactionsForm();
+            allTransactionsForm.Show();
+            this.Hide();
         }
     }
 }

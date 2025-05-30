@@ -41,8 +41,9 @@
             this.editCategoriesBtn = new System.Windows.Forms.Button();
             this.descTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.navbar1 = new FinanceApp.Forms.Navbar();
             this.budgetLabel = new System.Windows.Forms.Label();
+            this.navbar1 = new FinanceApp.Forms.Navbar();
+            this.seeTransBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -111,20 +112,28 @@
             resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
             // 
-            // navbar1
-            // 
-            resources.ApplyResources(this.navbar1, "navbar1");
-            this.navbar1.Name = "navbar1";
-            // 
             // budgetLabel
             // 
             resources.ApplyResources(this.budgetLabel, "budgetLabel");
             this.budgetLabel.Name = "budgetLabel";
             // 
+            // navbar1
+            // 
+            resources.ApplyResources(this.navbar1, "navbar1");
+            this.navbar1.Name = "navbar1";
+            // 
+            // seeTransBtn
+            // 
+            resources.ApplyResources(this.seeTransBtn, "seeTransBtn");
+            this.seeTransBtn.Name = "seeTransBtn";
+            this.seeTransBtn.UseVisualStyleBackColor = true;
+            this.seeTransBtn.Click += new System.EventHandler(this.seeTransBtn_Click);
+            // 
             // TransactionForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.seeTransBtn);
             this.Controls.Add(this.budgetLabel);
             this.Controls.Add(this.navbar1);
             this.Controls.Add(this.descTextBox);
@@ -161,5 +170,6 @@
         private System.Windows.Forms.Label label6;
         private Navbar navbar1;
         private System.Windows.Forms.Label budgetLabel;
+        private System.Windows.Forms.Button seeTransBtn;
     }
 }

@@ -36,7 +36,6 @@ namespace FinanceApp.Models
             set => EncryptedTargetAmount = RsaEncryptionHelper.EncryptFloat(value);
         }
 
-
         public FinancialGoal() { }
 
         public FinancialGoal(int userId, string name, float currentAmount, float targetAmount)

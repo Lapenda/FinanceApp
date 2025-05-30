@@ -1,4 +1,5 @@
-﻿using FinanceApp.Models;
+﻿using FinanceApp.Forms;
+using FinanceApp.Models;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -19,79 +20,173 @@ namespace FinanceApp.Managers
         public TransactionManager()
         {
             transactions.Clear();
-            categoryManager = new CategoryManager("categories.xml");
+            categoryManager = new CategoryManager("categories.xml", this);
             GetTransactionsFromDatabase();
         }
 
         public void Save(Transaction transaction)
         {
-            if (transaction == null) throw new ArgumentNullException(nameof(transaction));
-
-            using(var connection = new MySqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                var command = new MySqlCommand("INSERT INTO transactions (UserId, Amount, Description, CategoryId, Currency, TransactionDate) " +
-                    "VALUES (@UserId, @Amount, @Description, @CategoryId, @Currency, @TransactionDate)", connection);
-                command.Parameters.AddWithValue("@UserId", transaction.UserId);
-                command.Parameters.AddWithValue("@Amount", transaction.Amount);
-                command.Parameters.AddWithValue("@Description", transaction.Description);
-                command.Parameters.AddWithValue("@CategoryId", transaction.Category.Id);
-                command.Parameters.AddWithValue("@Currency", transaction.Currency);
-                command.Parameters.AddWithValue("@TransactionDate", transaction.Date);
+                if (transaction == null) throw new ArgumentNullException(nameof(transaction));
 
-                command.ExecuteNonQuery();
+                using (var connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    var command = new MySqlCommand("INSERT INTO transactions (UserId, Amount, Description, CategoryId, Currency, TransactionDate) " +
+                        "VALUES (@UserId, @Amount, @Description, @CategoryId, @Currency, @TransactionDate)", connection);
+                    command.Parameters.AddWithValue("@UserId", transaction.UserId);
+                    command.Parameters.AddWithValue("@Amount", transaction.Amount);
+                    command.Parameters.AddWithValue("@Description", transaction.Description);
+                    command.Parameters.AddWithValue("@CategoryId", transaction.Category.Id);
+                    command.Parameters.AddWithValue("@Currency", transaction.Currency);
+                    command.Parameters.AddWithValue("@TransactionDate", transaction.Date);
+
+                    command.ExecuteNonQuery();
+                }
+
+                GetTransactionsFromDatabase();
             }
-
-            GetTransactionsFromDatabase();
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error saving transaction to database: " + ex.Message);
+            }
         }
 
         public void DeleteTransaction(Transaction transaction)
         {
-            if (transaction == null) throw new ArgumentNullException(nameof(transaction));
-            if (!transactions.Remove(transaction.Id))
-                throw new InvalidOperationException($"Transaction with ID {transaction.Id} not found.");
+            try
+            {
+                if (transaction == null) throw new ArgumentNullException(nameof(transaction));
+                if (!transactions.Remove(transaction.Id))
+                    throw new InvalidOperationException($"Transaction with ID {transaction.Id} not found.");
 
+                using(var connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
 
+                    var command = new MySqlCommand("DELETE FROM transactions WHERE Id = @Id", connection);
+                    command.Parameters.AddWithValue("@Id", transaction.Id);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected == 0)
+                    {
+                        throw new Exception($"Transaction with Id {transaction.Id} not found or not owned by user.");
+                    }
+
+                    BudgetForm budgetForm = new BudgetForm();
+                    budgetForm.UpdateBudget(-transaction.Amount, transaction.Category);
+
+                    transactions.Remove(transaction.Id);
+                    GetTransactionsFromDatabase();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Errror deleting transaction: " + ex.Message);
+            }
         }
 
         public void EditTransaction(Transaction updatedTransaction)
         {
-            if (updatedTransaction == null) throw new ArgumentNullException(nameof(updatedTransaction));
-            if (!transactions.ContainsKey(updatedTransaction.Id))
-                throw new InvalidOperationException($"Transaction with ID {updatedTransaction.Id} not found.");
+            try
+            {
+                if (updatedTransaction == null) throw new ArgumentNullException(nameof(updatedTransaction));
+                if (!transactions.ContainsKey(updatedTransaction.Id))
+                    throw new InvalidOperationException($"Transaction with ID {updatedTransaction.Id} not found.");
 
-            transactions[updatedTransaction.Id] = updatedTransaction;
+                using (var connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    var command = new MySqlCommand("UPDATE transactions SET Amount = @Amount, Description = @Description, CategoryId = @CategoryId," +
+                        "Currency = @Currency, TransactionDate = @TransactionDate WHERE Id = @Id", connection);
+                    command.Parameters.AddWithValue("@Amount", updatedTransaction.Amount);
+                    command.Parameters.AddWithValue("@Description", updatedTransaction.Description);
+                    command.Parameters.AddWithValue("@CategoryId", updatedTransaction.Category.Id);
+                    command.Parameters.AddWithValue("@Currency", updatedTransaction.Currency);
+                    command.Parameters.AddWithValue("@TransactionDate", updatedTransaction.Date);
+                    command.Parameters.AddWithValue("@Id", updatedTransaction.Id);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected == 0)
+                    {
+                        throw new Exception($"Transaction with Id {updatedTransaction.Id} not found.");
+                    }
+                }
+
+                transactions[updatedTransaction.Id] = updatedTransaction;
+                GetTransactionsFromDatabase();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error editing transaction: " + ex.Message);
+            }
         }
 
         private void GetTransactionsFromDatabase()
         {
-            using (var connection = new MySqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                var command = new MySqlCommand("SELECT * FROM transactions WHERE UserId = @UserId", connection);
-                command.Parameters.AddWithValue("@UserId", SessionManager.currentUserId);
-
-                var categories = categoryManager.ReadAllUserCategories();
-
-                using(var reader = command.ExecuteReader())
+                using (var connection = new MySqlConnection(connectionString))
                 {
-                    while (reader.Read())
+                    connection.Open();
+                    var command = new MySqlCommand("SELECT * FROM transactions WHERE UserId = @UserId", connection);
+                    command.Parameters.AddWithValue("@UserId", SessionManager.currentUserId);
+
+                    var categories = categoryManager.ReadAllUserCategories();
+
+                    using (var reader = command.ExecuteReader())
                     {
-                        var category = categories.First(c => c.Id == reader.GetInt32("CategoryId"));
+                        while (reader.Read())
+                        {
+                            var category = categories.First(c => c.Id == reader.GetInt32("CategoryId"));
 
-                        var transaction = new Transaction(
-                            reader.GetInt32("Id"),
-                            reader.GetInt32("UserId"),
-                            reader.GetFloat("Amount"),
-                            reader.GetString("Description"),
-                            category,
-                            reader.GetString("Currency"),
-                            reader.GetDateTime("TransactionDate")
-                            );
+                            var transaction = new Transaction(
+                                reader.GetInt32("Id"),
+                                reader.GetInt32("UserId"),
+                                reader.GetFloat("Amount"),
+                                reader.GetString("Description"),
+                                category,
+                                reader.GetString("Currency"),
+                                reader.GetDateTime("TransactionDate")
+                                );
 
-                        transactions[transaction.Id] = transaction;
+                            transactions[transaction.Id] = transaction;
+                        }
                     }
-                }                
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error getting transactions from database: " + ex.Message);
+            }
+        }
+
+        public void DeleteTransactionsByCategory(int categoryId)
+        {
+            try
+            {
+                using (var connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    var transactionsToDelete = transactions.Values.Where(t => t.Category.Id == categoryId).ToList();
+                    foreach (var transaction in transactionsToDelete)
+                    {
+                        BudgetForm budgetForm = new BudgetForm();
+                        budgetForm.UpdateBudget(-transaction.Amount, transaction.Category);
+                        transactions.Remove(transaction.Id);
+                    }
+
+                    var command = new MySqlCommand("DELETE FROM transactions WHERE CategoryId = @CategoryId", connection);
+                    command.Parameters.AddWithValue("@CategoryId", categoryId);
+                    command.ExecuteNonQuery();
+                    GetTransactionsFromDatabase();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error deleting transactions for category {categoryId}: {ex.Message}");
             }
         }
     }

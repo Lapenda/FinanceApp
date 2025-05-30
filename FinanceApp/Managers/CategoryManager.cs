@@ -17,8 +17,9 @@ namespace FinanceApp.Managers
     {
         private readonly string filePath;
         private static readonly object fileLock = new object();
+        private readonly TransactionManager transactionManager;
 
-        public CategoryManager(string fileName)
+        public CategoryManager(string fileName, TransactionManager transactionManager)
         {
             filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/" + fileName);
 
@@ -26,6 +27,8 @@ namespace FinanceApp.Managers
             {
                 SaveCategories(new List<Category>());
             }
+
+            this.transactionManager = transactionManager ?? throw new ArgumentNullException(nameof(transactionManager));
         }
 
         private List<Category> ReadAllCategories()
@@ -114,6 +117,8 @@ namespace FinanceApp.Managers
                 categories.Remove(existingCategory);
                 SaveCategories(categories);
                 MessageBox.Show("Succes");
+
+                transactionManager.DeleteTransactionsByCategory(existingCategory.Id);
             }
             else
             {

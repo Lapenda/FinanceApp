@@ -18,11 +18,13 @@ namespace FinanceApp.Forms
     {
         private readonly CategoryManager _categoryManager;
         private readonly BudgetManager _budgetManager;
+        private readonly TransactionManager _transactionManager;
 
         public BudgetForm()
         {
             InitializeComponent();
-            _categoryManager = new CategoryManager("categories.xml");
+            _transactionManager = new TransactionManager();
+            _categoryManager = new CategoryManager("categories.xml", _transactionManager);
             _budgetManager = new BudgetManager();
             InitializeCategoryComboBox();
             SettingsManager.ApplyTheme(this);
@@ -35,6 +37,10 @@ namespace FinanceApp.Forms
             if(budget != null)
             {
                 var category = _categoryManager.ReadAllUserCategories().FirstOrDefault(c => c.Id == budget.CategoryId);
+                if(category == null)
+                {
+                    return;
+                }
                 remainingBudgetLabel.Text = $"Category: {category.Name}, Spent: {budget.Spent}, Remaining: {budget.CalculateRemaining()}";
                 return;
             }
@@ -155,6 +161,8 @@ namespace FinanceApp.Forms
                 delBudgetBtn.Enabled = false;
                 addBudgetBtn.Enabled = true;
             }
+
+            CheckIfCategoryIsSavings(category);
         }
 
         private void editBudgetBtn_Click(object sender, EventArgs e)
@@ -206,6 +214,16 @@ namespace FinanceApp.Forms
             UpdateLabel(null);
             UpdateTextBoxes();
             UpdateButtonStatus();
+        }
+
+        private void CheckIfCategoryIsSavings(Category category)
+        {
+            if(category != null && category.Name.ToLower() != "savings")
+            {
+                addBudgetBtn.Enabled = true;
+            }
+
+            addBudgetBtn.Enabled = false;
         }
     }
 }

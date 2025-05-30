@@ -12,11 +12,11 @@ namespace FinanceApp.Models
     {
         public int Id { get; private set; }
         public int UserId { get; private set; }
-        public float Amount { get; private set; }
-        public string Description { get; private set; }
-        public Category Category { get; private set; }
-        public string Currency { get; private set; }
-        public DateTime Date { get; private set; }
+        public float Amount { get; set; }
+        public string Description { get; set; }
+        public Category Category { get; set; }
+        public string Currency { get; set; }
+        public DateTime Date { get; set; }
 
         public Transaction(int id, int userId, float amount, string description, Category category, string currency, DateTime date)
         {

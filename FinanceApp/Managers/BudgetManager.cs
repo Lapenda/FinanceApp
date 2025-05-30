@@ -17,12 +17,14 @@ namespace FinanceApp.Managers
     {
         private readonly string filePath;
         private readonly CategoryManager _categoryManager;
+        private readonly TransactionManager _transactionManager;
         private static readonly object fileLock = new object();
 
         public BudgetManager() 
         {
             filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/budgets.bin");
-            _categoryManager = new CategoryManager("categories.xml");
+            _transactionManager = new TransactionManager();
+            _categoryManager = new CategoryManager("categories.xml", _transactionManager);
 
             if (!File.Exists(filePath))
             {
@@ -125,7 +127,7 @@ namespace FinanceApp.Managers
                     return null;
                 }
                 SaveBudgets(budgets);
-                MessageBox.Show("Success updating budget.");
+                //MessageBox.Show("Success updating budget.");
                 return existingBudget;
             }
             else

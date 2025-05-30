@@ -17,11 +17,13 @@ namespace FinanceApp.Forms
     public partial class CategoryForm : Form
     {
         private readonly CategoryManager categoryManager;
+        private readonly TransactionManager transactionManager;
 
         public CategoryForm()
         {
             InitializeComponent();
-            categoryManager = new CategoryManager("categories.xml");
+            transactionManager = new TransactionManager();
+            categoryManager = new CategoryManager("categories.xml", transactionManager);
 
             SettingsManager.ApplyTheme(this);
 
