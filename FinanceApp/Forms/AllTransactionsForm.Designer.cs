@@ -48,6 +48,7 @@
             this.sortByComboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.filterTextBox = new System.Windows.Forms.TextBox();
+            this.calculatedTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.transDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -185,12 +186,13 @@
             // 
             // sortBtn
             // 
-            this.sortBtn.Location = new System.Drawing.Point(54, 111);
+            this.sortBtn.Location = new System.Drawing.Point(12, 114);
             this.sortBtn.Name = "sortBtn";
-            this.sortBtn.Size = new System.Drawing.Size(89, 41);
+            this.sortBtn.Size = new System.Drawing.Size(174, 45);
             this.sortBtn.TabIndex = 14;
             this.sortBtn.Text = "Sort";
             this.sortBtn.UseVisualStyleBackColor = true;
+            this.sortBtn.Click += new System.EventHandler(this.sortBtn_Click);
             // 
             // label6
             // 
@@ -226,11 +228,21 @@
             this.filterTextBox.TabIndex = 18;
             this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
             // 
+            // calculatedTextBox
+            // 
+            this.calculatedTextBox.Location = new System.Drawing.Point(12, 343);
+            this.calculatedTextBox.MinimumSize = new System.Drawing.Size(0, 50);
+            this.calculatedTextBox.Name = "calculatedTextBox";
+            this.calculatedTextBox.ReadOnly = true;
+            this.calculatedTextBox.Size = new System.Drawing.Size(195, 50);
+            this.calculatedTextBox.TabIndex = 19;
+            // 
             // AllTransactionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1422, 694);
+            this.Controls.Add(this.calculatedTextBox);
             this.Controls.Add(this.filterTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.sortByComboBox);
@@ -281,5 +293,6 @@
         private System.Windows.Forms.ComboBox sortByComboBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox filterTextBox;
+        private System.Windows.Forms.TextBox calculatedTextBox;
     }
 }

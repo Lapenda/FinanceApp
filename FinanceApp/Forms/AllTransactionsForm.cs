@@ -19,6 +19,8 @@ namespace FinanceApp.Forms
     {
         private readonly CategoryManager categoryManager;
         private readonly TransactionManager transactionManager;
+        //private readonly IReadOnlyCollection<Transaction> transactions;
+        private bool ascendingSort = true;
 
         public AllTransactionsForm()
         {
@@ -32,6 +34,11 @@ namespace FinanceApp.Forms
             InitializeCurrencyComboBox();
             LoadDataGrid();
             UpdateButtonStates();
+            InitializeSortComboBox();
+
+            //transactions = new List<Transaction>();
+            //transactions = transactionManager.GetAllTransactions();
+            CalculateExpenses();
 
             transDataGridView.CellFormatting += transDataGridView_CellFormatting;
         }
@@ -42,6 +49,14 @@ namespace FinanceApp.Forms
             currencyComboBox.Items.Clear();
             currencyComboBox.Items.AddRange(currencies);
             currencyComboBox.SelectedIndex = 0;
+        }
+
+        private void InitializeSortComboBox()
+        {
+            var sortingBy = new[] { "By description", "By amount", "By date"};
+            sortByComboBox.Items.Clear();
+            sortByComboBox.Items.AddRange(sortingBy);
+            sortByComboBox.SelectedIndex = 0;
         }
 
         private void LoadDataGrid()
@@ -148,6 +163,7 @@ namespace FinanceApp.Forms
             transactionManager.DeleteTransaction(transaction);
 
             LoadDataGrid();
+            CalculateExpenses();
         }
 
         private void editBtn_Click(object sender, EventArgs e)
@@ -192,6 +208,7 @@ namespace FinanceApp.Forms
             }
 
             LoadDataGrid();
+            CalculateExpenses();
         }
 
         private void filterTextBox_TextChanged(object sender, EventArgs e)
@@ -208,6 +225,42 @@ namespace FinanceApp.Forms
             {
                 SetDataSource(transactionsToShow.ToList());
             }
+        }
+
+        private void sortBtn_Click(object sender, EventArgs e)
+        {
+            var transactions = transactionManager.GetAllTransactions();
+
+            sortBtn.Text = ascendingSort ? "Sort ascending" : "Sort descending";
+            ascendingSort = !ascendingSort;
+
+            if(sortByComboBox.SelectedItem.ToString() == "By amount")
+            {
+                var transactionsToShow = ascendingSort ? transactions.OrderBy(t => t.Amount).ToList() : transactions.OrderByDescending(t => t.Amount).ToList();
+                SetDataSource(transactionsToShow);
+            }
+
+            if (sortByComboBox.SelectedItem.ToString() == "By description")
+            {
+                var transactionsToShow = ascendingSort ? transactions.OrderBy(t => t.Description).ToList() : transactions.OrderByDescending(t => t.Description).ToList();
+                SetDataSource(transactionsToShow);
+            }
+
+            if (sortByComboBox.SelectedItem.ToString() == "By date")
+            {
+                var transactionsToShow = ascendingSort ? transactions.OrderBy(t => t.Date).ToList() : transactions.OrderByDescending(t => t.Date).ToList();
+                SetDataSource(transactionsToShow);
+            }
+        }
+
+        private void CalculateExpenses()
+        {
+            var transactions = transactionManager.GetAllTransactions();
+            var totalSpent = transactions.Sum(t => t.Amount);
+            
+            calculatedTextBox.Multiline = true;
+
+            calculatedTextBox.Text = "All expenses so far: \n" +  totalSpent.ToString();
         }
     }
 }
