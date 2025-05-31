@@ -17,8 +17,9 @@ namespace FinanceApp.Models
         public Category Category { get; set; }
         public string Currency { get; set; }
         public DateTime Date { get; set; }
+        public byte[] ReceiptImage { get; set; }
 
-        public Transaction(int id, int userId, float amount, string description, Category category, string currency, DateTime date)
+        public Transaction(int id, int userId, float amount, string description, Category category, string currency, DateTime date, byte[] receiptImage)
         {
             if (id < 0) throw new ArgumentException("Transaction ID cannot be negative.", nameof(id));
             if (userId < 0) throw new ArgumentException("User ID cannot be negative.", nameof(userId));
@@ -34,9 +35,10 @@ namespace FinanceApp.Models
             Description = description;
             Date = date;
             Currency = currency;
+            ReceiptImage = receiptImage;
         }
 
-        public Transaction(int userId, float amount, string description, Category category, string currency, DateTime date)
+        public Transaction(int userId, float amount, string description, Category category, string currency, DateTime date, byte[] receiptImage)
         {
             if (userId < 0) throw new ArgumentException("User ID cannot be negative.", nameof(userId));
             if (amount < 0) throw new ArgumentException("Amount cannot be negative.", nameof(amount));
@@ -50,6 +52,7 @@ namespace FinanceApp.Models
             Description = description;
             Date = date;
             Currency = currency;
+            ReceiptImage = receiptImage;
         }
     }
 }

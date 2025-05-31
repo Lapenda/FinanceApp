@@ -44,6 +44,9 @@
             this.budgetLabel = new System.Windows.Forms.Label();
             this.navbar1 = new FinanceApp.Forms.Navbar();
             this.seeTransBtn = new System.Windows.Forms.Button();
+            this.receiptPictureBox = new System.Windows.Forms.PictureBox();
+            this.uploadReceiptBtn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.receiptPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -129,10 +132,25 @@
             this.seeTransBtn.UseVisualStyleBackColor = true;
             this.seeTransBtn.Click += new System.EventHandler(this.seeTransBtn_Click);
             // 
+            // receiptPictureBox
+            // 
+            resources.ApplyResources(this.receiptPictureBox, "receiptPictureBox");
+            this.receiptPictureBox.Name = "receiptPictureBox";
+            this.receiptPictureBox.TabStop = false;
+            // 
+            // uploadReceiptBtn
+            // 
+            resources.ApplyResources(this.uploadReceiptBtn, "uploadReceiptBtn");
+            this.uploadReceiptBtn.Name = "uploadReceiptBtn";
+            this.uploadReceiptBtn.UseVisualStyleBackColor = true;
+            this.uploadReceiptBtn.Click += new System.EventHandler(this.uploadReceiptBtn_Click);
+            // 
             // TransactionForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.uploadReceiptBtn);
+            this.Controls.Add(this.receiptPictureBox);
             this.Controls.Add(this.seeTransBtn);
             this.Controls.Add(this.budgetLabel);
             this.Controls.Add(this.navbar1);
@@ -149,6 +167,7 @@
             this.Controls.Add(this.welcomeLabel);
             this.Controls.Add(this.label1);
             this.Name = "TransactionForm";
+            ((System.ComponentModel.ISupportInitialize)(this.receiptPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,5 +190,7 @@
         private Navbar navbar1;
         private System.Windows.Forms.Label budgetLabel;
         private System.Windows.Forms.Button seeTransBtn;
+        private System.Windows.Forms.PictureBox receiptPictureBox;
+        private System.Windows.Forms.Button uploadReceiptBtn;
     }
 }

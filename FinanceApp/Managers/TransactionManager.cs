@@ -33,14 +33,15 @@ namespace FinanceApp.Managers
                 using (var connection = new MySqlConnection(connectionString))
                 {
                     connection.Open();
-                    var command = new MySqlCommand("INSERT INTO transactions (UserId, Amount, Description, CategoryId, Currency, TransactionDate) " +
-                        "VALUES (@UserId, @Amount, @Description, @CategoryId, @Currency, @TransactionDate)", connection);
+                    var command = new MySqlCommand("INSERT INTO transactions (UserId, Amount, Description, CategoryId, Currency, TransactionDate, ReceiptImage) " +
+                        "VALUES (@UserId, @Amount, @Description, @CategoryId, @Currency, @TransactionDate, @ReceiptImage)", connection);
                     command.Parameters.AddWithValue("@UserId", transaction.UserId);
                     command.Parameters.AddWithValue("@Amount", transaction.Amount);
                     command.Parameters.AddWithValue("@Description", transaction.Description);
                     command.Parameters.AddWithValue("@CategoryId", transaction.Category.Id);
                     command.Parameters.AddWithValue("@Currency", transaction.Currency);
                     command.Parameters.AddWithValue("@TransactionDate", transaction.Date);
+                    command.Parameters.AddWithValue("@ReceiptImage", transaction.ReceiptImage ?? (object)DBNull.Value);
 
                     command.ExecuteNonQuery();
                 }
@@ -99,12 +100,13 @@ namespace FinanceApp.Managers
                 {
                     connection.Open();
                     var command = new MySqlCommand("UPDATE transactions SET Amount = @Amount, Description = @Description, CategoryId = @CategoryId," +
-                        "Currency = @Currency, TransactionDate = @TransactionDate WHERE Id = @Id", connection);
+                        "Currency = @Currency, TransactionDate = @TransactionDate, ReceiptImage = @ReceiptImage WHERE Id = @Id", connection);
                     command.Parameters.AddWithValue("@Amount", updatedTransaction.Amount);
                     command.Parameters.AddWithValue("@Description", updatedTransaction.Description);
                     command.Parameters.AddWithValue("@CategoryId", updatedTransaction.Category.Id);
                     command.Parameters.AddWithValue("@Currency", updatedTransaction.Currency);
                     command.Parameters.AddWithValue("@TransactionDate", updatedTransaction.Date);
+                    command.Parameters.AddWithValue("@ReceiptImage", updatedTransaction.ReceiptImage ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@Id", updatedTransaction.Id);
 
                     int rowsAffected = command.ExecuteNonQuery();
@@ -141,6 +143,12 @@ namespace FinanceApp.Managers
                         {
                             var category = categories.First(c => c.Id == reader.GetInt32("CategoryId"));
 
+                            byte[] receiptImage = null;
+                            if(!reader.IsDBNull(reader.GetOrdinal("ReceiptImage")))
+                            {
+                                receiptImage = (byte[])reader["ReceiptImage"];
+                            }
+
                             var transaction = new Transaction(
                                 reader.GetInt32("Id"),
                                 reader.GetInt32("UserId"),
@@ -148,7 +156,8 @@ namespace FinanceApp.Managers
                                 reader.GetString("Description"),
                                 category,
                                 reader.GetString("Currency"),
-                                reader.GetDateTime("TransactionDate")
+                                reader.GetDateTime("TransactionDate"),
+                                receiptImage
                                 );
 
                             transactions[transaction.Id] = transaction;

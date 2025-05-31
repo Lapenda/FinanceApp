@@ -49,7 +49,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.filterTextBox = new System.Windows.Forms.TextBox();
             this.calculatedTextBox = new System.Windows.Forms.TextBox();
+            this.receiptPictureBox = new System.Windows.Forms.PictureBox();
+            this.uploadReceiptBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.transDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiptPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // transDataGridView
@@ -231,17 +234,37 @@
             // calculatedTextBox
             // 
             this.calculatedTextBox.Location = new System.Drawing.Point(12, 343);
-            this.calculatedTextBox.MinimumSize = new System.Drawing.Size(0, 50);
+            this.calculatedTextBox.MinimumSize = new System.Drawing.Size(4, 50);
             this.calculatedTextBox.Name = "calculatedTextBox";
             this.calculatedTextBox.ReadOnly = true;
-            this.calculatedTextBox.Size = new System.Drawing.Size(195, 50);
+            this.calculatedTextBox.Size = new System.Drawing.Size(195, 26);
             this.calculatedTextBox.TabIndex = 19;
+            // 
+            // receiptPictureBox
+            // 
+            this.receiptPictureBox.Location = new System.Drawing.Point(1440, 26);
+            this.receiptPictureBox.Name = "receiptPictureBox";
+            this.receiptPictureBox.Size = new System.Drawing.Size(470, 367);
+            this.receiptPictureBox.TabIndex = 20;
+            this.receiptPictureBox.TabStop = false;
+            // 
+            // uploadReceiptBtn
+            // 
+            this.uploadReceiptBtn.Location = new System.Drawing.Point(1605, 436);
+            this.uploadReceiptBtn.Name = "uploadReceiptBtn";
+            this.uploadReceiptBtn.Size = new System.Drawing.Size(185, 48);
+            this.uploadReceiptBtn.TabIndex = 21;
+            this.uploadReceiptBtn.Text = "Upload New Receipt";
+            this.uploadReceiptBtn.UseVisualStyleBackColor = true;
+            this.uploadReceiptBtn.Click += new System.EventHandler(this.uploadReceiptBtn_Click);
             // 
             // AllTransactionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1422, 694);
+            this.ClientSize = new System.Drawing.Size(2078, 694);
+            this.Controls.Add(this.uploadReceiptBtn);
+            this.Controls.Add(this.receiptPictureBox);
             this.Controls.Add(this.calculatedTextBox);
             this.Controls.Add(this.filterTextBox);
             this.Controls.Add(this.label7);
@@ -262,10 +285,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.returnBtn);
             this.Controls.Add(this.transDataGridView);
-            this.MinimumSize = new System.Drawing.Size(1430, 750);
+            this.MinimumSize = new System.Drawing.Size(2100, 750);
             this.Name = "AllTransactionsForm";
             this.Text = "AllTransactionsForm";
             ((System.ComponentModel.ISupportInitialize)(this.transDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiptPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,5 +318,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox filterTextBox;
         private System.Windows.Forms.TextBox calculatedTextBox;
+        private System.Windows.Forms.PictureBox receiptPictureBox;
+        private System.Windows.Forms.Button uploadReceiptBtn;
     }
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -19,8 +20,8 @@ namespace FinanceApp.Forms
     {
         private readonly CategoryManager categoryManager;
         private readonly TransactionManager transactionManager;
-        //private readonly IReadOnlyCollection<Transaction> transactions;
         private bool ascendingSort = true;
+        private byte[] selectedReceiptImage;
 
         public AllTransactionsForm()
         {
@@ -36,8 +37,6 @@ namespace FinanceApp.Forms
             UpdateButtonStates();
             InitializeSortComboBox();
 
-            //transactions = new List<Transaction>();
-            //transactions = transactionManager.GetAllTransactions();
             CalculateExpenses();
 
             transDataGridView.CellFormatting += transDataGridView_CellFormatting;
@@ -53,7 +52,7 @@ namespace FinanceApp.Forms
 
         private void InitializeSortComboBox()
         {
-            var sortingBy = new[] { "By description", "By amount", "By date"};
+            var sortingBy = new[] { "By description", "By amount", "By date" };
             sortByComboBox.Items.Clear();
             sortByComboBox.Items.AddRange(sortingBy);
             sortByComboBox.SelectedIndex = 0;
@@ -71,6 +70,8 @@ namespace FinanceApp.Forms
             categoryComboBox.SelectedIndex = 0;
             currencyComboBox.SelectedIndex = 0;
             dateTimePicker.Value = DateTime.Now;
+            selectedReceiptImage = null;
+            receiptPictureBox.Image = null;
         }
 
         private void SetDataSource(IEnumerable<Transaction> transactions)
@@ -125,6 +126,24 @@ namespace FinanceApp.Forms
                 categoryComboBox.SelectedItem = categoryComboBox.Items.Cast<Category>().FirstOrDefault(c => c.Id == transaction.Category.Id);
                 currencyComboBox.SelectedItem = transaction.Currency;
                 dateTimePicker.Value = transaction.Date;
+                selectedReceiptImage = transaction.ReceiptImage;
+
+                if(selectedReceiptImage != null)
+                {
+                    try
+                    {
+                        using (var ms = new MemoryStream(selectedReceiptImage))
+                        {
+                            receiptPictureBox.Image = Image.FromStream(ms);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error displaying image: " + ex.Message);
+                        selectedReceiptImage = null;
+                        receiptPictureBox.Image = null;
+                    }
+                }
             }
             
             UpdateButtonStates();
@@ -191,6 +210,11 @@ namespace FinanceApp.Forms
             transaction.Amount = amount;
             transaction.Description = descTextBox.Text;
             transaction.Category = (Category)categoryComboBox.SelectedItem;
+            
+            if(selectedReceiptImage != null)
+            {
+                transaction.ReceiptImage = selectedReceiptImage;
+            }
 
             if(transaction.Category.Name.ToLower() == "savings")
             {
@@ -261,6 +285,34 @@ namespace FinanceApp.Forms
             calculatedTextBox.Multiline = true;
 
             calculatedTextBox.Text = "All expenses so far: \n" +  totalSpent.ToString();
+        }
+
+        private void uploadReceiptBtn_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png|All Files|*.*";
+                ofd.Title = "Select a Receipt Image";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        selectedReceiptImage = File.ReadAllBytes(ofd.FileName);
+                        using (var ms = new MemoryStream(selectedReceiptImage))
+                        {
+                            receiptPictureBox.Image = Image.FromStream(ms);
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error uploading image: " + ex.Message);
+                        selectedReceiptImage = null;
+                        receiptPictureBox.Image = null;
+                    }
+                }
+            }
         }
     }
 }

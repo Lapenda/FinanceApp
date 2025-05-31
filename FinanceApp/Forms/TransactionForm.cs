@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -21,6 +22,8 @@ namespace FinanceApp.Forms
         private readonly CategoryManager categoryManager;
         private readonly TransactionManager transactionManager;
         private readonly BudgetManager budgetManager;
+
+        private byte[] selectedReceiptImage;
 
         public TransactionForm()
         {
@@ -76,7 +79,16 @@ namespace FinanceApp.Forms
                 return;
             }
 
-            Transaction tx = new Transaction(SessionManager.currentUserId, amount, description, selectedCategory, SettingsManager.GetSettings().DefaultCurrency, datePicker.Value);
+            if(selectedReceiptImage == null)
+            {
+                var result = MessageBox.Show("You didn't enter a receipt image, do you want to continue?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result != DialogResult.Yes)
+                {
+                    return;
+                }
+            }
+
+            Transaction tx = new Transaction(SessionManager.currentUserId, amount, description, selectedCategory, SettingsManager.GetSettings().DefaultCurrency, datePicker.Value, selectedReceiptImage);
             BudgetForm budgetForm = new BudgetForm();
             var transactionSuccessfull = budgetForm.UpdateBudget(tx.Amount, tx.Category);
 
@@ -197,6 +209,34 @@ namespace FinanceApp.Forms
             AllTransactionsForm allTransactionsForm = new AllTransactionsForm();
             allTransactionsForm.Show();
             this.Hide();
+        }
+
+        private void uploadReceiptBtn_Click(object sender, EventArgs e)
+        {
+            using(OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png|All Files|*.*";
+                ofd.Title = "Select a Receipt Image";
+
+                if(ofd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        selectedReceiptImage = File.ReadAllBytes(ofd.FileName);
+                        using(var ms = new MemoryStream(selectedReceiptImage))
+                        {
+                            receiptPictureBox.Image = Image.FromStream(ms);
+                        }
+
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("Error uploading image: " + ex.Message);
+                        selectedReceiptImage = null;
+                        receiptPictureBox.Image = null;
+                    }
+                }
+            }
         }
     }
 }
