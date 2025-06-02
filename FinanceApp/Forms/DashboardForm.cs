@@ -1,4 +1,5 @@
-﻿using FinanceApp.Manager;
+﻿using FinanceApp.Encryption;
+using FinanceApp.Manager;
 using FinanceApp.Managers;
 using FinanceApp.Models;
 using iText.Kernel.Font;
@@ -189,27 +190,32 @@ namespace FinanceApp.Forms
 
                 string reportFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/summaryReport.txt");
                 string pdfFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/financialSummaryReport.pdf");
+                string signaturePdfFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/financialSummaryReportPdf.signature");
+                string signatureTxtFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/financialSummaryReportTxt.signature");
 
                 reportMutex.WaitOne();
                 try
                 {
                     File.WriteAllText(reportFilePath, report);
 
-                    using (var writer = new PdfWriter(pdfFilePath))
-                    using (var pdf = new PdfDocument(writer))
-                    using (var document = new Document(pdf))
+                    byte[] pdfBytes;
+
+                    using (var ms = new MemoryStream())
                     {
-                        try
+                        using (var writer = new PdfWriter(ms))
+                        using(var pdf = new PdfDocument(writer))
+                        using (var document = new Document(pdf))
                         {
                             var font = PdfFontFactory.CreateFont(iText.IO.Font.Constants.StandardFonts.HELVETICA);
-
-                            document.Add(new Paragraph(report)).SetFont(font);
+                            document.Add(new Paragraph(report).SetFont(font));
                         }
-                        catch (iText.Kernel.Exceptions.PdfException ex)
-                        {
-                            throw new Exception($"Failed to generate PDF: {ex.Message}", ex);
-                        }
+                        pdfBytes = ms.ToArray();
                     }
+
+                    File.WriteAllBytes(pdfFilePath, pdfBytes);
+
+                    byte[] signature = RsaEncryptionHelper.SignDocument(pdfBytes);
+                    File.WriteAllBytes(signaturePdfFilePath, signature);
                 }
                 catch (Exception ex)
                 {
@@ -248,6 +254,39 @@ namespace FinanceApp.Forms
             if (tasksCompleted == totalTasks)
             {
                 startAnalysisBtn.Enabled = true;
+            }
+        }
+
+        private void viewPdfBtn_Click(object sender, EventArgs e)
+        {
+            string pdfFIlePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/financialSummaryReport.pdf");
+            string signaturePdfFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/financialSummaryReportPdf.signature");
+
+            try
+            {
+                if(!File.Exists(pdfFIlePath) || !File.Exists(signaturePdfFilePath))
+                {
+                    MessageBox.Show("Error, the PDF or the signature don't exist");
+                    return;
+                }
+
+                byte[] pdf = File.ReadAllBytes(pdfFIlePath);
+                byte[] signature = File.ReadAllBytes(signaturePdfFilePath);
+
+                bool isValid = RsaEncryptionHelper.VerifySignature(pdf, signature);
+
+                if (!isValid)
+                {
+                    MessageBox.Show("Signature invalid! The PDF has been tampered with.");
+                    return;
+                }
+
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(pdfFIlePath) { UseShellExecute = true });
+                MessageBox.Show("PDF verified successfully!");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error verifying or opening the PDF: " + ex.Message);
             }
         }
     }

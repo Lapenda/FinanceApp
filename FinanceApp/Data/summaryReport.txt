@@ -1,13 +1,18 @@
 Financial Summary Report for user
-Generated on: 30.5.2025. 3:04
+Generated on: 2.6.2025. 15:41
 
 Total expenses by Category:
 
 roba: 45
   - haha 2.5.2025.: 20 (Transaction ID: 39)
   - majica 29.5.2025.: 10 (Transaction ID: 45)
-  - gace 29.5.2025.: 5 (Transaction ID: 46)
+  - hlace 29.5.2025.: 5 (Transaction ID: 46)
   - majica 2 29.5.2025.: 10 (Transaction ID: 47)
 
+kat 12: 22
+  - probaaa 31.5.2025.: 9 (Transaction ID: 62)
+  - slika 31.5.2025.: 10 (Transaction ID: 63)
+  - ds 31.5.2025.: 3 (Transaction ID: 64)
+
 Financial Goals Progress:
-auto: 1,45% (290/20000)
+auto: 14,50% (290/2000)

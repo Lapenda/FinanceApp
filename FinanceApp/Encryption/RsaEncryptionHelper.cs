@@ -51,5 +51,31 @@ namespace FinanceApp.Encryption
             string decryptedString = Encoding.UTF8.GetString(decryptedData);
             return float.Parse(decryptedString);
         }
+
+        public static byte[] SignDocument(byte[] data)
+        {
+            try
+            {
+                return rsa.SignData(data, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+            }
+            catch(Exception ex) 
+            {
+                Console.WriteLine("Error signing a document:" + ex.Message);
+                throw new Exception("Error signing a document: " +  ex.Message, ex);
+            }
+        }
+
+        public static bool VerifySignature(byte[] data, byte[] signature)
+        {
+            try
+            {
+                return rsa.VerifyData(data, signature, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error verifying a document:" + ex.Message);
+                throw new Exception("Error verifying a document:" + ex.Message, ex);
+            }
+        }
     }
 }

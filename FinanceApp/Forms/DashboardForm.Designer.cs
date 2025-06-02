@@ -34,6 +34,7 @@
             this.summaryTextBox = new System.Windows.Forms.TextBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.navbar1 = new FinanceApp.Forms.Navbar();
+            this.viewPdfBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // startAnalysisBtn
@@ -87,14 +88,25 @@
             this.navbar1.Location = new System.Drawing.Point(0, 0);
             this.navbar1.MinimumSize = new System.Drawing.Size(1430, 0);
             this.navbar1.Name = "navbar1";
-            this.navbar1.Size = new System.Drawing.Size(1430, 55);
+            this.navbar1.Size = new System.Drawing.Size(2884, 83);
             this.navbar1.TabIndex = 6;
+            // 
+            // viewPdfBtn
+            // 
+            this.viewPdfBtn.Location = new System.Drawing.Point(852, 582);
+            this.viewPdfBtn.Name = "viewPdfBtn";
+            this.viewPdfBtn.Size = new System.Drawing.Size(116, 47);
+            this.viewPdfBtn.TabIndex = 7;
+            this.viewPdfBtn.Text = "View PDF";
+            this.viewPdfBtn.UseVisualStyleBackColor = true;
+            this.viewPdfBtn.Click += new System.EventHandler(this.viewPdfBtn_Click);
             // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1414, 694);
+            this.ClientSize = new System.Drawing.Size(2884, 1590);
+            this.Controls.Add(this.viewPdfBtn);
             this.Controls.Add(this.navbar1);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.summaryTextBox);
@@ -117,5 +129,6 @@
         private System.Windows.Forms.TextBox summaryTextBox;
         private System.Windows.Forms.ProgressBar progressBar;
         private Navbar navbar1;
+        private System.Windows.Forms.Button viewPdfBtn;
     }
 }
