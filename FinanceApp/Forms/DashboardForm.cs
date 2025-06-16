@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.IO;
@@ -281,12 +282,72 @@ namespace FinanceApp.Forms
                     return;
                 }
 
-                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(pdfFIlePath) { UseShellExecute = true });
+                Process.Start(new ProcessStartInfo(pdfFIlePath) { UseShellExecute = true });
                 MessageBox.Show("PDF verified successfully!");
             }
             catch(Exception ex)
             {
                 Console.WriteLine("Error verifying or opening the PDF: " + ex.Message);
+            }
+        }
+
+        private void calculateAvgTransactions_Click(object sender, EventArgs e)
+        {
+            Process process = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../BackupApp/bin/Debug/BackupApp.exe"),
+                    Arguments = SessionManager.currentUserId.ToString(),
+                    UseShellExecute = false,
+                    RedirectStandardOutput = false,
+                    CreateNoWindow = true,
+                }
+            };
+
+            try
+            {
+                process.Start();
+                process.WaitForExit();
+                int exitCode = process.ExitCode;
+
+                if(exitCode == 0)
+                {
+                    string resultFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/averages.txt");
+                    if (File.Exists(resultFile))
+                    {
+                        string[] lines = File.ReadAllLines(resultFile);
+                        float totalAverage = float.Parse(lines[1]);
+                        var categoryAverages = new Dictionary<string, float>();
+                        for(int i = 4; i < lines.Length; i++)
+                        {
+                            string[] parts = lines[i].Split(':');
+                            categoryAverages[parts[0]] = float.Parse(parts[1]);
+                        }
+
+                        string message = $"Average value of all transactions: {totalAverage}\n\n";
+                        message += "Average value by category: \n";
+                        foreach(var kvp in categoryAverages)
+                        {
+                            message += $"{kvp.Key}: {kvp.Value}\n";
+                        }
+
+                        MessageBox.Show(message, "Statistic of averages");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Averages.txt file doesn't exist.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error in calculating averages.");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error in calculating averages.");
+                Console.WriteLine("Error in averages", ex.Message);
             }
         }
     }

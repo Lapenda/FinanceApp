@@ -13,7 +13,7 @@ using System.Xml.Serialization;
 
 namespace FinanceApp.Managers
 {
-    internal class CategoryManager
+    public class CategoryManager
     {
         private readonly string filePath;
         private static readonly object fileLock = new object();
@@ -21,7 +21,7 @@ namespace FinanceApp.Managers
 
         public CategoryManager(string fileName, TransactionManager transactionManager)
         {
-            filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/" + fileName);
+            filePath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../FinanceApp/Data/" + fileName));
 
             if (!File.Exists(filePath))
             {
@@ -57,9 +57,10 @@ namespace FinanceApp.Managers
             }
         }
 
-        public List<Category> ReadAllUserCategories()
+        public List<Category> ReadAllUserCategories(int? userId = null)
         {
-            return ReadAllCategories().Where(c => c.UserId == SessionManager.currentUserId).ToList();
+            int id = userId ?? SessionManager.currentUserId;
+            return ReadAllCategories().Where(c => c.UserId == id).ToList();
         }
 
         private void SaveCategories(List<Category> categories)

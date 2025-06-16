@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FinanceApp.Managers
 {
-    internal class TransactionManager
+    public class TransactionManager
     {
         private readonly CategoryManager categoryManager;
         private static readonly Dictionary<int, Transaction> transactions = new Dictionary<int, Transaction>();
@@ -22,6 +22,13 @@ namespace FinanceApp.Managers
             transactions.Clear();
             categoryManager = new CategoryManager("categories.xml", this);
             GetTransactionsFromDatabase();
+        }
+
+        public TransactionManager(int userId)
+        {
+            transactions.Clear();
+            categoryManager = new CategoryManager("categories.xml", this);
+            GetTransactionsFromDatabase(userId);
         }
 
         public void Save(Transaction transaction)
@@ -125,7 +132,7 @@ namespace FinanceApp.Managers
             }
         }
 
-        private void GetTransactionsFromDatabase()
+        private void GetTransactionsFromDatabase(int? userId = null)
         {
             try
             {
@@ -133,9 +140,9 @@ namespace FinanceApp.Managers
                 {
                     connection.Open();
                     var command = new MySqlCommand("SELECT * FROM transactions WHERE UserId = @UserId", connection);
-                    command.Parameters.AddWithValue("@UserId", SessionManager.currentUserId);
+                    command.Parameters.AddWithValue("@UserId", userId ?? SessionManager.currentUserId);
 
-                    var categories = categoryManager.ReadAllUserCategories();
+                    var categories = categoryManager.ReadAllUserCategories(userId);
 
                     using (var reader = command.ExecuteReader())
                     {

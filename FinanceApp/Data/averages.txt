@@ -1,0 +1,6 @@
+Average of all transactions:
+9,571428
+
+Average of transactions by category:
+roba:11,25
+kat 12:7,333333

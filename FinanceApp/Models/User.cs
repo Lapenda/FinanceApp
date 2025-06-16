@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text;
 using System.Security.Cryptography;
-using System.Windows.Forms;
 using System.Linq;
 
 namespace FinanceApp.Models
