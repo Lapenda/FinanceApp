@@ -10,21 +10,24 @@ using System.Management;
 using FinanceApp.Models;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Net.Sockets;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Collections.Specialized;
 
 namespace FinanceApp.Managers
 {
     internal class BudgetManager
     {
         private readonly string filePath;
-        private readonly CategoryManager _categoryManager;
-        private readonly TransactionManager _transactionManager;
+        //private readonly CategoryManager _categoryManager;
+        //private readonly TransactionManager _transactionManager;
         private static readonly object fileLock = new object();
 
         public BudgetManager() 
         {
             filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/budgets.bin");
-            _transactionManager = new TransactionManager();
-            _categoryManager = new CategoryManager("categories.xml", _transactionManager);
+            //_transactionManager = new TransactionManager();
+            //_categoryManager = new CategoryManager("categories.xml", _transactionManager);
 
             if (!File.Exists(filePath))
             {
@@ -123,17 +126,81 @@ namespace FinanceApp.Managers
                 existingBudget.UpdateLimit(newLimit);
                 if(existingBudget.CalculateRemaining() < 0)
                 {
-                    MessageBox.Show("Exceeded budget!");
+                    //MessageBox.Show("Exceeded budget!");
+                    CheckBudgetExceeded(existingBudget);
                     return null;
                 }
                 SaveBudgets(budgets);
-                //MessageBox.Show("Success updating budget.");
                 return existingBudget;
             }
             else
             {
                 MessageBox.Show("Errror in finding the correct budget.");
                 return null;
+            }
+        }
+
+        private void CheckBudgetExceeded(Budget budget)
+        {
+            try
+            {
+                TcpClient client = new TcpClient("127.0.0.1", 13000);
+                NetworkStream stream = client.GetStream();
+
+                string request = $"{SessionManager.currentUserId},{budget.Limit},{budget.Spent},{budget.CategoryId}";
+                byte[] requestBytes = Encoding.UTF8.GetBytes(request);
+                stream.Write(requestBytes, 0, requestBytes.Length);
+
+                byte[] buffer = new byte[1];
+                stream.Read(buffer, 0, 1);
+                bool exceeded = buffer[0] == 1;
+
+                if (exceeded)
+                {
+                    byte[] lengthBuffer = new byte[4];
+                    int totalBytesRead = 0;
+                    while (totalBytesRead < 4)
+                    {
+                        int bytesRead = stream.Read(lengthBuffer, totalBytesRead, 4 - totalBytesRead);
+                        if (bytesRead == 0) throw new Exception("Stream prematurely closed.");
+                        totalBytesRead += bytesRead;
+                    }
+
+                    int transactionDataLength = BitConverter.ToInt32(lengthBuffer, 0);
+
+                    byte[] transactionData = new byte[transactionDataLength];
+                    totalBytesRead = 0;
+                    while (totalBytesRead < transactionDataLength)
+                    {
+                        int bytesRead = stream.Read(transactionData, totalBytesRead, transactionDataLength - totalBytesRead);
+                        if (bytesRead == 0) throw new Exception("Stream prematurely closed.");
+                        totalBytesRead += bytesRead;
+                    }
+
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    using (MemoryStream ms = new MemoryStream(transactionData))
+                    {
+                        var transactions = (List<Transaction>)formatter.Deserialize(ms);
+                        string message = "Budget exceeded!\n\nAll transactions:\n";
+                        foreach (var t in transactions)
+                        {
+                            message += $"{t.Description} ({t.Amount} {t.Currency})\n";
+                        }
+                        MessageBox.Show(message, "Warning");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Budget not exceeded.", "Info");
+                }
+
+                stream.Close();
+                client.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Greška u komunikaciji: {ex.Message}");
+                MessageBox.Show($"Greška u komunikaciji: {ex.Message}", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FinanceApp.Managers
 {
@@ -174,7 +175,7 @@ namespace FinanceApp.Managers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error getting transactions from database: " + ex.Message);
+                Console.WriteLine("Error getting transactions from database: " + ex.Message + connectionString);
             }
         }
 

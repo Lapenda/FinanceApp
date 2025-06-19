@@ -1,5 +1,5 @@
 Financial Summary Report for user
-Generated on: 16.6.2025. 11:47
+Generated on: 16.6.2025. 15:40
 
 Total expenses by Category:
 
@@ -15,4 +15,4 @@ kat 12: 22
   - ds 31.5.2025.: 3 (Transaction ID: 64)
 
 Financial Goals Progress:
-auto: 14,50% (290/2000)
+auto: 163,55% (3271/2000)

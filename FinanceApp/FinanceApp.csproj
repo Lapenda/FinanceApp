@@ -379,6 +379,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\rsaKey.xml" />
+    <Content Include="Data\averages.txt" />
     <Content Include="Data\categories.xml" />
     <Content Include="Data\summaryReport.txt" />
   </ItemGroup>

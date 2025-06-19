@@ -204,10 +204,10 @@ namespace FinanceApp.Forms
 
             BudgetForm budgetForm = new BudgetForm();
 
-            budgetForm.UpdateBudget(-transaction.Amount, transaction.Category);
+            //budgetForm.UpdateBudget(-transaction.Amount, transaction.Category);
 
             transaction.Date = dateTimePicker.Value;
-            transaction.Amount = amount;
+            //transaction.Amount = amount;
             transaction.Description = descTextBox.Text;
             transaction.Category = (Category)categoryComboBox.SelectedItem;
             
@@ -224,9 +224,10 @@ namespace FinanceApp.Forms
             }
             else
             {
-                var transactionSuccessfull = budgetForm.UpdateBudget(amount, transaction.Category);
+                var transactionSuccessfull = budgetForm.UpdateBudget(-transaction.Amount + amount, transaction.Category);
                 if (transactionSuccessfull)
                 {
+                    transaction.Amount = amount;
                     transactionManager.EditTransaction(transaction);
                 }
             }

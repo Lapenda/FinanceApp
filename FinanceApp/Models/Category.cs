@@ -4,6 +4,7 @@ using System.Xml.Serialization;
 
 namespace FinanceApp.Models
 {
+    [Serializable]
     public class Category
     {
         private string encryptedDescription;

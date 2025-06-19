@@ -21,7 +21,7 @@ namespace FinanceApp.Managers
 
         public CategoryManager(string fileName, TransactionManager transactionManager)
         {
-            filePath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../FinanceApp/Data/" + fileName));
+            filePath = Path.Combine("C:\\Users\\Borna\\Desktop\\Borna\\Faks\\Napredne tehnike programiranja\\projekt\\FinanceApp\\Data\\" + fileName);
 
             if (!File.Exists(filePath))
             {

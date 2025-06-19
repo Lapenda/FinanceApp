@@ -2,6 +2,7 @@
 
 namespace FinanceApp.Models
 {
+    [Serializable]
     public class Transaction
     {
         public int Id { get; private set; }
