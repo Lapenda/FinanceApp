@@ -35,7 +35,7 @@ namespace FinanceApp.Forms
                     isoCode = client.CountryISOCode(normalizedInput);
                     if (string.IsNullOrEmpty(isoCode))
                     {
-                        MessageBox.Show("Country not found. Check spelling or use the correct ISO code.");
+                        MessageBox.Show(Properties.Resources.CountryFound);
                         return;
                     }
                 }
