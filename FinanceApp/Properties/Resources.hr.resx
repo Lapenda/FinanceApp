@@ -123,8 +123,14 @@
   <data name="BackButton" xml:space="preserve">
     <value>Natrag</value>
   </data>
+  <data name="CountryFound" xml:space="preserve">
+    <value>Zemlja nije pronađena. Provjerite unos ili unesite ispravan ISO kod.</value>
+  </data>
   <data name="Croatian" xml:space="preserve">
     <value>Hrvatski (HR)</value>
+  </data>
+  <data name="CurrencyInCountry" xml:space="preserve">
+    <value>Valuta u odabranoj zemlji je:</value>
   </data>
   <data name="DarkTheme" xml:space="preserve">
     <value>Tamna tema</value>
@@ -140,6 +146,9 @@
   </data>
   <data name="InvalidCredentialsMessage" xml:space="preserve">
     <value>Pogrešni podaci!</value>
+  </data>
+  <data name="ISOMessage" xml:space="preserve">
+    <value>Molimo unesite ime zemlje ili ISO kod.</value>
   </data>
   <data name="Italian" xml:space="preserve">
     <value>Talijanski (TAL)</value>

@@ -79,11 +79,29 @@ namespace FinanceApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Country not found. Check spelling or use the correct ISO code..
+        /// </summary>
+        internal static string CountryFound {
+            get {
+                return ResourceManager.GetString("CountryFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Croatian (CRO).
         /// </summary>
         internal static string Croatian {
             get {
                 return ResourceManager.GetString("Croatian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currency in the selected country is:.
+        /// </summary>
+        internal static string CurrencyInCountry {
+            get {
+                return ResourceManager.GetString("CurrencyInCountry", resourceCulture);
             }
         }
         
@@ -129,6 +147,15 @@ namespace FinanceApp.Properties {
         internal static string InvalidCredentialsMessage {
             get {
                 return ResourceManager.GetString("InvalidCredentialsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a country name or ISO code..
+        /// </summary>
+        internal static string ISOMessage {
+            get {
+                return ResourceManager.GetString("ISOMessage", resourceCulture);
             }
         }
         

@@ -117,28 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="currencyBtn.Text" xml:space="preserve">
-    <value>Valute</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 20</value>
   </data>
-  <data name="settingsBtn.Text" xml:space="preserve">
-    <value>Postavke</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Unesite ime zemlje ili ISO kod:</value>
   </data>
-  <data name="logoutBtn.Text" xml:space="preserve">
-    <value>Odjava</value>
-  </data>
-  <data name="transactionsBtn.Text" xml:space="preserve">
-    <value>Transakcije</value>
-  </data>
-  <data name="finGoalsBtn.Text" xml:space="preserve">
-    <value>Financijski ciljevi</value>
-  </data>
-  <data name="dasboardBtn.Text" xml:space="preserve">
-    <value>Nadzorna ploča</value>
-  </data>
-  <data name="categoryBtn.Text" xml:space="preserve">
-    <value>Kategorije</value>
-  </data>
-  <data name="budgeBtn.Text" xml:space="preserve">
-    <value>Budžet</value>
+  <data name="searchBtn.Text" xml:space="preserve">
+    <value>Pretraži</value>
   </data>
 </root>

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Navbar));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.currencyBtn = new System.Windows.Forms.Button();
             this.settingsBtn = new System.Windows.Forms.Button();
             this.logoutBtn = new System.Windows.Forms.Button();
             this.transactionsBtn = new System.Windows.Forms.Button();
@@ -42,6 +43,8 @@
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.currencyBtn);
             this.panel1.Controls.Add(this.settingsBtn);
             this.panel1.Controls.Add(this.logoutBtn);
             this.panel1.Controls.Add(this.transactionsBtn);
@@ -49,8 +52,14 @@
             this.panel1.Controls.Add(this.dasboardBtn);
             this.panel1.Controls.Add(this.categoryBtn);
             this.panel1.Controls.Add(this.budgeBtn);
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
+            // 
+            // currencyBtn
+            // 
+            resources.ApplyResources(this.currencyBtn, "currencyBtn");
+            this.currencyBtn.Name = "currencyBtn";
+            this.currencyBtn.UseVisualStyleBackColor = true;
+            this.currencyBtn.Click += new System.EventHandler(this.currencyBtn_Click);
             // 
             // settingsBtn
             // 
@@ -61,8 +70,8 @@
             // 
             // logoutBtn
             // 
-            this.logoutBtn.ForeColor = System.Drawing.Color.IndianRed;
             resources.ApplyResources(this.logoutBtn, "logoutBtn");
+            this.logoutBtn.ForeColor = System.Drawing.Color.IndianRed;
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.UseVisualStyleBackColor = true;
             this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
@@ -123,5 +132,6 @@
         private System.Windows.Forms.Button categoryBtn;
         private System.Windows.Forms.Button budgeBtn;
         private System.Windows.Forms.Button settingsBtn;
+        private System.Windows.Forms.Button currencyBtn;
     }
 }

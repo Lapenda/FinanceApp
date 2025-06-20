@@ -123,8 +123,14 @@
   <data name="BackButton" xml:space="preserve">
     <value>Back</value>
   </data>
+  <data name="CountryFound" xml:space="preserve">
+    <value>Country not found. Check spelling or use the correct ISO code.</value>
+  </data>
   <data name="Croatian" xml:space="preserve">
     <value>Croatian (CRO)</value>
+  </data>
+  <data name="CurrencyInCountry" xml:space="preserve">
+    <value>Currency in the selected country is:</value>
   </data>
   <data name="DarkTheme" xml:space="preserve">
     <value>Dark</value>
@@ -140,6 +146,9 @@
   </data>
   <data name="InvalidCredentialsMessage" xml:space="preserve">
     <value>Invalid credentials!!!</value>
+  </data>
+  <data name="ISOMessage" xml:space="preserve">
+    <value>Please enter a country name or ISO code.</value>
   </data>
   <data name="Italian" xml:space="preserve">
     <value>Italian (IT)</value>

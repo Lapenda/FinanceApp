@@ -89,6 +89,11 @@ namespace FinanceApp.Forms
             NavigateForm<SettingsForm>();
         }
 
+        private void currencyBtn_Click(object sender, EventArgs e)
+        {
+            NavigateForm<CurrencyForm>();
+        }
+
         private void UpdateButtonStates()
         {
             Form currentForm = GetParentForm();
@@ -111,6 +116,8 @@ namespace FinanceApp.Forms
                 finGoalsBtn.Enabled = false;
             else if (currentForm is TransactionForm)
                 transactionsBtn.Enabled = false;
+            else if(currentForm is CurrencyForm)
+                currencyBtn.Enabled = false;
         }
 
         protected override void OnLoad(EventArgs e)
