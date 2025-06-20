@@ -29,7 +29,7 @@ namespace FinanceApp.Forms
             InitializeCategoryComboBox();
             SettingsManager.ApplyTheme(this);
             UpdateLabel(null);
-            UpdateButtonStatus();
+            //UpdateButtonStatus();
         }
 
         private void UpdateLabel(Budget budget)
@@ -222,8 +222,10 @@ namespace FinanceApp.Forms
             {
                 addBudgetBtn.Enabled = true;
             }
-
-            addBudgetBtn.Enabled = false;
+            else
+            {
+                addBudgetBtn.Enabled = false;
+            }
         }
     }
 }

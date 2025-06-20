@@ -36,4 +36,10 @@
     <Name>kategorija nova</Name>
     <Description>hyYef1SFwLD45dJygrEk6iZyZnctZQkCYk9ngaPZSAE1DltRoaSRnGrC2mmvAKgR</Description>
   </Category>
+  <Category>
+    <Id>8</Id>
+    <UserId>3</UserId>
+    <Name>Kategorija jos jedna</Name>
+    <Description>SrNN5YbiKLVGJb+NGN3VnnewLRJToUVeWQW6in+PN5a611M/GpJxAi+avYkSmyVk</Description>
+  </Category>
 </Categories>

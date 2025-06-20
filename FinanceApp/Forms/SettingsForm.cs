@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
-using System.Globalization;
 using FinanceApp.Manager;
 using FinanceApp.Properties;
 using FinanceApp.Managers;
+using System.Net.Http;
+using Newtonsoft.Json;
+using FinanceApp.Models;
 
 namespace FinanceApp.Forms
 {
@@ -152,6 +149,31 @@ namespace FinanceApp.Forms
             currencyComboBox.Items.Clear();
             currencyComboBox.Items.AddRange(new[] { "EUR", "USD", "HRK" });
             currencyComboBox.SelectedItem = SettingsManager.GetSettings().DefaultCurrency;
+        }
+
+        private async void jokeBtn_Click(object sender, EventArgs e)
+        {
+            using (var client = new HttpClient())
+            {
+                try
+                {
+                    var response = await client.GetAsync("https://official-joke-api.appspot.com/random_joke");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var jsonString = await response.Content.ReadAsStringAsync();
+                        var joke = JsonConvert.DeserializeObject<Joke>(jsonString);
+                        MessageBox.Show(joke.Setup + "\n" + joke.Punchline);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Error: {response.StatusCode}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
+            }
         }
     }
 }

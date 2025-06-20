@@ -141,7 +141,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;backButton.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="languageComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>497, 80</value>
@@ -162,7 +162,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;languageComboBox.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="languageComboLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -189,7 +189,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;languageComboLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="applyLanguage.Location" type="System.Drawing.Point, System.Drawing">
     <value>539, 340</value>
@@ -213,7 +213,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;applyLanguage.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="themeComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>497, 158</value>
@@ -234,7 +234,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;themeComboBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -261,7 +261,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -288,7 +288,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="currencyComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>497, 246</value>
@@ -309,6 +309,30 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;currencyComboBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="jokeBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>506, 578</value>
+  </data>
+  <data name="jokeBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 42</value>
+  </data>
+  <data name="jokeBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="jokeBtn.Text" xml:space="preserve">
+    <value>Joke of the day</value>
+  </data>
+  <data name="&gt;&gt;jokeBtn.Name" xml:space="preserve">
+    <value>jokeBtn</value>
+  </data>
+  <data name="&gt;&gt;jokeBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;jokeBtn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;jokeBtn.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

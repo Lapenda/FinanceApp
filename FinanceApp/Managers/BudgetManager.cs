@@ -19,15 +19,11 @@ namespace FinanceApp.Managers
     internal class BudgetManager
     {
         private readonly string filePath;
-        //private readonly CategoryManager _categoryManager;
-        //private readonly TransactionManager _transactionManager;
         private static readonly object fileLock = new object();
 
         public BudgetManager() 
         {
             filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/budgets.bin");
-            //_transactionManager = new TransactionManager();
-            //_categoryManager = new CategoryManager("categories.xml", _transactionManager);
 
             if (!File.Exists(filePath))
             {
@@ -126,7 +122,6 @@ namespace FinanceApp.Managers
                 existingBudget.UpdateLimit(newLimit);
                 if(existingBudget.CalculateRemaining() < 0)
                 {
-                    //MessageBox.Show("Exceeded budget!");
                     CheckBudgetExceeded(existingBudget);
                     return null;
                 }

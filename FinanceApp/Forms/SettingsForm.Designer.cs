@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.currencyComboBox = new System.Windows.Forms.ComboBox();
+            this.jokeBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // backButton
@@ -86,10 +87,18 @@
             resources.ApplyResources(this.currencyComboBox, "currencyComboBox");
             this.currencyComboBox.Name = "currencyComboBox";
             // 
+            // jokeBtn
+            // 
+            resources.ApplyResources(this.jokeBtn, "jokeBtn");
+            this.jokeBtn.Name = "jokeBtn";
+            this.jokeBtn.UseVisualStyleBackColor = true;
+            this.jokeBtn.Click += new System.EventHandler(this.jokeBtn_Click);
+            // 
             // SettingsForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.jokeBtn);
             this.Controls.Add(this.currencyComboBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -114,5 +123,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox currencyComboBox;
+        private System.Windows.Forms.Button jokeBtn;
     }
 }
