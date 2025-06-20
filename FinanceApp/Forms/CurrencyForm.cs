@@ -44,7 +44,7 @@ namespace FinanceApp.Forms
 
                 if (currency != null && !string.IsNullOrEmpty(currency.sISOCode))
                 {
-                    resultLabel.Text = $"{Properties.Resources.CurrencyInCountry} {currency.sName} ({currency.sISOCode})";
+                    resultLabel.Text = $"{client.CountryName(isoCode)} -> {Properties.Resources.CurrencyInCountry} -> {currency.sName} ({currency.sISOCode})";
                 }
                 else
                 {
