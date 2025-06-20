@@ -129,6 +129,9 @@
   <data name="DarkTheme" xml:space="preserve">
     <value>Dark</value>
   </data>
+  <data name="DownloadSucceeded" xml:space="preserve">
+    <value>Download finished!</value>
+  </data>
   <data name="English" xml:space="preserve">
     <value>English (US)</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="NoLanguageMsg" xml:space="preserve">
     <value>Please select a language</value>
+  </data>
+  <data name="NoLimit" xml:space="preserve">
+    <value>No limit</value>
   </data>
   <data name="PasswordLabel" xml:space="preserve">
     <value>Password</value>

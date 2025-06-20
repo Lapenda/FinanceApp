@@ -97,6 +97,15 @@ namespace FinanceApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Download finished!.
+        /// </summary>
+        internal static string DownloadSucceeded {
+            get {
+                return ResourceManager.GetString("DownloadSucceeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to English (US).
         /// </summary>
         internal static string English {
@@ -183,6 +192,15 @@ namespace FinanceApp.Properties {
         internal static string NoLanguageMsg {
             get {
                 return ResourceManager.GetString("NoLanguageMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No limit.
+        /// </summary>
+        internal static string NoLimit {
+            get {
+                return ResourceManager.GetString("NoLimit", resourceCulture);
             }
         }
         

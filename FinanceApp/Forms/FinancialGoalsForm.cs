@@ -30,6 +30,9 @@ namespace FinanceApp.Forms
             SettingsManager.ApplyTheme(this);
 
             UpdateButtonStates();
+
+            speedComboBox.Items.AddRange(new[] { "10 KB/s", "50 KB/s", "100 KB/s", Properties.Resources.NoLimit });
+            speedComboBox.SelectedIndex = 3;
         }
 
         private void clrTextBtn_Click(object sender, EventArgs e)
@@ -211,6 +214,37 @@ namespace FinanceApp.Forms
             tarAmountTextBox.Clear();
             curAmountTextBox.Clear();
             UpdateButtonStates();
+        }
+
+        private async void downloadBtn_Click(object sender, EventArgs e)
+        {
+            downloadBtn.Enabled = false;
+            var client = new HttpNewsClient();
+            var progress = new Progress<int>(percent =>
+            {
+                if (progressBar.InvokeRequired)
+                {
+                    progressBar.Invoke(new Action(() => progressBar.Value = percent));
+                    percentLabel.Invoke(new Action(() => percentLabel.Text = $"{percent}%"));
+                }
+                else
+                {
+                    progressBar.Value = percent;
+                    percentLabel.Text = $"{percent}%";
+                }
+            });
+
+            int? speedLimit = null;
+            int selectedIndex = speedComboBox.SelectedIndex;
+            if (selectedIndex == 0) speedLimit = 10;
+            else if (selectedIndex == 1) speedLimit = 50;
+            else if (selectedIndex == 2) speedLimit = 100;
+            else speedLimit = null;
+
+            string destinationPath = @"C:\Users\Borna\Desktop\newsfeed.xml";
+            await client.DownloadNewsAsync("https://www.federalreserve.gov/feeds/h10.xml", destinationPath, progress, speedLimit);
+            MessageBox.Show(Properties.Resources.DownloadSucceeded);
+            downloadBtn.Enabled = true;
         }
     }
 }

@@ -16,14 +16,12 @@ namespace BackupApp
                 if (args.Length == 0)
                 {
                     Console.WriteLine("No UserId provided.");
-                    //return -1;
+                    return -1;
                 }
 
-                //int userId = int.Parse(args[0]);
-                int userId = 4;
+                int userId = int.Parse(args[0]);
                 var _transactionManager = new TransactionManager(userId);
                 var transactions = _transactionManager.GetAllTransactions().ToList();
-
 
                 if (transactions == null || !transactions.Any())
                 {
@@ -47,7 +45,7 @@ namespace BackupApp
                 using (StreamWriter writer = new StreamWriter(resultFile))
                 {
                     writer.WriteLine($"Average of all transactions:\r\n{totalAverage}\r\n");
-                    writer.WriteLine("Average of transactions by category:");
+                    writer.WriteLine($"Average of transactions by category:");
                     foreach (var kvp in categoryAverages)
                     {
                         writer.WriteLine($"{kvp.Key}:{kvp.Value}");

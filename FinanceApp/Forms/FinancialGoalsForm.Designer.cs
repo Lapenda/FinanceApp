@@ -41,6 +41,10 @@
             this.clrTextBtn = new System.Windows.Forms.Button();
             this.returnBtn = new System.Windows.Forms.Button();
             this.navbar1 = new FinanceApp.Forms.Navbar();
+            this.downloadBtn = new System.Windows.Forms.Button();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.speedComboBox = new System.Windows.Forms.ComboBox();
+            this.percentLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.goalsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,7 +112,7 @@
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(294, 557);
+            this.addBtn.Location = new System.Drawing.Point(329, 557);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(145, 40);
             this.addBtn.TabIndex = 7;
@@ -165,11 +169,49 @@
             this.navbar1.Size = new System.Drawing.Size(1442, 55);
             this.navbar1.TabIndex = 12;
             // 
+            // downloadBtn
+            // 
+            this.downloadBtn.Location = new System.Drawing.Point(47, 557);
+            this.downloadBtn.Name = "downloadBtn";
+            this.downloadBtn.Size = new System.Drawing.Size(188, 40);
+            this.downloadBtn.TabIndex = 13;
+            this.downloadBtn.Text = "Download news";
+            this.downloadBtn.UseVisualStyleBackColor = true;
+            this.downloadBtn.Click += new System.EventHandler(this.downloadBtn_Click);
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(47, 637);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(188, 43);
+            this.progressBar.TabIndex = 14;
+            // 
+            // speedComboBox
+            // 
+            this.speedComboBox.FormattingEnabled = true;
+            this.speedComboBox.Location = new System.Drawing.Point(47, 484);
+            this.speedComboBox.Name = "speedComboBox";
+            this.speedComboBox.Size = new System.Drawing.Size(188, 28);
+            this.speedComboBox.TabIndex = 15;
+            // 
+            // percentLabel
+            // 
+            this.percentLabel.AutoSize = true;
+            this.percentLabel.Location = new System.Drawing.Point(257, 648);
+            this.percentLabel.Name = "percentLabel";
+            this.percentLabel.Size = new System.Drawing.Size(32, 20);
+            this.percentLabel.TabIndex = 16;
+            this.percentLabel.Text = "0%";
+            // 
             // FinancialGoalsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1442, 734);
+            this.Controls.Add(this.percentLabel);
+            this.Controls.Add(this.speedComboBox);
+            this.Controls.Add(this.progressBar);
+            this.Controls.Add(this.downloadBtn);
             this.Controls.Add(this.navbar1);
             this.Controls.Add(this.returnBtn);
             this.Controls.Add(this.clrTextBtn);
@@ -207,5 +249,9 @@
         private System.Windows.Forms.Button clrTextBtn;
         private System.Windows.Forms.Button returnBtn;
         private Navbar navbar1;
+        private System.Windows.Forms.Button downloadBtn;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.ComboBox speedComboBox;
+        private System.Windows.Forms.Label percentLabel;
     }
 }

@@ -300,7 +300,7 @@ namespace FinanceApp.Forms
                     FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../BackupApp/bin/Debug/BackupApp.exe"),
                     Arguments = SessionManager.currentUserId.ToString(),
                     UseShellExecute = false,
-                    RedirectStandardOutput = false,
+                    RedirectStandardOutput = true,
                     CreateNoWindow = true,
                 }
             };
@@ -309,6 +309,7 @@ namespace FinanceApp.Forms
             {
                 process.Start();
                 process.WaitForExit();
+
                 int exitCode = process.ExitCode;
 
                 if(exitCode == 0)
