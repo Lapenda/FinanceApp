@@ -39,6 +39,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.registerBtn = new System.Windows.Forms.Button();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // usernameLabel
@@ -100,10 +102,17 @@
             this.registerBtn.UseVisualStyleBackColor = true;
             this.registerBtn.Click += new System.EventHandler(this.registerBtn_Click);
             // 
+            // pictureBox
+            // 
+            resources.ApplyResources(this.pictureBox, "pictureBox");
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.TabStop = false;
+            // 
             // LoginForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.registerBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
@@ -115,6 +124,7 @@
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.usernameLabel);
             this.Name = "LoginForm";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,5 +142,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button registerBtn;
+        private System.Windows.Forms.PictureBox pictureBox;
     }
 }

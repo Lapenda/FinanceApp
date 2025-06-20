@@ -8,23 +8,34 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FinanceApp.Forms
 {
     public partial class LoginForm : Form
     {
-        
-
         public LoginForm()
         {
             InitializeComponent();
             SettingsManager.LanguageChanged += (s, e) => SettingsManager.UpdateFormLanguage(this);
             InitializeLanguageComboBox();
             SettingsManager.ApplyTheme(this);
+
+            var resourceManager = new ResourceManager("LogoDLL.Resources", typeof(LogoDLL.Class1).Assembly);
+            var logo = (Bitmap)resourceManager.GetObject("logo");
+
+            pictureBox.Image = logo;
+
+            var timer = new System.Windows.Forms.Timer { Interval = 2000 };
+            timer.Tick += (s, e) =>
+            {
+                pictureBox.Visible = false;
+                timer.Stop();
+            };
+            timer.Start();
         }
 
         private void loginButton_Click(object sender, EventArgs e)

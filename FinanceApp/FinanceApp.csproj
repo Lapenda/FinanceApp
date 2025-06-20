@@ -537,5 +537,11 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\CountryInfoServiceReference\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogoDLL\LogoDLL.csproj">
+      <Project>{43be0110-e0e8-4152-bde9-7c73d24a0fa2}</Project>
+      <Name>LogoDLL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
