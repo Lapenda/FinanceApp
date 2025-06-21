@@ -350,6 +350,9 @@
     <EmbeddedResource Include="Forms\Navbar.resx">
       <DependentUpon>Navbar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RegisterForm.en.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\RegisterForm.hr.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>

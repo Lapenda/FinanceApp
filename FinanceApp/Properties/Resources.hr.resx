@@ -168,6 +168,9 @@
   <data name="LoginSuccessfulMessage" xml:space="preserve">
     <value>Uspješno ste se prijavili!</value>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>Ne</value>
+  </data>
   <data name="NoLanguageMsg" xml:space="preserve">
     <value>Please select a language</value>
   </data>
@@ -194,5 +197,8 @@
   </data>
   <data name="UsernameLabel" xml:space="preserve">
     <value>Korisničko ime:</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Da</value>
   </data>
 </root>

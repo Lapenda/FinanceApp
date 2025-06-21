@@ -100,8 +100,11 @@ namespace FinanceApp.Forms
                 SettingsManager.GetSettings().LastTransactionCategory = selectedCategory.Name;
                 SettingsManager.GetSettings().Save();
 
-                budgetForm.Show();
-                this.Hide();
+                if(SessionManager.currentUserRole != "Unprivileged User")
+                {
+                    budgetForm.Show();
+                    this.Hide();
+                }
             }
         }
 

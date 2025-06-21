@@ -112,6 +112,15 @@ namespace FinanceApp.Forms
                 finGoalsBtn.Enabled = false;
             else if (currentForm is TransactionForm)
                 transactionsBtn.Enabled = false;
+
+            if(SessionManager.currentUserRole == "Unprivileged User")
+            {
+                budgeBtn.Enabled = false;
+            }
+            else
+            {
+                budgeBtn.Enabled = true;
+            }
         }
 
         protected override void OnLoad(EventArgs e)

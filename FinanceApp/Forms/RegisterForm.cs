@@ -20,6 +20,14 @@ namespace FinanceApp.Forms
             InitializeComponent();
 
             userManager = new UserManager();
+            InitializeComboBoX();
+        }
+
+        private void InitializeComboBoX()
+        {
+            privilegedComboBox.Items.Clear();
+            privilegedComboBox.Items.AddRange(new[] { Properties.Resources.Yes, Properties.Resources.No });
+            privilegedComboBox.SelectedIndex = 0;
         }
 
         private void backToLoginBtn_Click(object sender, EventArgs e)
@@ -36,6 +44,7 @@ namespace FinanceApp.Forms
             string username = usernameTextBox.Text;
             string password = passwordTextBox.Text;
             string repeatedPass = repeatPassTextBox.Text;
+
 
             if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(repeatedPass)) 
             {
@@ -54,9 +63,13 @@ namespace FinanceApp.Forms
             {
                 registered = userManager.Register(username, password, "Admin");
             }
-            else
+            else if(privilegedComboBox.SelectedIndex == 0)
             {
                 registered = userManager.Register(username, password, "User");
+            }
+            else
+            {
+                registered = userManager.Register(username, password, "Unprivileged User");
             }
 
             if(registered)

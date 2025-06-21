@@ -53,13 +53,6 @@ namespace FinanceApp.Models
             return false;
         }
 
-        /*public bool VerifyPassword(string password)
-        {
-            if (string.IsNullOrWhiteSpace(password)) return false;
-            string hashedInput = HashPassword(password);
-            return Password == hashedInput;
-        }*/
-
         private string HashPassword(string password)
         {
             string salt = GenerateSalt();

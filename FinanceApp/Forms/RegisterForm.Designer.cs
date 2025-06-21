@@ -38,6 +38,8 @@
             this.registerBtn = new System.Windows.Forms.Button();
             this.backToLoginBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.privilegedComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -91,10 +93,23 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // privilegedComboBox
+            // 
+            this.privilegedComboBox.FormattingEnabled = true;
+            resources.ApplyResources(this.privilegedComboBox, "privilegedComboBox");
+            this.privilegedComboBox.Name = "privilegedComboBox";
+            // 
             // RegisterForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.privilegedComboBox);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.backToLoginBtn);
             this.Controls.Add(this.registerBtn);
@@ -121,5 +136,7 @@
         private System.Windows.Forms.Button registerBtn;
         private System.Windows.Forms.Button backToLoginBtn;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox privilegedComboBox;
     }
 }
