@@ -117,14 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 20</value>
+  <data name="CountryFound" xml:space="preserve">
+    <value>Zemlja nije pronađena. Provjerite unos ili unesite ispravan ISO kod.</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Unesite ime zemlje ili ISO kod:</value>
+  <data name="CurrencyInCountry" xml:space="preserve">
+    <value>Valuta u odabranoj zemlji je:</value>
   </data>
-  <data name="searchBtn.Text" xml:space="preserve">
-    <value>Pretraži</value>
+  <data name="ISOMessage" xml:space="preserve">
+    <value>Molimo unesite ime zemlje ili ISO kod.</value>
   </data>
 </root>

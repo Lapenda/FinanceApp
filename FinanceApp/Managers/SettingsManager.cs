@@ -41,7 +41,6 @@ namespace FinanceApp.Manager
 
                 CultureInfo culture = SupportedCultures[cultureName];
                 Thread.CurrentThread.CurrentUICulture = culture;
-                //Thread.CurrentThread.CurrentCulture = culture;
                 LanguageChanged?.Invoke(null, EventArgs.Empty);
 
                 if(Settings.Language != cultureName)

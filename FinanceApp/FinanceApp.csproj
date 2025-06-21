@@ -250,12 +250,6 @@
     <Compile Include="Forms\CategoryForm.Designer.cs">
       <DependentUpon>CategoryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CurrencyForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CurrencyForm.Designer.cs">
-      <DependentUpon>CurrencyForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,12 +328,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CurrencyForm.hr.resx">
-      <DependentUpon>CurrencyForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CurrencyForm.resx">
-      <DependentUpon>CurrencyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
@@ -516,7 +504,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Database\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
@@ -538,6 +525,10 @@
     <WCFMetadataStorage Include="Connected Services\CountryInfoServiceReference\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CurrencyDLL\CurrencyDLL.csproj">
+      <Project>{7fe94e26-813d-4788-bc0d-cd6823f77868}</Project>
+      <Name>CurrencyDLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LogoDLL\LogoDLL.csproj">
       <Project>{43be0110-e0e8-4152-bde9-7c73d24a0fa2}</Project>
       <Name>LogoDLL</Name>

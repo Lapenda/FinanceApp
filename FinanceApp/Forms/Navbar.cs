@@ -1,13 +1,6 @@
-﻿using FinanceApp.Managers;
-using MySqlX.XDevAPI;
+﻿using FinanceApp.Manager;
+using FinanceApp.Managers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FinanceApp.Forms
@@ -91,7 +84,10 @@ namespace FinanceApp.Forms
 
         private void currencyBtn_Click(object sender, EventArgs e)
         {
-            NavigateForm<CurrencyForm>();
+            var language = SettingsManager.GetSettings().Language;
+            var cultureInfo = SettingsManager.GetSupportedCultures()[language];
+            CurrencyDLL.CurrencyForm currencyForm = new CurrencyDLL.CurrencyForm(cultureInfo);
+            currencyForm.ShowDialog();
         }
 
         private void UpdateButtonStates()
@@ -116,8 +112,6 @@ namespace FinanceApp.Forms
                 finGoalsBtn.Enabled = false;
             else if (currentForm is TransactionForm)
                 transactionsBtn.Enabled = false;
-            else if(currentForm is CurrencyForm)
-                currencyBtn.Enabled = false;
         }
 
         protected override void OnLoad(EventArgs e)
