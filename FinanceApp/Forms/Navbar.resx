@@ -134,17 +134,20 @@
     <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dasboardBtn.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
-  <data name="&gt;&gt;transactionsBtn.Name" xml:space="preserve">
-    <value>transactionsBtn</value>
+  <data name="&gt;&gt;profileBtn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="profileBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 44</value>
   </data>
   <data name="&gt;&gt;categoryBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="settingsBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1061, 3</value>
+    <value>1097, 3</value>
   </data>
   <data name="&gt;&gt;currencyBtn.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -153,13 +156,13 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="finGoalsBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 44</value>
+    <value>159, 44</value>
   </data>
   <data name="currencyBtn.Text" xml:space="preserve">
     <value>Currencies</value>
   </data>
   <data name="&gt;&gt;settingsBtn.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="transactionsBtn.Text" xml:space="preserve">
     <value>Transactions</value>
@@ -168,13 +171,13 @@
     <value>2</value>
   </data>
   <data name="budgeBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 44</value>
+    <value>134, 44</value>
   </data>
-  <data name="transactionsBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 44</value>
+  <data name="&gt;&gt;profileBtn.Name" xml:space="preserve">
+    <value>profileBtn</value>
   </data>
   <data name="categoryBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>168, 3</value>
+    <value>143, 3</value>
   </data>
   <data name="&gt;&gt;finGoalsBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -182,14 +185,17 @@
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="finGoalsBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>694, 3</value>
-  </data>
   <data name="dasboardBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 44</value>
   </data>
+  <data name="&gt;&gt;profileBtn.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
   <data name="settingsBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 44</value>
+    <value>119, 44</value>
+  </data>
+  <data name="&gt;&gt;dasboardBtn.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="logoutBtn.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -206,6 +212,9 @@
   <data name="&gt;&gt;logoutBtn.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
+  <data name="profileBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
   <data name="logoutBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>1222, 3</value>
   </data>
@@ -216,19 +225,19 @@
     <value>Financial Goals</value>
   </data>
   <data name="currencyBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 44</value>
+    <value>122, 44</value>
   </data>
   <data name="&gt;&gt;currencyBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="currencyBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>341, 3</value>
+    <value>291, 3</value>
   </data>
   <data name="&gt;&gt;finGoalsBtn.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
-  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1404, 55</value>
+  <data name="&gt;&gt;profileBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;settingsBtn.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -255,8 +264,8 @@
   <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="&gt;&gt;dasboardBtn.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;finGoalsBtn.Name" xml:space="preserve">
     <value>finGoalsBtn</value>
@@ -267,26 +276,32 @@
   <data name="categoryBtn.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="transactionsBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 44</value>
   </data>
-  <data name="&gt;&gt;settingsBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="profileBtn.Text" xml:space="preserve">
+    <value>Profile</value>
   </data>
   <data name="transactionsBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>890, 3</value>
+    <value>952, 3</value>
+  </data>
+  <data name="finGoalsBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>787, 3</value>
   </data>
   <data name="categoryBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 44</value>
-  </data>
-  <data name="&gt;&gt;categoryBtn.Name" xml:space="preserve">
-    <value>categoryBtn</value>
+    <value>142, 44</value>
   </data>
   <data name="&gt;&gt;transactionsBtn.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;categoryBtn.Name" xml:space="preserve">
+    <value>categoryBtn</value>
   </data>
   <data name="&gt;&gt;dasboardBtn.Name" xml:space="preserve">
     <value>dasboardBtn</value>
@@ -298,10 +313,10 @@
     <value>179, 44</value>
   </data>
   <data name="&gt;&gt;currencyBtn.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;logoutBtn.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;transactionsBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -322,16 +337,16 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;budgeBtn.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="&gt;&gt;categoryBtn.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="logoutBtn.Text" xml:space="preserve">
     <value>Logout</value>
   </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;transactionsBtn.Name" xml:space="preserve">
+    <value>transactionsBtn</value>
   </data>
   <data name="&gt;&gt;settingsBtn.Name" xml:space="preserve">
     <value>settingsBtn</value>
@@ -342,8 +357,17 @@
   <data name="&gt;&gt;categoryBtn.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
+  <data name="profileBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>613, 3</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1404, 55</value>
+  </data>
   <data name="dasboardBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>500, 3</value>
+    <value>419, 3</value>
+  </data>
+  <data name="&gt;&gt;settingsBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>1404, 50</value>
@@ -353,5 +377,8 @@
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>hr</value>
   </metadata>
 </root>

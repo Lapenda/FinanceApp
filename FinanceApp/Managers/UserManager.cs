@@ -157,5 +157,57 @@ namespace FinanceApp.Managers
                 connection.Close();
             }
         }
+
+        public bool EditUser(int id, string newName, string newLastName, string newRole)
+        {
+            try
+            {
+                using (var connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    var command = new MySqlCommand("UPDATE Users SET FirstName = @FirstName, LastName = @LastName, Role = @Role WHERE Id = @Id", connection);
+
+                    command.Parameters.AddWithValue("@FirstName", newName);
+                    command.Parameters.AddWithValue("@LastName", newLastName);
+                    command.Parameters.AddWithValue("@Role", newRole);
+                    command.Parameters.AddWithValue("@Id", id);
+
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+
+            LoadUsersFromDatabase();
+            return true;
+        }
+
+        public bool DeleteUser(int id)
+        {
+            try
+            {
+                using(var connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    var command = new MySqlCommand("DELETE FROM Users WHERE Id = @Id", connection);
+
+                    command.Parameters.AddWithValue("@Id", id);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+
+            LoadUsersFromDatabase();
+            return true;
+        }
     }
 }

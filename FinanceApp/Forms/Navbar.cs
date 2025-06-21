@@ -10,7 +10,6 @@ namespace FinanceApp.Forms
         public Navbar()
         {
             InitializeComponent();
-
         }
 
         private Form GetParentForm()
@@ -82,6 +81,11 @@ namespace FinanceApp.Forms
             NavigateForm<SettingsForm>();
         }
 
+        private void profileBtn_Click(object sender, EventArgs e)
+        {
+            NavigateForm<UsersForm>();
+        }
+
         private void currencyBtn_Click(object sender, EventArgs e)
         {
             var language = SettingsManager.GetSettings().Language;
@@ -112,6 +116,8 @@ namespace FinanceApp.Forms
                 finGoalsBtn.Enabled = false;
             else if (currentForm is TransactionForm)
                 transactionsBtn.Enabled = false;
+            else if(currentForm is UsersForm)
+                profileBtn.Enabled = false;
 
             if(SessionManager.currentUserRole == "Unprivileged User")
             {

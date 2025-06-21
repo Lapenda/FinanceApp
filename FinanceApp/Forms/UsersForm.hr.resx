@@ -118,40 +118,46 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="profileBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 44</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>606, 179</value>
   </data>
-  <data name="profileBtn.Text" xml:space="preserve">
-    <value>Profil</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 20</value>
   </data>
-  <data name="currencyBtn.Text" xml:space="preserve">
-    <value>Valute</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Ime:</value>
   </data>
-  <data name="settingsBtn.Text" xml:space="preserve">
-    <value>Postavke</value>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>576, 239</value>
   </data>
-  <data name="logoutBtn.Text" xml:space="preserve">
-    <value>Odjava</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
   </data>
-  <data name="transactionsBtn.Text" xml:space="preserve">
-    <value>Transakcije</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Prezime:</value>
   </data>
-  <data name="finGoalsBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>751, 3</value>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>591, 367</value>
   </data>
-  <data name="finGoalsBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 44</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 20</value>
   </data>
-  <data name="finGoalsBtn.Text" xml:space="preserve">
-    <value>Financijski ciljevi</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Uloga:</value>
   </data>
-  <data name="dasboardBtn.Text" xml:space="preserve">
-    <value>Nadzorna ploča</value>
+  <data name="editBtn.Text" xml:space="preserve">
+    <value>Uredi</value>
   </data>
-  <data name="categoryBtn.Text" xml:space="preserve">
-    <value>Kategorije</value>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>532, 299</value>
   </data>
-  <data name="budgeBtn.Text" xml:space="preserve">
-    <value>Budžet</value>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 20</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Korisničko ime:</value>
+  </data>
+  <data name="deleteBtn.Text" xml:space="preserve">
+    <value>Izbriši račun</value>
   </data>
 </root>

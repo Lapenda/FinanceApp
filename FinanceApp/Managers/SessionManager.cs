@@ -28,6 +28,8 @@ namespace FinanceApp.Managers
             currentUsername = null;
             currentUserRole = null;
             isLoggedIn = false;
+            Properties.Settings.Default.JwtToken = null;
+            Properties.Settings.Default.Save();
         }
     }
 }

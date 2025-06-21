@@ -118,40 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="profileBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>600, 3</value>
+  </data>
   <data name="profileBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 44</value>
+    <value>161, 44</value>
   </data>
-  <data name="profileBtn.Text" xml:space="preserve">
-    <value>Profil</value>
+  <data name="transactionsBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>940, 3</value>
   </data>
-  <data name="currencyBtn.Text" xml:space="preserve">
-    <value>Valute</value>
-  </data>
-  <data name="settingsBtn.Text" xml:space="preserve">
-    <value>Postavke</value>
-  </data>
-  <data name="logoutBtn.Text" xml:space="preserve">
-    <value>Odjava</value>
-  </data>
-  <data name="transactionsBtn.Text" xml:space="preserve">
-    <value>Transakcije</value>
+  <data name="transactionsBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 44</value>
   </data>
   <data name="finGoalsBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>751, 3</value>
+    <value>767, 3</value>
   </data>
   <data name="finGoalsBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 44</value>
+    <value>167, 44</value>
   </data>
-  <data name="finGoalsBtn.Text" xml:space="preserve">
-    <value>Financijski ciljevi</value>
-  </data>
-  <data name="dasboardBtn.Text" xml:space="preserve">
-    <value>Nadzorna ploča</value>
-  </data>
-  <data name="categoryBtn.Text" xml:space="preserve">
-    <value>Kategorije</value>
-  </data>
-  <data name="budgeBtn.Text" xml:space="preserve">
-    <value>Budžet</value>
+  <data name="dasboardBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 44</value>
   </data>
 </root>

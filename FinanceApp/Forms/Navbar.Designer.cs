@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Navbar));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.profileBtn = new System.Windows.Forms.Button();
             this.currencyBtn = new System.Windows.Forms.Button();
             this.settingsBtn = new System.Windows.Forms.Button();
             this.logoutBtn = new System.Windows.Forms.Button();
@@ -44,6 +45,7 @@
             // panel1
             // 
             resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.profileBtn);
             this.panel1.Controls.Add(this.currencyBtn);
             this.panel1.Controls.Add(this.settingsBtn);
             this.panel1.Controls.Add(this.logoutBtn);
@@ -53,6 +55,13 @@
             this.panel1.Controls.Add(this.categoryBtn);
             this.panel1.Controls.Add(this.budgeBtn);
             this.panel1.Name = "panel1";
+            // 
+            // profileBtn
+            // 
+            resources.ApplyResources(this.profileBtn, "profileBtn");
+            this.profileBtn.Name = "profileBtn";
+            this.profileBtn.UseVisualStyleBackColor = true;
+            this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
             // 
             // currencyBtn
             // 
@@ -133,5 +142,6 @@
         private System.Windows.Forms.Button budgeBtn;
         private System.Windows.Forms.Button settingsBtn;
         private System.Windows.Forms.Button currencyBtn;
+        private System.Windows.Forms.Button profileBtn;
     }
 }

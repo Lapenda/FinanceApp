@@ -292,6 +292,12 @@
     <Compile Include="Forms\TransactionForm.Designer.cs">
       <DependentUpon>TransactionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UsersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UsersForm.Designer.cs">
+      <DependentUpon>UsersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\AppSettings.cs" />
     <Compile Include="Managers\BudgetManager.cs" />
     <Compile Include="Managers\CategoryManager.cs" />
@@ -344,6 +350,9 @@
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Navbar.en.resx">
+      <DependentUpon>Navbar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Navbar.hr.resx">
       <DependentUpon>Navbar.cs</DependentUpon>
     </EmbeddedResource>
@@ -376,6 +385,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TransactionForm.resx">
       <DependentUpon>TransactionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UsersForm.hr.resx">
+      <DependentUpon>UsersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UsersForm.resx">
+      <DependentUpon>UsersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
