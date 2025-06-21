@@ -44,9 +44,11 @@ namespace FinanceApp.Forms
             string username = usernameTextBox.Text;
             string password = passwordTextBox.Text;
             string repeatedPass = repeatPassTextBox.Text;
+            string firstName = firstNameTextBox.Text;
+            string lastName = lastNameTextBox.Text;
 
 
-            if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(repeatedPass)) 
+            if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(repeatedPass) || string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName)) 
             {
                 MessageBox.Show("Enter all fields");
                 return;
@@ -61,15 +63,15 @@ namespace FinanceApp.Forms
             var allUsers = userManager.GetAllUsers().ToList();
             if(allUsers.Count == 0) 
             {
-                registered = userManager.Register(username, password, "Admin");
+                registered = userManager.Register(firstName, lastName, username, password, "Admin");
             }
             else if(privilegedComboBox.SelectedIndex == 0)
             {
-                registered = userManager.Register(username, password, "User");
+                registered = userManager.Register(firstName, lastName, username, password, "User");
             }
             else
             {
-                registered = userManager.Register(username, password, "Unprivileged User");
+                registered = userManager.Register(firstName, lastName, username, password, "Unprivileged User");
             }
 
             if(registered)

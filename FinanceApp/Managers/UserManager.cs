@@ -36,10 +36,10 @@ namespace FinanceApp.Managers
             LoadUsersFromDatabase();
         }
 
-        public bool Register(string username, string password, string role)
+        public bool Register(string firstName, string lastName, string username, string password, string role)
         {
             int newId = users.Count > 0 ? users.Keys.Max() + 1 : 1;
-            var user = new User(newId, username, password, role);
+            var user = new User(newId, firstName, lastName, username, password, role);
 
             var existingUser = users.FirstOrDefault(u => u.Value.Username == username);
 
@@ -52,8 +52,10 @@ namespace FinanceApp.Managers
             using (var connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                var command = new MySqlCommand("INSERT INTO Users (Username, Password, Role) " +
-                    "VALUES (@Username, @Password, @Role)", connection);
+                var command = new MySqlCommand("INSERT INTO Users (FirstName, LastName, Username, Password, Role) " +
+                    "VALUES (@FirstName, @LastName, @Username, @Password, @Role)", connection);
+                command.Parameters.AddWithValue("@FirstName", user.FirstName);
+                command.Parameters.AddWithValue("@LastName", user.LastName);
                 command.Parameters.AddWithValue("@Username", user.Username);
                 command.Parameters.AddWithValue("@Password", user.Password);
                 command.Parameters.AddWithValue("@Role", user.Role);
@@ -141,6 +143,8 @@ namespace FinanceApp.Managers
                     {
                         var user = new User(
                             reader.GetInt32("Id"),
+                            reader.GetString("FirstName"),
+                            reader.GetString("LastName"),
                             reader.GetString("Username"),
                             reader.GetString("Password"),
                             reader.GetString("Role"),

@@ -12,8 +12,10 @@ namespace FinanceApp.Models
         public string Password { get; private set; }
         public string Role { get; private set; }
         public DateTime CreatedAt { get; private set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
-        public User(int id, string username, string password, string role)
+        public User(int id, string firstName, string lastName, string username, string password, string role)
         {
             if (id < 0) throw new ArgumentException("User ID cannot be negative.", nameof(id));
             if (string.IsNullOrWhiteSpace(username)) throw new ArgumentException("Username cannot be empty.", nameof(username));
@@ -26,15 +28,19 @@ namespace FinanceApp.Models
             CreatedAt = DateTime.Now;
 
             Password = HashPassword(password);
+            FirstName = firstName;
+            LastName = lastName;
         }
 
-        public User(int id, string username, string hashedPassword, string role, DateTime createdAt)
+        public User(int id, string firstName, string lastName, string username, string hashedPassword, string role, DateTime createdAt)
         {
             Id = id;
             Username = username;
             Password = hashedPassword;
             Role = role;
             CreatedAt = createdAt;
+            FirstName = firstName;
+            LastName = lastName;
         }
 
         public bool ValidatePepper(string password, string storedHashPass)

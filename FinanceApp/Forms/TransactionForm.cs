@@ -2,17 +2,10 @@
 using FinanceApp.Managers;
 using FinanceApp.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
-using System.Drawing.Text;
 using System.IO;
 using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FinanceApp.Forms
@@ -29,19 +22,17 @@ namespace FinanceApp.Forms
         {
             InitializeComponent();
 
-            transactionManager = new TransactionManager();
-            categoryManager = new CategoryManager("categories.xml", transactionManager);
-            budgetManager = new BudgetManager();
-
             if (!SessionManager.isLoggedIn)
             {
-                MessageBox.Show("Invalid or expired session. Please log in again.");
-
                 this.Hide();
                 LoginForm loginForm = new LoginForm();
                 loginForm.Show();
                 return;
             }
+
+            transactionManager = new TransactionManager();
+            categoryManager = new CategoryManager("categories.xml", transactionManager);
+            budgetManager = new BudgetManager();
 
             InitializeForm();
         }
@@ -105,6 +96,10 @@ namespace FinanceApp.Forms
                     budgetForm.Show();
                     this.Hide();
                 }
+
+                descTextBox.Clear();
+                amountTextBox.Clear();
+                receiptPictureBox.Image = null;
             }
         }
 

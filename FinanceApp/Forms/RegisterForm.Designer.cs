@@ -40,6 +40,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.privilegedComboBox = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -104,10 +108,34 @@
             resources.ApplyResources(this.privilegedComboBox, "privilegedComboBox");
             this.privilegedComboBox.Name = "privilegedComboBox";
             // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // firstNameTextBox
+            // 
+            resources.ApplyResources(this.firstNameTextBox, "firstNameTextBox");
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            // 
+            // lastNameTextBox
+            // 
+            resources.ApplyResources(this.lastNameTextBox, "lastNameTextBox");
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            // 
             // RegisterForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lastNameTextBox);
+            this.Controls.Add(this.firstNameTextBox);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.privilegedComboBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -138,5 +166,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox privilegedComboBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox firstNameTextBox;
+        private System.Windows.Forms.TextBox lastNameTextBox;
     }
 }
