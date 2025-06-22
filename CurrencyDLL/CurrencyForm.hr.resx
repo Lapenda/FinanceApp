@@ -127,7 +127,55 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Unesite ime zemlje ili ISO kod:</value>
   </data>
+  <data name="returnBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>584, 621</value>
+  </data>
   <data name="returnBtn.Text" xml:space="preserve">
     <value>Natrag</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>86, 371</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 20</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Valuta iz:</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>478, 371</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 20</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Valuta u:</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>505, 434</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 20</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Rezultat:</value>
+  </data>
+  <data name="resultTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>584, 428</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>917, 371</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 20</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Iznos:</value>
+  </data>
+  <data name="calcBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>584, 552</value>
+  </data>
+  <data name="calcBtn.Text" xml:space="preserve">
+    <value>Izračunaj</value>
   </data>
 </root>

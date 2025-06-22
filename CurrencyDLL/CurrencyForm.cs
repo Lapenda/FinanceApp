@@ -1,9 +1,10 @@
 ﻿using CurrencyDLL.Properties;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
+using System.Net.Http;
 using System.Threading;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace CurrencyDLL
 {
@@ -66,6 +67,52 @@ namespace CurrencyDLL
         private void returnBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private async void calcBtn_Click(object sender, EventArgs e)
+        {
+            string currFrom = currFromTextBox.Text.ToUpper();
+            string currTo = currToTextBox.Text.ToUpper();
+            var isNumber = float.TryParse(amountTextBox.Text, out var result);
+
+            if(!isNumber)
+            {
+                MessageBox.Show("Please enter a number!");
+                return;
+            }
+
+            using (var client = new HttpClient())
+            {
+                try
+                {
+                    var response = await client.GetAsync($"https://api.getgeoapi.com/v2/currency/convert?api_key=5c4dce8197b2131b693ec665a7306fb11d63284b&from={currFrom}&to={currTo}&amount={result}&format=json");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var jsonString = await response.Content.ReadAsStringAsync();
+                        var convertedAmount = JsonConvert.DeserializeObject<Currency>(jsonString);
+                        
+                        if(convertedAmount.Status == "success" && convertedAmount.Rates.TryGetValue(currTo, out var rateDetail))
+                        {
+                            resultTextBox.Text = $"{rateDetail.RateForAmount} {currTo}";
+                            dateLabel.Text = "Last time rate was updated: " + convertedAmount.UpdatedDate;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Currency not found or API request failed.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Error: {response.StatusCode}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
+            }
+
+            
         }
     }
 }
