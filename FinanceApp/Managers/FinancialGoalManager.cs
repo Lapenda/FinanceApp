@@ -74,7 +74,7 @@ namespace FinanceApp.Managers
             goal.Id = goals.Any() ? goals.Max(g => g.Id) + 1 : 1;
             goals.Add(goal);
             Save(goals);
-            MessageBox.Show("Success");
+            MessageBox.Show(Properties.Resources.Success);
         }
 
         public void UpdateGoal(FinancialGoal goal, string newName, float newTargetAmount, float newCurrentAmount)
@@ -88,7 +88,7 @@ namespace FinanceApp.Managers
                 existingGoal.CurrentAmount = newCurrentAmount;
                 existingGoal.IsAchieved = existingGoal.IsGoalAchieved();
                 Save(goals);
-                MessageBox.Show("Success");
+                MessageBox.Show(Properties.Resources.Success);
             }
             else
             {
@@ -104,7 +104,7 @@ namespace FinanceApp.Managers
             {
                 goals.Remove(existingGoal);
                 Save(goals);
-                MessageBox.Show("Success");
+                MessageBox.Show(Properties.Resources.Success);
             }
             else
             {

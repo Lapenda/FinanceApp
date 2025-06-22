@@ -42,7 +42,7 @@ namespace FinanceApp.Forms
             SettingsManager.ApplyTheme(this);
             InitializeCategoryComboBox();
 
-            welcomeLabel.Text = $"Transaction Form - Welcome, {SessionManager.currentUsername} ({SessionManager.currentUserRole})";
+            welcomeLabel.Text = $"{Properties.Resources.TransWellcome}, {SessionManager.currentUsername} ({SessionManager.currentUserRole})";
         }
 
 
@@ -50,7 +50,7 @@ namespace FinanceApp.Forms
         {
             if(categoryComboBox.SelectedItem == null)
             {
-                MessageBox.Show("Please select a category");
+                MessageBox.Show(Properties.Resources.SelectCat);
                 return;
             }
 
@@ -58,7 +58,7 @@ namespace FinanceApp.Forms
 
             if (!float.TryParse(amountTextBox.Text, out float amount) || amount < 0)
             {
-                MessageBox.Show("Please enter a valid amount!");
+                MessageBox.Show(Properties.Resources.GreaterAmount);
                 return;
             }
 
@@ -66,13 +66,13 @@ namespace FinanceApp.Forms
 
             if (string.IsNullOrEmpty(description))
             {
-                MessageBox.Show("Please enter description");
+                MessageBox.Show(Properties.Resources.EnterDesc);
                 return;
             }
 
             if(selectedReceiptImage == null)
             {
-                var result = MessageBox.Show("You didn't enter a receipt image, do you want to continue?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var result = MessageBox.Show(Properties.Resources.ConfNoReceiptImg, Properties.Resources.Confirm, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result != DialogResult.Yes)
                 {
                     return;
@@ -111,7 +111,7 @@ namespace FinanceApp.Forms
                 var goals = goalManager.ReadAllUserGoals();
                 if (goals.Count == 0)
                 {
-                    MessageBox.Show("No financial goals found. Please create a goal first.");
+                    MessageBox.Show(Properties.Resources.NoFinGoal);
                     FinancialGoalsForm financialGoalsForm = new FinancialGoalsForm();
                     financialGoalsForm.Show();
                     return;
@@ -120,12 +120,12 @@ namespace FinanceApp.Forms
                 {
                     using (var goalSelectionForm = new Form())
                     {
-                        goalSelectionForm.Text = "Select Financial Goal";
+                        goalSelectionForm.Text = Properties.Resources.SelectGoal;
                         goalSelectionForm.Size = new Size(300, 150);
                         ComboBox goalComboBox = new ComboBox { Location = new Point(20, 20), Width = 200 };
                         goalComboBox.Items.AddRange(goals.Select(g => g.Name).ToArray());
                         goalComboBox.SelectedIndex = 0;
-                        Button confirmButton = new Button { Text = "Confirm", Location = new Point(20, 60) };
+                        Button confirmButton = new Button { Text = Properties.Resources.Confirm, Location = new Point(20, 60) };
                         confirmButton.Click += (s, ev) =>
                         {
                             if (goalComboBox.SelectedItem != null)
@@ -162,11 +162,11 @@ namespace FinanceApp.Forms
                 categories = categoryManager.ReadAllUserCategories();
             }
 
-            if (categories.Count == 0)
+            /*if (categories.Count == 0)
             {
                 MessageBox.Show("You have no categories yet so please enter a category first.");
                 return;
-            }
+            }*/
 
             categoryComboBox.Items.AddRange(categories.ToArray());
 
@@ -194,11 +194,11 @@ namespace FinanceApp.Forms
             
             if (budget != null)
             {
-                budgetLabel.Text = $"Remaining budget for the selected category is: {budget.CalculateRemaining()}";
+                budgetLabel.Text = $"{Properties.Resources.RemainingBudget} {budget.CalculateRemaining()}";
             }
             else
             {
-                budgetLabel.Text = "There is no budget for the selected category";
+                budgetLabel.Text = Properties.Resources.NoRemainingBudgetLabel;
             }
         }
 
@@ -229,7 +229,7 @@ namespace FinanceApp.Forms
                     }
                     catch(Exception ex)
                     {
-                        MessageBox.Show("Error uploading image: " + ex.Message);
+                        MessageBox.Show(Properties.Resources.Error + ex.Message);
                         selectedReceiptImage = null;
                         receiptPictureBox.Image = null;
                     }

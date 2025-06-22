@@ -95,12 +95,7 @@ namespace FinanceApp.Forms
             }
             else
             {
-                MessageBox.Show(
-                    "Please select a language.",
-                    "Warning",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                MessageBox.Show(Properties.Resources.SelectLang);
             }
         }
 

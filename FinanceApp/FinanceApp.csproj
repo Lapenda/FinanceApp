@@ -323,8 +323,14 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AdminForm.hr.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AllTransactionsForm.hr.resx">
+      <DependentUpon>AllTransactionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AllTransactionsForm.resx">
       <DependentUpon>AllTransactionsForm.cs</DependentUpon>
@@ -344,8 +350,17 @@
     <EmbeddedResource Include="Forms\CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DashboardForm.hr.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FinancialGoalsForm.en.resx">
+      <DependentUpon>FinancialGoalsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FinancialGoalsForm.hr.resx">
+      <DependentUpon>FinancialGoalsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FinancialGoalsForm.resx">
       <DependentUpon>FinancialGoalsForm.cs</DependentUpon>

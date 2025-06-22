@@ -181,12 +181,12 @@ namespace FinanceApp.Managers
                         {
                             message += $"{t.Description} ({t.Amount} {t.Currency})\n";
                         }
-                        MessageBox.Show(message, "Warning");
+                        MessageBox.Show(message);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Budget not exceeded.", "Info");
+                    MessageBox.Show("Budget not exceeded.");
                 }
 
                 stream.Close();
@@ -195,7 +195,7 @@ namespace FinanceApp.Managers
             catch (Exception ex)
             {
                 Console.WriteLine($"Greška u komunikaciji: {ex.Message}");
-                MessageBox.Show($"Greška u komunikaciji: {ex.Message}", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Greška u komunikaciji: {ex.Message}");
             }
         }
 

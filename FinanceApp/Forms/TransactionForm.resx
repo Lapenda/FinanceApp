@@ -117,146 +117,278 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1432, 741</value>
+  </data>
+  <data name="&gt;&gt;navbar1.Name" xml:space="preserve">
+    <value>navbar1</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="seeTransBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;descTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 20</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;receiptPictureBox.Name" xml:space="preserve">
+    <value>receiptPictureBox</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>452, 152</value>
+  </data>
+  <data name="&gt;&gt;welcomeLabel.Name" xml:space="preserve">
+    <value>welcomeLabel</value>
+  </data>
+  <data name="&gt;&gt;uploadReceiptBtn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>622, 550</value>
+  </data>
+  <data name="amountTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 26</value>
+  </data>
+  <data name="&gt;&gt;categoryComboBox.Name" xml:space="preserve">
+    <value>categoryComboBox</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;seeTransBtn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="seeTransBtn.Text" xml:space="preserve">
+    <value>Open All Transactions</value>
+  </data>
+  <data name="saveButton.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>399, 208</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 20</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;welcomeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Enter Transaction Amount:</value>
   </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>TransactionForm</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;amountTextBox.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="descTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 26</value>
   </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>16</value>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
-  <data name="welcomeLabel.AutoSize" type="System.Boolean, mscorlib">
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="welcomeLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="welcomeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>632, 98</value>
+  <data name="&gt;&gt;datePicker.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="welcomeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="welcomeLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="welcomeLabel.Text" xml:space="preserve">
-    <value>Transactions</value>
-  </data>
-  <data name="&gt;&gt;welcomeLabel.Name" xml:space="preserve">
-    <value>welcomeLabel</value>
-  </data>
-  <data name="&gt;&gt;welcomeLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;welcomeLabel.Parent" xml:space="preserve">
+  <data name="&gt;&gt;saveButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;welcomeLabel.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="categoryComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>636, 284</value>
-  </data>
-  <data name="categoryComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 28</value>
-  </data>
-  <data name="categoryComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;categoryComboBox.Name" xml:space="preserve">
-    <value>categoryComboBox</value>
-  </data>
-  <data name="&gt;&gt;categoryComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;categoryComboBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;categoryComboBox.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="amountTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>636, 208</value>
-  </data>
-  <data name="amountTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 26</value>
-  </data>
-  <data name="amountTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;amountTextBox.Name" xml:space="preserve">
-    <value>amountTextBox</value>
-  </data>
-  <data name="&gt;&gt;amountTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;amountTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;amountTextBox.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;seeTransBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>478, 287</value>
   </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 20</value>
-  </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Enter Category:</value>
   </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
+  <data name="datePicker.Location" type="System.Drawing.Point, System.Drawing">
+    <value>636, 468</value>
   </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+  <data name="saveButton.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;budgetLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;datePicker.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>399, 208</value>
+  </data>
+  <data name="&gt;&gt;editCategoriesBtn.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;editCategoriesBtn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="categoryComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 20</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;uploadReceiptBtn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;amountTextBox.Name" xml:space="preserve">
+    <value>amountTextBox</value>
+  </data>
+  <data name="categoryComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 28</value>
+  </data>
+  <data name="&gt;&gt;navbar1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="welcomeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>632, 98</value>
+  </data>
+  <data name="datePicker.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 26</value>
+  </data>
+  <data name="&gt;&gt;seeTransBtn.Name" xml:space="preserve">
+    <value>seeTransBtn</value>
+  </data>
+  <data name="welcomeLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="editCategoriesBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1055, 265</value>
+  </data>
+  <data name="&gt;&gt;categoryComboBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>TransactionForm</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="descTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="navbar1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;datePicker.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="editCategoriesBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="budgetLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>9, 20</value>
+  </data>
+  <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 39</value>
   </data>
   <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1430, 750</value>
+  </data>
+  <data name="uploadReceiptBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>117, 343</value>
+  </data>
+  <data name="&gt;&gt;datePicker.Name" xml:space="preserve">
+    <value>datePicker</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="uploadReceiptBtn.Text" xml:space="preserve">
+    <value>Upload Receipt</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;budgetLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;seeTransBtn.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="navbar1.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;navbar1.Type" xml:space="preserve">
+    <value>FinanceApp.Forms.Navbar, FinanceApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="uploadReceiptBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 42</value>
+  </data>
+  <data name="welcomeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>497, 473</value>
@@ -264,319 +396,190 @@
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 20</value>
   </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Enter Date:</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>468, 396</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 20</value>
-  </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label5.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="&gt;&gt;receiptPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="datePicker.Location" type="System.Drawing.Point, System.Drawing">
-    <value>636, 468</value>
-  </data>
-  <data name="datePicker.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 26</value>
-  </data>
-  <data name="datePicker.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;datePicker.Name" xml:space="preserve">
-    <value>datePicker</value>
-  </data>
-  <data name="&gt;&gt;datePicker.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;datePicker.Parent" xml:space="preserve">
+  <data name="&gt;&gt;amountTextBox.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;datePicker.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="saveButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>622, 550</value>
-  </data>
-  <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 39</value>
-  </data>
-  <data name="saveButton.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="saveButton.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="&gt;&gt;saveButton.Name" xml:space="preserve">
-    <value>saveButton</value>
-  </data>
-  <data name="&gt;&gt;saveButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;saveButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="editCategoriesBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="editCategoriesBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1055, 265</value>
-  </data>
-  <data name="editCategoriesBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 65</value>
-  </data>
-  <data name="editCategoriesBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="editCategoriesBtn.Text" xml:space="preserve">
-    <value>Edit Categories</value>
-  </data>
-  <data name="&gt;&gt;editCategoriesBtn.Name" xml:space="preserve">
-    <value>editCategoriesBtn</value>
   </data>
   <data name="&gt;&gt;editCategoriesBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;editCategoriesBtn.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;editCategoriesBtn.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="descTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>636, 152</value>
-  </data>
-  <data name="descTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 26</value>
-  </data>
-  <data name="descTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;descTextBox.Name" xml:space="preserve">
-    <value>descTextBox</value>
-  </data>
   <data name="&gt;&gt;descTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;descTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="editCategoriesBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 65</value>
   </data>
-  <data name="&gt;&gt;descTextBox.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>452, 152</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 20</value>
-  </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Enter Description:</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="budgetLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="budgetLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="budgetLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>583, 377</value>
-  </data>
-  <data name="budgetLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>235, 20</value>
-  </data>
-  <data name="budgetLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="budgetLabel.Text" xml:space="preserve">
-    <value>No budget for selected category</value>
-  </data>
-  <data name="&gt;&gt;budgetLabel.Name" xml:space="preserve">
-    <value>budgetLabel</value>
-  </data>
-  <data name="&gt;&gt;budgetLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;budgetLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;budgetLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="navbar1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="navbar1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="navbar1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1432, 55</value>
-  </data>
-  <data name="navbar1.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;navbar1.Name" xml:space="preserve">
-    <value>navbar1</value>
-  </data>
-  <data name="&gt;&gt;navbar1.Type" xml:space="preserve">
-    <value>FinanceApp.Forms.Navbar, FinanceApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;navbar1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;navbar1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="seeTransBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1055, 155</value>
-  </data>
-  <data name="seeTransBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 61</value>
-  </data>
-  <data name="seeTransBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="seeTransBtn.Text" xml:space="preserve">
-    <value>Open All Transactions</value>
-  </data>
-  <data name="&gt;&gt;seeTransBtn.Name" xml:space="preserve">
-    <value>seeTransBtn</value>
-  </data>
-  <data name="&gt;&gt;seeTransBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;seeTransBtn.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;seeTransBtn.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;categoryComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="receiptPictureBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>73, 116</value>
   </data>
-  <data name="receiptPictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 191</value>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="receiptPictureBox.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;receiptPictureBox.Name" xml:space="preserve">
-    <value>receiptPictureBox</value>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;receiptPictureBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="navbar1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;receiptPictureBox.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>468, 396</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;receiptPictureBox.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="uploadReceiptBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>117, 343</value>
+  <data name="&gt;&gt;descTextBox.Name" xml:space="preserve">
+    <value>descTextBox</value>
   </data>
-  <data name="uploadReceiptBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 42</value>
+  <data name="&gt;&gt;saveButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="uploadReceiptBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+  <data name="datePicker.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
-  <data name="uploadReceiptBtn.Text" xml:space="preserve">
-    <value>Upload Receipt</value>
+  <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="&gt;&gt;uploadReceiptBtn.Name" xml:space="preserve">
     <value>uploadReceiptBtn</value>
   </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 20</value>
+  </data>
+  <data name="budgetLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 20</value>
+  </data>
+  <data name="&gt;&gt;saveButton.Name" xml:space="preserve">
+    <value>saveButton</value>
+  </data>
+  <data name="&gt;&gt;editCategoriesBtn.Name" xml:space="preserve">
+    <value>editCategoriesBtn</value>
+  </data>
+  <data name="welcomeLabel.Text" xml:space="preserve">
+    <value>Transactions</value>
+  </data>
+  <data name="uploadReceiptBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="navbar1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1432, 55</value>
+  </data>
+  <data name="budgetLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="saveButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Enter Description:</value>
+  </data>
+  <data name="&gt;&gt;welcomeLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;amountTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="receiptPictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Enter Date:</value>
+  </data>
+  <data name="budgetLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>583, 377</value>
+  </data>
+  <data name="&gt;&gt;descTextBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="&gt;&gt;uploadReceiptBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;uploadReceiptBtn.Parent" xml:space="preserve">
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
+  </data>
+  <data name="&gt;&gt;navbar1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="welcomeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="receiptPictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 191</value>
+  </data>
+  <data name="&gt;&gt;budgetLabel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;uploadReceiptBtn.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="categoryComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>636, 284</value>
+  </data>
+  <data name="amountTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>636, 208</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="seeTransBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1055, 155</value>
+  </data>
+  <data name="&gt;&gt;categoryComboBox.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="descTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>636, 152</value>
+  </data>
+  <data name="&gt;&gt;budgetLabel.Name" xml:space="preserve">
+    <value>budgetLabel</value>
+  </data>
+  <data name="&gt;&gt;welcomeLabel.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="budgetLabel.Text" xml:space="preserve">
+    <value>No budget for selected category</value>
+  </data>
+  <data name="editCategoriesBtn.Text" xml:space="preserve">
+    <value>Edit Categories</value>
+  </data>
+  <data name="editCategoriesBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="seeTransBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 61</value>
+  </data>
+  <data name="budgetLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;receiptPictureBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="amountTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>9, 20</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1432, 741</value>
-  </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>1430, 750</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>TransactionForm</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>TransactionForm</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>hr</value>
+  </metadata>
 </root>

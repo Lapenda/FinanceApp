@@ -45,7 +45,7 @@ namespace FinanceApp.Managers
 
             if(existingUser.Value != null)
             {
-                MessageBox.Show("Username is taken");
+                MessageBox.Show(Properties.Resources.TakenUsername);
                 return false;
             }
 

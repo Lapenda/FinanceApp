@@ -34,11 +34,11 @@ namespace FinanceApp.Forms
 
             if(string.IsNullOrEmpty(newName) || string.IsNullOrEmpty(newLastName) || string.IsNullOrEmpty(newRole))
             {
-                MessageBox.Show("No files can be empty");
+                MessageBox.Show(Properties.Resources.EmptyField);
                 return;
             }
             
-            var confirmResult = MessageBox.Show($"You updated your information, you will be Logged out. Do you want to continue?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var confirmResult = MessageBox.Show(Properties.Resources.LogOutConfirm, Properties.Resources.Confirm, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirmResult != DialogResult.Yes)
             {
                 FillOutData();
@@ -49,7 +49,7 @@ namespace FinanceApp.Forms
 
             if (success)
             {
-                MessageBox.Show("Success");
+                MessageBox.Show(Properties.Resources.Success);
                 SessionManager.EndSession();
                 this.Close();
                 LoginForm loginForm = new LoginForm();
@@ -58,7 +58,7 @@ namespace FinanceApp.Forms
             }
             else
             {
-                MessageBox.Show("Error");
+                MessageBox.Show(Properties.Resources.Error);
                 FillOutData();
             }
         }
@@ -84,7 +84,7 @@ namespace FinanceApp.Forms
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            var response = MessageBox.Show("Your account will be deleted, do you want to continue?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var response = MessageBox.Show(Properties.Resources.ConfDelAcc, Properties.Resources.Confirm, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(response != DialogResult.Yes)
             {
                 return;
@@ -94,7 +94,7 @@ namespace FinanceApp.Forms
 
             if(success)
             {
-                MessageBox.Show("Success");
+                MessageBox.Show(Properties.Resources.Success);
                 SessionManager.EndSession();
                 Properties.Settings.Default.JwtToken = null;
                 Properties.Settings.Default.Save();
@@ -104,7 +104,7 @@ namespace FinanceApp.Forms
             }
             else
             {
-                MessageBox.Show("Error");
+                MessageBox.Show(Properties.Resources.Error);
             }
 
         }

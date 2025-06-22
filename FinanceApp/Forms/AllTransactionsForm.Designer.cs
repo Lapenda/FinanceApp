@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AllTransactionsForm));
             this.transDataGridView = new System.Windows.Forms.DataGridView();
             this.returnBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,53 +58,35 @@
             // 
             // transDataGridView
             // 
+            resources.ApplyResources(this.transDataGridView, "transDataGridView");
             this.transDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.transDataGridView.Location = new System.Drawing.Point(260, 26);
             this.transDataGridView.MultiSelect = false;
             this.transDataGridView.Name = "transDataGridView";
             this.transDataGridView.ReadOnly = true;
-            this.transDataGridView.RowHeadersWidth = 62;
             this.transDataGridView.RowTemplate.Height = 28;
-            this.transDataGridView.Size = new System.Drawing.Size(1018, 367);
-            this.transDataGridView.TabIndex = 0;
             this.transDataGridView.SelectionChanged += new System.EventHandler(this.transDataGridView_SelectionChanged);
             // 
             // returnBtn
             // 
-            this.returnBtn.Location = new System.Drawing.Point(569, 603);
+            resources.ApplyResources(this.returnBtn, "returnBtn");
             this.returnBtn.Name = "returnBtn";
-            this.returnBtn.Size = new System.Drawing.Size(137, 38);
-            this.returnBtn.TabIndex = 1;
-            this.returnBtn.Text = "Return";
             this.returnBtn.UseVisualStyleBackColor = true;
             this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(101, 450);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Amount:";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(77, 551);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Description:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(442, 450);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Category:";
             // 
             // mySqlCommand1
             // 
@@ -114,155 +97,107 @@
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(443, 551);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 20);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Currency:";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(755, 453);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(135, 20);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Transaction Date:";
             // 
             // amountTextBox
             // 
-            this.amountTextBox.Location = new System.Drawing.Point(177, 450);
+            resources.ApplyResources(this.amountTextBox, "amountTextBox");
             this.amountTextBox.Name = "amountTextBox";
-            this.amountTextBox.Size = new System.Drawing.Size(187, 26);
-            this.amountTextBox.TabIndex = 7;
             // 
             // descTextBox
             // 
-            this.descTextBox.Location = new System.Drawing.Point(177, 548);
+            resources.ApplyResources(this.descTextBox, "descTextBox");
             this.descTextBox.Name = "descTextBox";
-            this.descTextBox.Size = new System.Drawing.Size(187, 26);
-            this.descTextBox.TabIndex = 8;
             // 
             // categoryComboBox
             // 
+            resources.ApplyResources(this.categoryComboBox, "categoryComboBox");
             this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(526, 450);
             this.categoryComboBox.Name = "categoryComboBox";
-            this.categoryComboBox.Size = new System.Drawing.Size(180, 28);
-            this.categoryComboBox.TabIndex = 9;
             // 
             // currencyComboBox
             // 
+            resources.ApplyResources(this.currencyComboBox, "currencyComboBox");
             this.currencyComboBox.FormattingEnabled = true;
-            this.currencyComboBox.Location = new System.Drawing.Point(525, 548);
             this.currencyComboBox.Name = "currencyComboBox";
-            this.currencyComboBox.Size = new System.Drawing.Size(181, 28);
-            this.currencyComboBox.TabIndex = 10;
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(896, 451);
+            resources.ApplyResources(this.dateTimePicker, "dateTimePicker");
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePicker.TabIndex = 11;
             // 
             // editBtn
             // 
-            this.editBtn.Location = new System.Drawing.Point(1174, 442);
+            resources.ApplyResources(this.editBtn, "editBtn");
             this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(117, 42);
-            this.editBtn.TabIndex = 12;
-            this.editBtn.Text = "Edit";
             this.editBtn.UseVisualStyleBackColor = true;
             this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // delBtn
             // 
-            this.delBtn.Location = new System.Drawing.Point(1174, 541);
+            resources.ApplyResources(this.delBtn, "delBtn");
             this.delBtn.Name = "delBtn";
-            this.delBtn.Size = new System.Drawing.Size(117, 40);
-            this.delBtn.TabIndex = 13;
-            this.delBtn.Text = "Delete";
             this.delBtn.UseVisualStyleBackColor = true;
             this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
             // 
             // sortBtn
             // 
-            this.sortBtn.Location = new System.Drawing.Point(12, 114);
+            resources.ApplyResources(this.sortBtn, "sortBtn");
             this.sortBtn.Name = "sortBtn";
-            this.sortBtn.Size = new System.Drawing.Size(174, 45);
-            this.sortBtn.TabIndex = 14;
-            this.sortBtn.Text = "Sort";
             this.sortBtn.UseVisualStyleBackColor = true;
             this.sortBtn.Click += new System.EventHandler(this.sortBtn_Click);
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(62, 26);
+            resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 20);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Sort by:";
             // 
             // sortByComboBox
             // 
+            resources.ApplyResources(this.sortByComboBox, "sortByComboBox");
             this.sortByComboBox.FormattingEnabled = true;
-            this.sortByComboBox.Location = new System.Drawing.Point(12, 59);
             this.sortByComboBox.Name = "sortByComboBox";
-            this.sortByComboBox.Size = new System.Drawing.Size(174, 28);
-            this.sortByComboBox.TabIndex = 16;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(77, 223);
+            resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 20);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Filter:";
             // 
             // filterTextBox
             // 
-            this.filterTextBox.Location = new System.Drawing.Point(12, 258);
+            resources.ApplyResources(this.filterTextBox, "filterTextBox");
             this.filterTextBox.Name = "filterTextBox";
-            this.filterTextBox.Size = new System.Drawing.Size(195, 26);
-            this.filterTextBox.TabIndex = 18;
             this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
             // 
             // calculatedTextBox
             // 
-            this.calculatedTextBox.Location = new System.Drawing.Point(12, 343);
-            this.calculatedTextBox.MinimumSize = new System.Drawing.Size(4, 50);
+            resources.ApplyResources(this.calculatedTextBox, "calculatedTextBox");
             this.calculatedTextBox.Name = "calculatedTextBox";
             this.calculatedTextBox.ReadOnly = true;
-            this.calculatedTextBox.Size = new System.Drawing.Size(195, 26);
-            this.calculatedTextBox.TabIndex = 19;
             // 
             // receiptPictureBox
             // 
-            this.receiptPictureBox.Location = new System.Drawing.Point(1440, 26);
+            resources.ApplyResources(this.receiptPictureBox, "receiptPictureBox");
             this.receiptPictureBox.Name = "receiptPictureBox";
-            this.receiptPictureBox.Size = new System.Drawing.Size(470, 367);
-            this.receiptPictureBox.TabIndex = 20;
             this.receiptPictureBox.TabStop = false;
             // 
             // uploadReceiptBtn
             // 
-            this.uploadReceiptBtn.Location = new System.Drawing.Point(1605, 436);
+            resources.ApplyResources(this.uploadReceiptBtn, "uploadReceiptBtn");
             this.uploadReceiptBtn.Name = "uploadReceiptBtn";
-            this.uploadReceiptBtn.Size = new System.Drawing.Size(185, 48);
-            this.uploadReceiptBtn.TabIndex = 21;
-            this.uploadReceiptBtn.Text = "Upload New Receipt";
             this.uploadReceiptBtn.UseVisualStyleBackColor = true;
             this.uploadReceiptBtn.Click += new System.EventHandler(this.uploadReceiptBtn_Click);
             // 
             // AllTransactionsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2078, 694);
             this.Controls.Add(this.uploadReceiptBtn);
             this.Controls.Add(this.receiptPictureBox);
             this.Controls.Add(this.calculatedTextBox);
@@ -285,9 +220,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.returnBtn);
             this.Controls.Add(this.transDataGridView);
-            this.MinimumSize = new System.Drawing.Size(2100, 750);
             this.Name = "AllTransactionsForm";
-            this.Text = "AllTransactionsForm";
             ((System.ComponentModel.ISupportInitialize)(this.transDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiptPictureBox)).EndInit();
             this.ResumeLayout(false);

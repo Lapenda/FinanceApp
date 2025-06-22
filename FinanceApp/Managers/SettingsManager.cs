@@ -51,12 +51,7 @@ namespace FinanceApp.Manager
             }
             catch(Exception ex)
             {
-                MessageBox.Show(
-                    $"Failed to set language: {ex.Message}",
-                    "Error", 
-                    MessageBoxButtons.OK, 
-                    MessageBoxIcon.Error
-                );
+                MessageBox.Show($"Failed to set language: {ex.Message}");
             }
         }
 
@@ -87,12 +82,7 @@ namespace FinanceApp.Manager
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    $"Failed to update form language: {ex.Message}", 
-                    "Error", 
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                MessageBox.Show($"Failed to update form language: {ex.Message}");
             }
         }
 

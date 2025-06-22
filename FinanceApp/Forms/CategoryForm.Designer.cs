@@ -89,8 +89,8 @@
             // 
             // categoriesComboBox
             // 
-            this.categoriesComboBox.FormattingEnabled = true;
             resources.ApplyResources(this.categoriesComboBox, "categoriesComboBox");
+            this.categoriesComboBox.FormattingEnabled = true;
             this.categoriesComboBox.Name = "categoriesComboBox";
             this.categoriesComboBox.SelectedIndexChanged += new System.EventHandler(this.categoriesComboBox_SelectedIndexChanged);
             // 

@@ -29,7 +29,6 @@ namespace FinanceApp.Forms
             InitializeCategoryComboBox();
             SettingsManager.ApplyTheme(this);
             UpdateLabel(null);
-            //UpdateButtonStatus();
         }
 
         private void UpdateLabel(Budget budget)
@@ -41,10 +40,10 @@ namespace FinanceApp.Forms
                 {
                     return;
                 }
-                remainingBudgetLabel.Text = $"Category: {category.Name}, Spent: {budget.Spent}, Remaining: {budget.CalculateRemaining()}";
+                remainingBudgetLabel.Text = $"{Properties.Resources.Category} {category.Name}, {Properties.Resources.Spent} {budget.Spent}, {Properties.Resources.Remaining} {budget.CalculateRemaining()}";
                 return;
             }
-            remainingBudgetLabel.Text = Properties.Resources.RemainingBudgetLabel;
+            remainingBudgetLabel.Text = Properties.Resources.NoRemainingBudgetLabel;
         }
 
         public bool UpdateBudget(float amount, Category category)
@@ -104,7 +103,7 @@ namespace FinanceApp.Forms
                 }
                 else
                 {
-                    spentTextBox.Text = "Default is 0";
+                    spentTextBox.Text = "0";
                     limitTextBox.Text = string.Empty;
                     UpdateLabel(null);
                 }
@@ -119,13 +118,13 @@ namespace FinanceApp.Forms
         {
             if(categoryComboBox.SelectedItem == null)
             {
-                MessageBox.Show("Please select a category!");
+                MessageBox.Show(Properties.Resources.SelectCat);
                 return;
             }
 
             if(!float.TryParse(limitTextBox.Text, out float limit) || limit < 0)
             {                    
-                MessageBox.Show("Please enter a valid amount greater than 0");
+                MessageBox.Show(Properties.Resources.GreaterAmount);
                 return;
             }
 
@@ -169,13 +168,13 @@ namespace FinanceApp.Forms
         {
             if (categoryComboBox.SelectedItem == null)
             {
-                MessageBox.Show("Please select a category!");
+                MessageBox.Show(Properties.Resources.SelectCat);
                 return;
             }
 
             if (!float.TryParse(limitTextBox.Text, out float limit) || limit < 0)
             {
-                MessageBox.Show("Please enter a valid amount greater than 0");
+                MessageBox.Show(Properties.Resources.GreaterAmount);
                 return;
             }
 
@@ -204,7 +203,7 @@ namespace FinanceApp.Forms
 
             var budget = _budgetManager.ReadAllUserBudgets().FirstOrDefault(b => b.CategoryId == category.Id);
 
-            var confirmResult = MessageBox.Show($"Are you sure you want to delete the budget for '{category.Name}'?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var confirmResult = MessageBox.Show($"{Properties.Resources.ConfDelBudg} '{category.Name}'?", Properties.Resources.Confirm, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirmResult != DialogResult.Yes)
             {
                 return;

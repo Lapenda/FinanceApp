@@ -43,9 +43,9 @@ namespace FinanceApp.Forms
             var catName = nameOfCatTextBox.Text;
             var catDesc = descOfCatTextBox.Text;
 
-            if (catDesc == null || catDesc == "" || catName == null || catName == "") 
+            if (string.IsNullOrEmpty(catDesc) || string.IsNullOrEmpty(catName)) 
             {
-                MessageBox.Show("Please enter a valid name and description");
+                MessageBox.Show(Properties.Resources.ValidNameDesc);
                 return;
             }
          
@@ -60,7 +60,7 @@ namespace FinanceApp.Forms
         {
             var category = (Category)categoriesComboBox.SelectedItem;
 
-            var confirmResult = MessageBox.Show($"Are you sure you want to delete the category '{category.Name}'?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var confirmResult = MessageBox.Show($"{Properties.Resources.ConfCatDel} '{category.Name}'?", Properties.Resources.Confirm, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirmResult != DialogResult.Yes)
             {
                 return;

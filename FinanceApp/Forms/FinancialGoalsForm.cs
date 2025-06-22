@@ -23,7 +23,7 @@ namespace FinanceApp.Forms
 
             UpdateButtonStates();
 
-            speedComboBox.Items.AddRange(new[] { "10 KB/s", "50 KB/s", "100 KB/s", Properties.Resources.NoLimit });
+            speedComboBox.Items.AddRange(new[] { "1 MB/s", "2 MB/s", "4 MB/s", Properties.Resources.NoLimit });
             speedComboBox.SelectedIndex = 3;
         }
 
@@ -39,7 +39,7 @@ namespace FinanceApp.Forms
             var goals = financialGoalManager.ReadAllUserGoals();
             if(goals.Count == 0 )
             {
-                MessageBox.Show($"You don't have any goals yet, please enter some");
+                MessageBox.Show($"{Properties.Resources.NoFinGoal}");
             }
             goalsDataGridView.DataSource = goals;
             UpdateButtonStates();
@@ -228,13 +228,14 @@ namespace FinanceApp.Forms
 
             int? speedLimit = null;
             int selectedIndex = speedComboBox.SelectedIndex;
-            if (selectedIndex == 0) speedLimit = 10;
-            else if (selectedIndex == 1) speedLimit = 50;
-            else if (selectedIndex == 2) speedLimit = 100;
+            if (selectedIndex == 0) speedLimit = 1024;
+            else if (selectedIndex == 1) speedLimit = 2048;
+            else if (selectedIndex == 2) speedLimit = 4096;
             else speedLimit = null;
 
-            string destinationPath = @"C:\Users\Borna\Desktop\newsfeed.xml";
-            await client.DownloadNewsAsync("https://www.federalreserve.gov/feeds/h10.xml", destinationPath, progress, speedLimit);
+            string destinationPath = @"C:\Users\Borna\Desktop\projekt.zip";
+
+            await client.DownloadNewsAsync("https://github.com/Lapenda/projektProba/releases/download/v0.1.0-alpha/projekt.zip", destinationPath, progress, speedLimit);
             MessageBox.Show(Properties.Resources.DownloadSucceeded);
             downloadBtn.Enabled = true;
         }

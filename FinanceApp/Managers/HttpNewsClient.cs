@@ -18,7 +18,7 @@ public class HttpNewsClient
         using (var throttledStream = speedLimit.HasValue ? new ThrottleStream(stream, speedLimit.Value * 1024) : stream)
         using (var fileStream = new FileStream(destination, FileMode.Create))
         {
-            byte[] buffer = new byte[8192];
+            byte[] buffer = new byte[8388608];
             long totalBytesRead = 0;
             int bytesRead;
 

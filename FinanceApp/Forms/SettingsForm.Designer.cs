@@ -49,8 +49,8 @@
             // 
             // languageComboBox
             // 
-            this.languageComboBox.FormattingEnabled = true;
             resources.ApplyResources(this.languageComboBox, "languageComboBox");
+            this.languageComboBox.FormattingEnabled = true;
             this.languageComboBox.Name = "languageComboBox";
             // 
             // languageComboLabel
@@ -67,8 +67,8 @@
             // 
             // themeComboBox
             // 
-            this.themeComboBox.FormattingEnabled = true;
             resources.ApplyResources(this.themeComboBox, "themeComboBox");
+            this.themeComboBox.FormattingEnabled = true;
             this.themeComboBox.Name = "themeComboBox";
             // 
             // label1
@@ -83,8 +83,8 @@
             // 
             // currencyComboBox
             // 
-            this.currencyComboBox.FormattingEnabled = true;
             resources.ApplyResources(this.currencyComboBox, "currencyComboBox");
+            this.currencyComboBox.FormattingEnabled = true;
             this.currencyComboBox.Name = "currencyComboBox";
             // 
             // jokeBtn

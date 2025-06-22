@@ -117,76 +117,197 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>60, 147</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 20</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Enter name of category:</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;navbar1.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>60, 241</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 20</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Category description:</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Enter name of category:</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="newNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>782, 218</value>
+  </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
-  <data name="nameOfCatTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>245, 144</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="nameOfCatTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>250, 26</value>
   </data>
-  <data name="nameOfCatTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="descOfCatTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>245, 238</value>
   </data>
   <data name="&gt;&gt;nameOfCatTextBox.Name" xml:space="preserve">
     <value>nameOfCatTextBox</value>
   </data>
-  <data name="&gt;&gt;nameOfCatTextBox.Type" xml:space="preserve">
+  <data name="label5.Text" xml:space="preserve">
+    <value>New name:</value>
+  </data>
+  <data name="deleteCategoryBtn.Text" xml:space="preserve">
+    <value>Delete category</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;categoriesComboBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="editCategoryBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 51</value>
+  </data>
+  <data name="&gt;&gt;newDescriptionTextBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="newNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 26</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="descOfCatTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;returnBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;navbar1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="newDescriptionTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="nameOfCatTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>245, 144</value>
+  </data>
+  <data name="&gt;&gt;newDescriptionTextBox.Name" xml:space="preserve">
+    <value>newDescriptionTextBox</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 20</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;newNameTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;descOfCatTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 20</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Category description:</value>
+  </data>
+  <data name="editCategoryBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>60, 241</value>
+  </data>
+  <data name="returnBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 45</value>
+  </data>
+  <data name="&gt;&gt;navbar1.Type" xml:space="preserve">
+    <value>FinanceApp.Forms.Navbar, FinanceApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;createCategoryBtn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;deleteCategoryBtn.Name" xml:space="preserve">
+    <value>deleteCategoryBtn</value>
+  </data>
+  <data name="&gt;&gt;editCategoryBtn.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;deleteCategoryBtn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;categoriesComboBox.Name" xml:space="preserve">
+    <value>categoriesComboBox</value>
+  </data>
+  <data name="editCategoryBtn.Text" xml:space="preserve">
+    <value>Edit category</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="navbar1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;descOfCatTextBox.Name" xml:space="preserve">
+    <value>descOfCatTextBox</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="createCategoryBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>New description:</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 20</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="categoriesComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>793, 144</value>
+  </data>
+  <data name="&gt;&gt;returnBtn.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>CategoryForm</value>
+  </data>
+  <data name="nameOfCatTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;newDescriptionTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>652, 221</value>
+  </data>
+  <data name="&gt;&gt;deleteCategoryBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="createCategoryBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 56</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Select existing category:</value>
+  </data>
+  <data name="&gt;&gt;categoriesComboBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="deleteCategoryBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
   </data>
   <data name="&gt;&gt;nameOfCatTextBox.Parent" xml:space="preserve">
     <value>$this</value>
@@ -194,314 +315,196 @@
   <data name="&gt;&gt;nameOfCatTextBox.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="descOfCatTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>245, 238</value>
-  </data>
-  <data name="descOfCatTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 26</value>
-  </data>
-  <data name="descOfCatTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;descOfCatTextBox.Name" xml:space="preserve">
-    <value>descOfCatTextBox</value>
-  </data>
-  <data name="&gt;&gt;descOfCatTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;descOfCatTextBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;descOfCatTextBox.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="createCategoryBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 377</value>
-  </data>
-  <data name="createCategoryBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 56</value>
-  </data>
-  <data name="createCategoryBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="createCategoryBtn.Text" xml:space="preserve">
-    <value>Create category</value>
-  </data>
-  <data name="&gt;&gt;createCategoryBtn.Name" xml:space="preserve">
-    <value>createCategoryBtn</value>
-  </data>
-  <data name="&gt;&gt;createCategoryBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;createCategoryBtn.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;createCategoryBtn.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="editCategoryBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>819, 382</value>
-  </data>
-  <data name="editCategoryBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 51</value>
-  </data>
-  <data name="editCategoryBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="editCategoryBtn.Text" xml:space="preserve">
-    <value>Edit category</value>
-  </data>
-  <data name="&gt;&gt;editCategoryBtn.Name" xml:space="preserve">
-    <value>editCategoryBtn</value>
-  </data>
-  <data name="&gt;&gt;editCategoryBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;editCategoryBtn.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;editCategoryBtn.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="returnBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>541, 494</value>
-  </data>
-  <data name="returnBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 45</value>
-  </data>
-  <data name="returnBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="returnBtn.Text" xml:space="preserve">
-    <value>Return</value>
-  </data>
-  <data name="&gt;&gt;returnBtn.Name" xml:space="preserve">
-    <value>returnBtn</value>
-  </data>
-  <data name="&gt;&gt;returnBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;returnBtn.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;returnBtn.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="categoriesComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>793, 144</value>
-  </data>
-  <data name="categoriesComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 28</value>
-  </data>
-  <data name="categoriesComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;categoriesComboBox.Name" xml:space="preserve">
-    <value>categoriesComboBox</value>
-  </data>
-  <data name="&gt;&gt;categoriesComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;categoriesComboBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;categoriesComboBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>560, 144</value>
-  </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 20</value>
-  </data>
-  <data name="label7.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>Select existing category:</value>
-  </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
-  </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="newDescriptionTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>782, 292</value>
-  </data>
-  <data name="newDescriptionTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>444, 26</value>
-  </data>
-  <data name="newDescriptionTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;newDescriptionTextBox.Name" xml:space="preserve">
-    <value>newDescriptionTextBox</value>
-  </data>
-  <data name="&gt;&gt;newDescriptionTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;newDescriptionTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;newDescriptionTextBox.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="newNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>782, 218</value>
-  </data>
-  <data name="newNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 26</value>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
   <data name="newNameTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
-  <data name="&gt;&gt;newNameTextBox.Name" xml:space="preserve">
-    <value>newNameTextBox</value>
-  </data>
-  <data name="&gt;&gt;newNameTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;newNameTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;newNameTextBox.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>615, 292</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 20</value>
-  </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>New description:</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>652, 221</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 20</value>
-  </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>New name:</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1408, 694</value>
   </data>
   <data name="&gt;&gt;label5.Name" xml:space="preserve">
     <value>label5</value>
   </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="deleteCategoryBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1069, 134</value>
-  </data>
-  <data name="deleteCategoryBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 46</value>
-  </data>
-  <data name="deleteCategoryBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="deleteCategoryBtn.Text" xml:space="preserve">
-    <value>Delete category</value>
-  </data>
-  <data name="&gt;&gt;deleteCategoryBtn.Name" xml:space="preserve">
-    <value>deleteCategoryBtn</value>
-  </data>
-  <data name="&gt;&gt;deleteCategoryBtn.Type" xml:space="preserve">
+  <data name="&gt;&gt;editCategoryBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;deleteCategoryBtn.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>560, 144</value>
   </data>
-  <data name="&gt;&gt;deleteCategoryBtn.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="descOfCatTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 26</value>
   </data>
-  <data name="navbar1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="navbar1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="navbar1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1408, 55</value>
-  </data>
-  <data name="navbar1.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;navbar1.Name" xml:space="preserve">
-    <value>navbar1</value>
-  </data>
-  <data name="&gt;&gt;navbar1.Type" xml:space="preserve">
-    <value>FinanceApp.Forms.Navbar, FinanceApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;navbar1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;navbar1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>9, 20</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1408, 694</value>
-  </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>1430, 750</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>CategoryForm</value>
+  <data name="returnBtn.Text" xml:space="preserve">
+    <value>Return</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>CategoryForm</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;returnBtn.Name" xml:space="preserve">
+    <value>returnBtn</value>
   </data>
+  <data name="&gt;&gt;createCategoryBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;navbar1.Name" xml:space="preserve">
+    <value>navbar1</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>60, 147</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="returnBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="editCategoryBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>819, 382</value>
+  </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="createCategoryBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 377</value>
+  </data>
+  <data name="&gt;&gt;newNameTextBox.Name" xml:space="preserve">
+    <value>newNameTextBox</value>
+  </data>
+  <data name="createCategoryBtn.Text" xml:space="preserve">
+    <value>Create category</value>
+  </data>
+  <data name="&gt;&gt;newNameTextBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;descOfCatTextBox.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;createCategoryBtn.Name" xml:space="preserve">
+    <value>createCategoryBtn</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 20</value>
+  </data>
+  <data name="navbar1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1408, 55</value>
+  </data>
+  <data name="deleteCategoryBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1069, 134</value>
+  </data>
+  <data name="&gt;&gt;returnBtn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="deleteCategoryBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 46</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>615, 292</value>
+  </data>
+  <data name="newDescriptionTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>782, 292</value>
+  </data>
+  <data name="categoriesComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;categoriesComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="navbar1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="newDescriptionTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>444, 26</value>
+  </data>
+  <data name="&gt;&gt;createCategoryBtn.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;descOfCatTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="returnBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>541, 494</value>
+  </data>
+  <data name="&gt;&gt;newDescriptionTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;editCategoryBtn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 20</value>
+  </data>
+  <data name="&gt;&gt;deleteCategoryBtn.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>9, 20</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;nameOfCatTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="navbar1.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;newNameTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="categoriesComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 28</value>
+  </data>
+  <data name="&gt;&gt;editCategoryBtn.Name" xml:space="preserve">
+    <value>editCategoryBtn</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1430, 750</value>
+  </data>
+  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>hr</value>
+  </metadata>
 </root>

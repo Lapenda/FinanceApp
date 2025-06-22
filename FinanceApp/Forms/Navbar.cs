@@ -46,7 +46,7 @@ namespace FinanceApp.Forms
                 Properties.Settings.Default.Save();
                 SessionManager.EndSession();
 
-                MessageBox.Show("Goodbye!");
+                MessageBox.Show(Properties.Resources.Goodbye);
 
                 currentForm.Hide();
                 LoginForm loginForm = new LoginForm();

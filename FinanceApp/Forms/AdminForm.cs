@@ -61,7 +61,7 @@ namespace FinanceApp.Forms
 
             if(string.IsNullOrEmpty(adminFirstName) || string.IsNullOrEmpty(adminLastName))
             {
-                MessageBox.Show("No field can be empty!");
+                MessageBox.Show(Properties.Resources.EmptyField);
                 return;
             }
 
@@ -69,11 +69,11 @@ namespace FinanceApp.Forms
 
             if(success)
             {
-                MessageBox.Show("Success");
+                MessageBox.Show(Properties.Resources.Success);
             }
             else
             {
-                MessageBox.Show("Error");
+                MessageBox.Show(Properties.Resources.Error);
                 FillOutData();
             }
         }
@@ -106,20 +106,20 @@ namespace FinanceApp.Forms
 
                 if (success)
                 {
-                    MessageBox.Show("Success");
+                    MessageBox.Show(Properties.Resources.Success);
                     userLastNameTextBox.Clear();
                     userNameTextBox.Clear();
                 }
                 else
                 {
-                    MessageBox.Show("Error");
+                    MessageBox.Show(Properties.Resources.Error);
                 }
 
                 InitializeDataGrid();
             }
             else
             {
-                MessageBox.Show("Error");
+                MessageBox.Show(Properties.Resources.Error);
             }
 
         }
@@ -135,12 +135,12 @@ namespace FinanceApp.Forms
 
                 if (success)
                 {
-                    MessageBox.Show("Success");
+                    MessageBox.Show(Properties.Resources.Success);
                     InitializeDataGrid();
                 }
                 else
                 {
-                    MessageBox.Show("Error");
+                    MessageBox.Show(Properties.Resources.Error);
                 }
             }
         }

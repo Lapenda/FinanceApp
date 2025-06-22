@@ -1,25 +1,17 @@
 ﻿using FinanceApp.Encryption;
 using FinanceApp.Manager;
 using FinanceApp.Managers;
-using FinanceApp.Models;
 using iText.Kernel.Font;
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
-
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FinanceApp.Forms
@@ -35,6 +27,7 @@ namespace FinanceApp.Forms
         private int tasksCompleted = 0;
         private readonly int totalTasks = 3;
         private CountdownEvent calculationCountdown;
+        string report;
 
         public DashboardForm()
         {
@@ -51,13 +44,18 @@ namespace FinanceApp.Forms
 
         private void startAnalysisBtn_Click(object sender, EventArgs e)
         {
+            report = null;
+
+            report = $"{Properties.Resources.ReportSum} {SessionManager.currentUsername}\r\n";
+            report += $"{Properties.Resources.Generated} {DateTime.Now.ToString("g")}\r\n";
+
             expensesByCategory.Clear();
             goalProgressSummaries.Clear();
             tasksCompleted = 0;
             progressBar.Value = 0;
-            expensesLabel.Text = "Calculating expenses....";
-            goalsProgressLabel.Text = "Calculating goal progress....";
-            summaryTextBox.Text = "Generating summary....";
+            expensesLabel.Text = Properties.Resources.CalcExpenses;
+            goalsProgressLabel.Text = Properties.Resources.CalcGoal;
+            summaryTextBox.Text = Properties.Resources.GenSummary;
             startAnalysisBtn.Enabled = false;
 
             calculationCountdown.Reset(2);
@@ -91,12 +89,34 @@ namespace FinanceApp.Forms
                             }
                             expensesByCategory[tx.Category.Name] += tx.Amount;
                         }
+
+                        if (expensesByCategory.Any())
+                        {
+                            report += "\r\n" + Properties.Resources.TotalExpCat + "\r\n";
+                            foreach (var kvp in expensesByCategory)
+                            {
+                                report += $"\r\n{kvp.Key}: {kvp.Value}\r\n";
+                                var categoryTransactions = transactionManager.GetAllTransactions().Where(t => t.Category.Name == kvp.Key).OrderBy(t => t.Date);
+                                foreach (var transaction in categoryTransactions)
+                                {
+                                    report += $"  - {transaction.Description} {transaction.Date.ToString("d")}: {transaction.Amount} (ID: {transaction.Id})\r\n";
+                                }
+                            }
+                            report += "\r\n";
+                        }
+
+                        if (expensesByCategory.ContainsKey("Savings"))
+                        {
+                            report += $"{Properties.Resources.TotalSavings} {expensesByCategory["Savings"]}\r\n\r\n";
+                        }
+
+                        tasksCompleted++;
                     }
                 }
 
                 this.Invoke((MethodInvoker)delegate
                 {
-                    expensesLabel.Text = $"Expenses by Category: \n {string.Join("\n", expensesByCategory.Select(kvp => $"{kvp.Key}: {kvp.Value}"))}";
+                    expensesLabel.Text = $"{Properties.Resources.ExpByCat} \n {string.Join("\n", expensesByCategory.Select(kvp => $"{kvp.Key}: {kvp.Value}"))}";
                     UpdateProgress();
                 });
 
@@ -104,7 +124,8 @@ namespace FinanceApp.Forms
             {
                 this.Invoke((MethodInvoker)delegate
                 {
-                    expensesLabel.Text = $"Error: {ex.Message}";
+                    expensesLabel.Text = $"{Properties.Resources.Error}: {ex.Message}";
+                    tasksCompleted++;
                     UpdateProgress();
                 });
             }
@@ -130,11 +151,19 @@ namespace FinanceApp.Forms
                 lock (calculationLock)
                 {
                     goalProgressSummaries.AddRange(localSummaries);
+
+                    if (goalProgressSummaries.Any())
+                    {
+                        report += Properties.Resources.GoalProgress + "\r\n";
+                        report += string.Join("\r\n", goalProgressSummaries) + "\r\n";
+                    }
+
+                    tasksCompleted++;
                 }
 
                 this.Invoke((MethodInvoker)delegate
                 {
-                    goalsProgressLabel.Text = "Goal progress:\n" + (goalProgressSummaries.Any() ? string.Join("\n", goalProgressSummaries) : "No goals found");
+                    goalsProgressLabel.Text = Properties.Resources.GoalProgress +"\n" + (goalProgressSummaries.Any() ? string.Join("\n", goalProgressSummaries) : Properties.Resources.NoGoals);
                     UpdateProgress();
                 });
 
@@ -143,7 +172,8 @@ namespace FinanceApp.Forms
             {
                 this.Invoke((MethodInvoker)delegate
                 {
-                    goalsProgressLabel.Text = $"Error: {ex.Message}";
+                    goalsProgressLabel.Text = $"{Properties.Resources.Error}: {ex.Message}";
+                    tasksCompleted++;
                     UpdateProgress();
                 });
             }
@@ -157,38 +187,6 @@ namespace FinanceApp.Forms
         {
             try
             {
-                string report = $"Financial Summary Report for {SessionManager.currentUsername}\r\n";
-                report += $"Generated on: {DateTime.Now.ToString("g")}\r\n";
-
-                lock (calculationLock)
-                {
-                    if (expensesByCategory.Any())
-                    {
-                        report += "\r\nTotal expenses by Category:\r\n";
-                        foreach (var kvp in expensesByCategory)
-                        {
-                            report += $"\r\n{kvp.Key}: {kvp.Value}\r\n";
-                            var categoryTransactions = transactionManager.GetAllTransactions().Where(t => t.Category.Name == kvp.Key).OrderBy(t => t.Date);
-                            foreach (var transaction in categoryTransactions)
-                            {
-                                report += $"  - {transaction.Description} {transaction.Date.ToString("d")}: {transaction.Amount} (Transaction ID: {transaction.Id})\r\n";
-                            }
-                        }
-                        report += "\r\n";
-                    }
-
-                    if (expensesByCategory.ContainsKey("Savings"))
-                    {
-                        report += $"Total Savings: {expensesByCategory["Savings"]}\r\n\r\n";
-                    }
-
-                    if (goalProgressSummaries.Any())
-                    {
-                        report += "Financial Goals Progress:\r\n";
-                        report += string.Join("\r\n", goalProgressSummaries) + "\r\n";
-                    }
-                }
-
                 string reportFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/summaryReport.txt");
                 string pdfFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/financialSummaryReport.pdf");
                 string signaturePdfFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/financialSummaryReportPdf.signature");
@@ -217,12 +215,18 @@ namespace FinanceApp.Forms
 
                     byte[] signature = RsaEncryptionHelper.SignDocument(pdfBytes);
                     File.WriteAllBytes(signaturePdfFilePath, signature);
+
+                    lock(calculationLock)
+                    {
+                        tasksCompleted++;
+                    }
                 }
                 catch (Exception ex)
                 {
                     this.Invoke((MethodInvoker)delegate
                     {
-                        summaryTextBox.Text = $"PDF Generation Error: {ex.Message}";
+                        summaryTextBox.Text = $"{Properties.Resources.PDFGenErr} {ex.Message}";
+                        tasksCompleted++;
                         UpdateProgress();
                     });
                     return;
@@ -242,7 +246,8 @@ namespace FinanceApp.Forms
             {
                 this.Invoke((MethodInvoker)delegate
                 {
-                    summaryTextBox.Text = $"Error: {ex.Message}";
+                    summaryTextBox.Text = $"{Properties.Resources.Error}: {ex.Message}";
+                    tasksCompleted++;
                     UpdateProgress();
                 });
             }
@@ -250,7 +255,6 @@ namespace FinanceApp.Forms
 
         private void UpdateProgress()
         {
-            tasksCompleted++;
             progressBar.Value = tasksCompleted;
             if (tasksCompleted == totalTasks)
             {
@@ -267,7 +271,7 @@ namespace FinanceApp.Forms
             {
                 if(!File.Exists(pdfFIlePath) || !File.Exists(signaturePdfFilePath))
                 {
-                    MessageBox.Show("Error, the PDF or the signature don't exist");
+                    MessageBox.Show(Properties.Resources.PDFError);
                     return;
                 }
 
@@ -278,15 +282,16 @@ namespace FinanceApp.Forms
 
                 if (!isValid)
                 {
-                    MessageBox.Show("Signature invalid! The PDF has been tampered with.");
+                    MessageBox.Show(Properties.Resources.InvalidSignature);
                     return;
                 }
 
                 Process.Start(new ProcessStartInfo(pdfFIlePath) { UseShellExecute = true });
-                MessageBox.Show("PDF verified successfully!");
+                MessageBox.Show(Properties.Resources.PDFSuccess);
             }
             catch(Exception ex)
             {
+                MessageBox.Show(Properties.Resources.PDFErr2);
                 Console.WriteLine("Error verifying or opening the PDF: " + ex.Message);
             }
         }
@@ -326,28 +331,28 @@ namespace FinanceApp.Forms
                             categoryAverages[parts[0]] = float.Parse(parts[1]);
                         }
 
-                        string message = $"Average value of all transactions: {totalAverage}\n\n";
-                        message += "Average value by category: \n";
+                        string message = $"{Properties.Resources.AvgTransValue} {totalAverage}\n\n";
+                        message += $"{Properties.Resources.AvgByCat} \n";
                         foreach(var kvp in categoryAverages)
                         {
                             message += $"{kvp.Key}: {kvp.Value}\n";
                         }
 
-                        MessageBox.Show(message, "Statistic of averages");
+                        MessageBox.Show(message);
                     }
                     else
                     {
-                        MessageBox.Show("Averages.txt file doesn't exist.");
+                        MessageBox.Show(Properties.Resources.AvgTxtErr);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Error in calculating averages.");
+                    MessageBox.Show(Properties.Resources.AvgCalcErr);
                 }
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error in calculating averages.");
+                MessageBox.Show(Properties.Resources.AvgCalcErr);
                 Console.WriteLine("Error in averages", ex.Message);
             }
         }

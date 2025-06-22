@@ -166,12 +166,12 @@ namespace FinanceApp.Forms
                     }
                     else
                     {
-                        MessageBox.Show($"Error: {response.StatusCode}");
+                        MessageBox.Show($"{Properties.Resources.Error}: {response.StatusCode}");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error: {ex.Message}");
+                    MessageBox.Show($"{Properties.Resources.Error}: {ex.Message}");
                 }
             }
         }

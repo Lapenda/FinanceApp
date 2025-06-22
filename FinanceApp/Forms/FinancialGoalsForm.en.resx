@@ -117,59 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 20</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Upišite ime kategorije:</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>106, 241</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 20</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Opis kategorije:</value>
-  </data>
-  <data name="createCategoryBtn.Text" xml:space="preserve">
-    <value>Stvori kategoriju</value>
-  </data>
-  <data name="editCategoryBtn.Text" xml:space="preserve">
-    <value>Uredi kategoriju</value>
-  </data>
-  <data name="returnBtn.Text" xml:space="preserve">
-    <value>Natrag</value>
-  </data>
-  <data name="categoriesComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>782, 144</value>
-  </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 20</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>Odaberi postojeću kategoriju:</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>700, 295</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 20</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Novi opis:</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>697, 221</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 20</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Novo ime:</value>
-  </data>
-  <data name="deleteCategoryBtn.Text" xml:space="preserve">
-    <value>Izbriši kategoriju</value>
+  <data name="downloadBtn.Text" xml:space="preserve">
+    <value>Download app</value>
   </data>
 </root>

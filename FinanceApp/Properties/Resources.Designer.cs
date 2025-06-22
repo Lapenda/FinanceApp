@@ -61,6 +61,15 @@ namespace FinanceApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All expenses so far: .
+        /// </summary>
+        internal static string AllExpenses {
+            get {
+                return ResourceManager.GetString("AllExpenses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Apply.
         /// </summary>
         internal static string ApplyLanguageButton {
@@ -70,11 +79,128 @@ namespace FinanceApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Average value by category:.
+        /// </summary>
+        internal static string AvgByCat {
+            get {
+                return ResourceManager.GetString("AvgByCat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error in calculating averages..
+        /// </summary>
+        internal static string AvgCalcErr {
+            get {
+                return ResourceManager.GetString("AvgCalcErr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average value of all transactions:.
+        /// </summary>
+        internal static string AvgTransValue {
+            get {
+                return ResourceManager.GetString("AvgTransValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error, averages.txt file doesn&apos;t exist..
+        /// </summary>
+        internal static string AvgTxtErr {
+            get {
+                return ResourceManager.GetString("AvgTxtErr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back.
         /// </summary>
         internal static string BackButton {
             get {
                 return ResourceManager.GetString("BackButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculating expenses.....
+        /// </summary>
+        internal static string CalcExpenses {
+            get {
+                return ResourceManager.GetString("CalcExpenses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculating goal progress.....
+        /// </summary>
+        internal static string CalcGoal {
+            get {
+                return ResourceManager.GetString("CalcGoal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category:.
+        /// </summary>
+        internal static string Category {
+            get {
+                return ResourceManager.GetString("Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete the category.
+        /// </summary>
+        internal static string ConfCatDel {
+            get {
+                return ResourceManager.GetString("ConfCatDel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your account will be deleted, do you want to continue?.
+        /// </summary>
+        internal static string ConfDelAcc {
+            get {
+                return ResourceManager.GetString("ConfDelAcc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete the budget for.
+        /// </summary>
+        internal static string ConfDelBudg {
+            get {
+                return ResourceManager.GetString("ConfDelBudg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        internal static string Confirm {
+            get {
+                return ResourceManager.GetString("Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete transaction.
+        /// </summary>
+        internal static string ConfirmDelTrans {
+            get {
+                return ResourceManager.GetString("ConfirmDelTrans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You didn&apos;t enter a receipt image, do you want to continue?.
+        /// </summary>
+        internal static string ConfNoReceiptImg {
+            get {
+                return ResourceManager.GetString("ConfNoReceiptImg", resourceCulture);
             }
         }
         
@@ -124,11 +250,65 @@ namespace FinanceApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No field can be empty!.
+        /// </summary>
+        internal static string EmptyField {
+            get {
+                return ResourceManager.GetString("EmptyField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to English (US).
         /// </summary>
         internal static string English {
             get {
                 return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter description.
+        /// </summary>
+        internal static string EnterDesc {
+            get {
+                return ResourceManager.GetString("EnterDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error!.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expenses by Category:.
+        /// </summary>
+        internal static string ExpByCat {
+            get {
+                return ResourceManager.GetString("ExpByCat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generated on:.
+        /// </summary>
+        internal static string Generated {
+            get {
+                return ResourceManager.GetString("Generated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generating summary.....
+        /// </summary>
+        internal static string GenSummary {
+            get {
+                return ResourceManager.GetString("GenSummary", resourceCulture);
             }
         }
         
@@ -142,11 +322,56 @@ namespace FinanceApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Financial Goal progress:.
+        /// </summary>
+        internal static string GoalProgress {
+            get {
+                return ResourceManager.GetString("GoalProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Goodbye!.
+        /// </summary>
+        internal static string Goodbye {
+            get {
+                return ResourceManager.GetString("Goodbye", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a valid amount greater than 0.
+        /// </summary>
+        internal static string GreaterAmount {
+            get {
+                return ResourceManager.GetString("GreaterAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error with image:.
+        /// </summary>
+        internal static string ImageError {
+            get {
+                return ResourceManager.GetString("ImageError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid credentials!!!.
         /// </summary>
         internal static string InvalidCredentialsMessage {
             get {
                 return ResourceManager.GetString("InvalidCredentialsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Signature invalid! The PDF has been tampered with..
+        /// </summary>
+        internal static string InvalidSignature {
+            get {
+                return ResourceManager.GetString("InvalidSignature", resourceCulture);
             }
         }
         
@@ -214,11 +439,38 @@ namespace FinanceApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You updated your information, you will be Logged out. Do you want to continue?.
+        /// </summary>
+        internal static string LogOutConfirm {
+            get {
+                return ResourceManager.GetString("LogOutConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
         internal static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No financial goals found. Please create a goal first..
+        /// </summary>
+        internal static string NoFinGoal {
+            get {
+                return ResourceManager.GetString("NoFinGoal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No goals found.
+        /// </summary>
+        internal static string NoGoals {
+            get {
+                return ResourceManager.GetString("NoGoals", resourceCulture);
             }
         }
         
@@ -241,6 +493,24 @@ namespace FinanceApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is no budget for the selected category!.
+        /// </summary>
+        internal static string NoRemainingBudgetLabel {
+            get {
+                return ResourceManager.GetString("NoRemainingBudgetLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords do not match!.
+        /// </summary>
+        internal static string PassNoMatch {
+            get {
+                return ResourceManager.GetString("PassNoMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         internal static string PasswordLabel {
@@ -250,11 +520,56 @@ namespace FinanceApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No budget for selected category!.
+        ///   Looks up a localized string similar to Error verifying or opening the PDF..
         /// </summary>
-        internal static string RemainingBudgetLabel {
+        internal static string PDFErr2 {
             get {
-                return ResourceManager.GetString("RemainingBudgetLabel", resourceCulture);
+                return ResourceManager.GetString("PDFErr2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error, the PDF or the signature don&apos;t exist.
+        /// </summary>
+        internal static string PDFError {
+            get {
+                return ResourceManager.GetString("PDFError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PDF Generation Error:.
+        /// </summary>
+        internal static string PDFGenErr {
+            get {
+                return ResourceManager.GetString("PDFGenErr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PDF verified successfully!.
+        /// </summary>
+        internal static string PDFSuccess {
+            get {
+                return ResourceManager.GetString("PDFSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remaining:.
+        /// </summary>
+        internal static string Remaining {
+            get {
+                return ResourceManager.GetString("Remaining", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remaining budget for the selected category is:.
+        /// </summary>
+        internal static string RemainingBudget {
+            get {
+                return ResourceManager.GetString("RemainingBudget", resourceCulture);
             }
         }
         
@@ -268,11 +583,47 @@ namespace FinanceApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Financial Summary Report for.
+        /// </summary>
+        internal static string ReportSum {
+            get {
+                return ResourceManager.GetString("ReportSum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string SaveButton {
             get {
                 return ResourceManager.GetString("SaveButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a category!.
+        /// </summary>
+        internal static string SelectCat {
+            get {
+                return ResourceManager.GetString("SelectCat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Financial Goal.
+        /// </summary>
+        internal static string SelectGoal {
+            get {
+                return ResourceManager.GetString("SelectGoal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a language.
+        /// </summary>
+        internal static string SelectLang {
+            get {
+                return ResourceManager.GetString("SelectLang", resourceCulture);
             }
         }
         
@@ -295,11 +646,83 @@ namespace FinanceApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Spent:.
+        /// </summary>
+        internal static string Spent {
+            get {
+                return ResourceManager.GetString("Spent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success!.
+        /// </summary>
+        internal static string Success {
+            get {
+                return ResourceManager.GetString("Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username is taken.
+        /// </summary>
+        internal static string TakenUsername {
+            get {
+                return ResourceManager.GetString("TakenUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total expenses by Category:.
+        /// </summary>
+        internal static string TotalExpCat {
+            get {
+                return ResourceManager.GetString("TotalExpCat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Savings:.
+        /// </summary>
+        internal static string TotalSavings {
+            get {
+                return ResourceManager.GetString("TotalSavings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transaction Form - Welcome.
+        /// </summary>
+        internal static string TransWellcome {
+            get {
+                return ResourceManager.GetString("TransWellcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
         internal static string UsernameLabel {
             get {
                 return ResourceManager.GetString("UsernameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter valid amount!.
+        /// </summary>
+        internal static string ValidAmount {
+            get {
+                return ResourceManager.GetString("ValidAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a valid name and description.
+        /// </summary>
+        internal static string ValidNameDesc {
+            get {
+                return ResourceManager.GetString("ValidNameDesc", resourceCulture);
             }
         }
         

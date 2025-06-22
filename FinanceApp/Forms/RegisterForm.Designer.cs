@@ -104,8 +104,8 @@
             // 
             // privilegedComboBox
             // 
-            this.privilegedComboBox.FormattingEnabled = true;
             resources.ApplyResources(this.privilegedComboBox, "privilegedComboBox");
+            this.privilegedComboBox.FormattingEnabled = true;
             this.privilegedComboBox.Name = "privilegedComboBox";
             // 
             // label6

@@ -1,2 +1,18 @@
-Financial Summary Report for test
-Generated on: 21.6.2025. 22:53
+Sažetak financijskog izviješća za borna
+Generirano: 22.6.2025. 22:52
+
+Ukupni troškovi po kategorijama:
+
+kateg 1: 2000
+  - hej 29.5.2025.: 900 (ID: 44)
+  - 100 20.6.2025.: 100 (ID: 74)
+  - transakcija 21.6.2025.: 1000 (ID: 75)
+
+Savings: 1000
+  - final 29.5.2025.: 1000 (ID: 58)
+
+Ukupna ušteđevina: 1000
+
+Napredak financijskog cilja:
+mobitel: 120,00% (1200/1000)
+laptop: 81,25% (1300/1600)

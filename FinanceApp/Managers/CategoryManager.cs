@@ -89,7 +89,7 @@ namespace FinanceApp.Managers
             category.Id = categories.Any() ? categories.Max(c => c.Id) + 1 : 1;
             categories.Add(category);
             SaveCategories(categories);
-            MessageBox.Show("Succes");
+            MessageBox.Show(Properties.Resources.Success);
         }
 
         public void UpdateCategory(Category updatedCategory, string newName, string newDesc)
@@ -101,7 +101,7 @@ namespace FinanceApp.Managers
                 existingCategory.Name = newName;
                 existingCategory.Description = newDesc;
                 SaveCategories(categories);
-                MessageBox.Show("Succes");
+                MessageBox.Show(Properties.Resources.Success);
             }
             else
             {
@@ -117,7 +117,7 @@ namespace FinanceApp.Managers
             {
                 categories.Remove(existingCategory);
                 SaveCategories(categories);
-                MessageBox.Show("Succes");
+                MessageBox.Show(Properties.Resources.Success);
 
                 transactionManager.DeleteTransactionsByCategory(existingCategory.Id);
             }

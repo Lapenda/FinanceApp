@@ -50,13 +50,13 @@ namespace FinanceApp.Forms
 
             if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(repeatedPass) || string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName)) 
             {
-                MessageBox.Show("Enter all fields");
+                MessageBox.Show(Properties.Resources.EmptyField);
                 return;
             }
 
             if(password != repeatedPass)
             {
-                MessageBox.Show("Passwords do not match!");
+                MessageBox.Show(Properties.Resources.PassNoMatch);
                 return;
             }
 
@@ -76,7 +76,7 @@ namespace FinanceApp.Forms
 
             if(registered)
             {
-                MessageBox.Show("Success!");
+                MessageBox.Show(Properties.Resources.Success);
                 usernameTextBox.Clear();
                 passwordTextBox.Clear();
                 repeatPassTextBox.Clear();
@@ -84,6 +84,10 @@ namespace FinanceApp.Forms
                 this.Hide();
                 LoginForm loginForm = new LoginForm();
                 loginForm.Show();
+            }
+            else
+            {
+                MessageBox.Show(Properties.Resources.Error);
             }
         }
     }

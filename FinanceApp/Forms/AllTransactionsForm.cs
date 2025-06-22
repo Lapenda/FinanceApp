@@ -1,6 +1,7 @@
 ﻿using FinanceApp.Manager;
 using FinanceApp.Managers;
 using FinanceApp.Models;
+using Mysqlx;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -139,7 +140,7 @@ namespace FinanceApp.Forms
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error displaying image: " + ex.Message);
+                        MessageBox.Show(Properties.Resources.ImageError + ex.Message);
                         selectedReceiptImage = null;
                         receiptPictureBox.Image = null;
                     }
@@ -173,7 +174,7 @@ namespace FinanceApp.Forms
             var selectedRow = transDataGridView.SelectedRows[0];
             var transaction = (Transaction)selectedRow.DataBoundItem;
 
-            var result = MessageBox.Show($"Are you sure you want to delete transaction '{transaction.Description}'?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = MessageBox.Show($"{Properties.Resources.ConfirmDelTrans} '{transaction.Description}'?", Properties.Resources.Confirm, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(!(result == DialogResult.Yes))
             {
                 return;
@@ -198,16 +199,13 @@ namespace FinanceApp.Forms
             transaction.Currency = currencyComboBox.Text;
             if(!float.TryParse(amountTextBox.Text, out float amount))
             {
-                MessageBox.Show("Enter valid amount!");
+                MessageBox.Show(Properties.Resources.ValidAmount);
                 return;
             }
 
             BudgetForm budgetForm = new BudgetForm();
 
-            //budgetForm.UpdateBudget(-transaction.Amount, transaction.Category);
-
             transaction.Date = dateTimePicker.Value;
-            //transaction.Amount = amount;
             transaction.Description = descTextBox.Text;
             transaction.Category = (Category)categoryComboBox.SelectedItem;
             
@@ -263,18 +261,21 @@ namespace FinanceApp.Forms
             {
                 var transactionsToShow = ascendingSort ? transactions.OrderBy(t => t.Amount).ToList() : transactions.OrderByDescending(t => t.Amount).ToList();
                 SetDataSource(transactionsToShow);
+                return;
             }
 
             if (sortByComboBox.SelectedItem.ToString() == "By description")
             {
                 var transactionsToShow = ascendingSort ? transactions.OrderBy(t => t.Description).ToList() : transactions.OrderByDescending(t => t.Description).ToList();
                 SetDataSource(transactionsToShow);
+                return;
             }
 
             if (sortByComboBox.SelectedItem.ToString() == "By date")
             {
                 var transactionsToShow = ascendingSort ? transactions.OrderBy(t => t.Date).ToList() : transactions.OrderByDescending(t => t.Date).ToList();
                 SetDataSource(transactionsToShow);
+                return;
             }
         }
 
@@ -285,7 +286,7 @@ namespace FinanceApp.Forms
             
             calculatedTextBox.Multiline = true;
 
-            calculatedTextBox.Text = "All expenses so far: \n" +  totalSpent.ToString();
+            calculatedTextBox.Text = Properties.Resources.AllExpenses + "\n" +  totalSpent.ToString();
         }
 
         private void uploadReceiptBtn_Click(object sender, EventArgs e)
@@ -304,11 +305,10 @@ namespace FinanceApp.Forms
                         {
                             receiptPictureBox.Image = Image.FromStream(ms);
                         }
-
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error uploading image: " + ex.Message);
+                        MessageBox.Show(Properties.Resources.ImageError + ex.Message);
                         selectedReceiptImage = null;
                         receiptPictureBox.Image = null;
                     }

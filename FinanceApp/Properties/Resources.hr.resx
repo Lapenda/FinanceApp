@@ -117,11 +117,53 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllExpenses" xml:space="preserve">
+    <value>Svi troškovi do sad:</value>
+  </data>
   <data name="ApplyLanguageButton" xml:space="preserve">
     <value>Potvrdi jezik</value>
   </data>
+  <data name="AvgByCat" xml:space="preserve">
+    <value>Prosječan iznos po kategoriji:</value>
+  </data>
+  <data name="AvgCalcErr" xml:space="preserve">
+    <value>Greška u računanju prosjeka.</value>
+  </data>
+  <data name="AvgTransValue" xml:space="preserve">
+    <value>Prosječni iznosi svih transakcija:</value>
+  </data>
+  <data name="AvgTxtErr" xml:space="preserve">
+    <value>Greška, averages.txt datoteka ne postoji.</value>
+  </data>
   <data name="BackButton" xml:space="preserve">
     <value>Natrag</value>
+  </data>
+  <data name="CalcExpenses" xml:space="preserve">
+    <value>Računam troškove....</value>
+  </data>
+  <data name="CalcGoal" xml:space="preserve">
+    <value>Računam napredak do cillja....</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Kategorija:</value>
+  </data>
+  <data name="ConfCatDel" xml:space="preserve">
+    <value>Jeste li sigurni da želite izbrisati kategoriju</value>
+  </data>
+  <data name="ConfDelAcc" xml:space="preserve">
+    <value>Račun će Vam biti obrisan, želite li nastaviti?</value>
+  </data>
+  <data name="ConfDelBudg" xml:space="preserve">
+    <value>Jeste li sigurni da želite izbrisati budžet za </value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Potvrdi</value>
+  </data>
+  <data name="ConfirmDelTrans" xml:space="preserve">
+    <value>Jeste li sigurni da želite izbrisati transakciju</value>
+  </data>
+  <data name="ConfNoReceiptImg" xml:space="preserve">
+    <value>Niste unijeli sliku računa, želite li nastaviti?</value>
   </data>
   <data name="CountryFound" xml:space="preserve">
     <value>Zemlja nije pronađena. Provjerite unos ili unesite ispravan ISO kod.</value>
@@ -138,14 +180,47 @@
   <data name="DownloadSucceeded" xml:space="preserve">
     <value>Preuzimanje završeno!</value>
   </data>
+  <data name="EmptyField" xml:space="preserve">
+    <value>Nijedno polje ne smije biti prazno!</value>
+  </data>
   <data name="English" xml:space="preserve">
     <value>Engleski (ENG)</value>
+  </data>
+  <data name="EnterDesc" xml:space="preserve">
+    <value>Molimo unesite opis</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Greška</value>
+  </data>
+  <data name="ExpByCat" xml:space="preserve">
+    <value>Troškovi po kategorijama:</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Generirano:</value>
+  </data>
+  <data name="GenSummary" xml:space="preserve">
+    <value>Generiram sažetak....</value>
   </data>
   <data name="German" xml:space="preserve">
     <value>Njemački (NJEM)</value>
   </data>
+  <data name="GoalProgress" xml:space="preserve">
+    <value>Napredak financijskog cilja:</value>
+  </data>
+  <data name="Goodbye" xml:space="preserve">
+    <value>Doviđenja!</value>
+  </data>
+  <data name="GreaterAmount" xml:space="preserve">
+    <value>Molimo unesite iznos veći od 0</value>
+  </data>
+  <data name="ImageError" xml:space="preserve">
+    <value>Greška sa slikom</value>
+  </data>
   <data name="InvalidCredentialsMessage" xml:space="preserve">
     <value>Pogrešni podaci!</value>
+  </data>
+  <data name="InvalidSignature" xml:space="preserve">
+    <value>Potpis nevaljan! PDF je bio uređivan!</value>
   </data>
   <data name="ISOMessage" xml:space="preserve">
     <value>Molimo unesite ime zemlje ili ISO kod.</value>
@@ -168,8 +243,17 @@
   <data name="LoginSuccessfulMessage" xml:space="preserve">
     <value>Uspješno ste se prijavili!</value>
   </data>
+  <data name="LogOutConfirm" xml:space="preserve">
+    <value>Ažurirali ste svoje podatke, bit ćete odjavljeni. Želite li nastaviti?</value>
+  </data>
   <data name="No" xml:space="preserve">
     <value>Ne</value>
+  </data>
+  <data name="NoFinGoal" xml:space="preserve">
+    <value>Nema pronađenih financijskih ciljeva. Molimo najprije unesite cilj.</value>
+  </data>
+  <data name="NoGoals" xml:space="preserve">
+    <value>Nema pronađenih ciljeva</value>
   </data>
   <data name="NoLanguageMsg" xml:space="preserve">
     <value>Please select a language</value>
@@ -177,17 +261,50 @@
   <data name="NoLimit" xml:space="preserve">
     <value>Bez ograničenja</value>
   </data>
+  <data name="NoRemainingBudgetLabel" xml:space="preserve">
+    <value>Nema budžeta za odabranu kategoriju!</value>
+  </data>
+  <data name="PassNoMatch" xml:space="preserve">
+    <value>Lozinke se ne podudaraju!</value>
+  </data>
   <data name="PasswordLabel" xml:space="preserve">
     <value>Lozinka:</value>
   </data>
-  <data name="RemainingBudgetLabel" xml:space="preserve">
-    <value>Nema budžeta za odabranu kategoriju!</value>
+  <data name="PDFErr2" xml:space="preserve">
+    <value>Greška u verifikaciji ili otvaranju PDF-a.</value>
+  </data>
+  <data name="PDFError" xml:space="preserve">
+    <value>Error, the PDF or the signature don't exist</value>
+  </data>
+  <data name="PDFGenErr" xml:space="preserve">
+    <value>Greška u generiranju PDF-a:</value>
+  </data>
+  <data name="PDFSuccess" xml:space="preserve">
+    <value>PDF uspješno verificiran!</value>
+  </data>
+  <data name="Remaining" xml:space="preserve">
+    <value>Preostalo:</value>
+  </data>
+  <data name="RemainingBudget" xml:space="preserve">
+    <value>Preostali budžet u odabranoj kategoriji je:</value>
   </data>
   <data name="ReportButton" xml:space="preserve">
     <value>Izvještaj</value>
   </data>
+  <data name="ReportSum" xml:space="preserve">
+    <value>Sažetak financijskog izviješća za</value>
+  </data>
   <data name="SaveButton" xml:space="preserve">
     <value>Spremi</value>
+  </data>
+  <data name="SelectCat" xml:space="preserve">
+    <value>Molimo odaberite kategoriju!</value>
+  </data>
+  <data name="SelectGoal" xml:space="preserve">
+    <value>Odaberite financijski cilj</value>
+  </data>
+  <data name="SelectLang" xml:space="preserve">
+    <value>Molimo odaberite jezik</value>
   </data>
   <data name="SettingsLabel" xml:space="preserve">
     <value>Postavke</value>
@@ -195,8 +312,32 @@
   <data name="Spanish" xml:space="preserve">
     <value>Španjolski (ŠPA)</value>
   </data>
+  <data name="Spent" xml:space="preserve">
+    <value>Potrošeno:</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Uspješno obavljeno</value>
+  </data>
+  <data name="TakenUsername" xml:space="preserve">
+    <value>Korisničko ime je zauzeto</value>
+  </data>
+  <data name="TotalExpCat" xml:space="preserve">
+    <value>Ukupni troškovi po kategorijama:</value>
+  </data>
+  <data name="TotalSavings" xml:space="preserve">
+    <value>Ukupna ušteđevina:</value>
+  </data>
+  <data name="TransWellcome" xml:space="preserve">
+    <value>Transakcije - Dobrodošli</value>
+  </data>
   <data name="UsernameLabel" xml:space="preserve">
     <value>Korisničko ime:</value>
+  </data>
+  <data name="ValidAmount" xml:space="preserve">
+    <value>Unesite ispravan iznos!</value>
+  </data>
+  <data name="ValidNameDesc" xml:space="preserve">
+    <value>Molimo unesite ispravno ime i opis</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Da</value>
