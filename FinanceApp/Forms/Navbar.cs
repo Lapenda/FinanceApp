@@ -10,6 +10,10 @@ namespace FinanceApp.Forms
         public Navbar()
         {
             InitializeComponent();
+            if(SessionManager.currentUserRole == "Admin")
+            {
+                profileBtn.Text = "Admin";
+            }
         }
 
         private Form GetParentForm()
@@ -83,7 +87,14 @@ namespace FinanceApp.Forms
 
         private void profileBtn_Click(object sender, EventArgs e)
         {
-            NavigateForm<UsersForm>();
+            if(SessionManager.currentUserRole == "Admin")
+            {
+                NavigateForm<AdminForm>();
+            }
+            else
+            {
+                NavigateForm<UsersForm>();
+            }
         }
 
         private void currencyBtn_Click(object sender, EventArgs e)
