@@ -47,7 +47,7 @@ namespace FinanceApp.Models
         {
             string salt = GenerateSalt();
 
-            string[] possiblePeppers = { "papar1", "papar2,", "mojMaliPapar", "papar3" };
+            string[] possiblePeppers = { "papar1", "papar2", "mojMaliPapar", "papar3" };
 
             foreach(var pepper in possiblePeppers)
             {
@@ -88,7 +88,10 @@ namespace FinanceApp.Models
 
         private static string GetPepper()
         {
-            return "mojMaliPapar";
+            string[] papar = { "papar1", "papar2", "papar3", "mojMaliPapar" };
+            Random randomNumber = new Random();
+            int number = randomNumber.Next(0, 4);
+            return papar[number];
         }
     }
 }
