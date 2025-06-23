@@ -121,15 +121,21 @@
   <data name="languageComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="jokeBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>506, 578</value>
   </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>370, 255</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Theme:</value>
+  </data>
+  <data name="&gt;&gt;languageComboLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="applyLanguage.Text" xml:space="preserve">
     <value>Apply</value>
@@ -152,32 +158,23 @@
   <data name="jokeBtn.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="languageComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 28</value>
-  </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
   </data>
   <data name="languageComboLabel.Text" xml:space="preserve">
     <value>Language:</value>
   </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Currency:</value>
+  </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="languageComboLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 20</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 20</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Currency:</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>370, 255</value>
-  </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>1430, 750</value>
+  <data name="jokeBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 42</value>
   </data>
   <data name="&gt;&gt;applyLanguage.Name" xml:space="preserve">
     <value>applyLanguage</value>
@@ -194,14 +191,11 @@
   <data name="currencyComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 28</value>
   </data>
-  <data name="jokeBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 42</value>
-  </data>
   <data name="themeComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;languageComboLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;jokeBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;languageComboLabel.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -245,14 +239,11 @@
   <data name="&gt;&gt;currencyComboBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;jokeBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1408, 694</value>
   </data>
-  <data name="&gt;&gt;languageComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="languageComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 28</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -287,8 +278,14 @@
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
+  <data name="&gt;&gt;languageComboLabel.Name" xml:space="preserve">
+    <value>languageComboLabel</value>
+  </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;languageComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;applyLanguage.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -304,6 +301,9 @@
   </data>
   <data name="&gt;&gt;themeComboBox.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;themeComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;languageComboBox.Name" xml:space="preserve">
     <value>languageComboBox</value>
@@ -323,8 +323,8 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;themeComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="languageComboLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 20</value>
   </data>
   <data name="&gt;&gt;backButton.Name" xml:space="preserve">
     <value>backButton</value>
@@ -347,16 +347,13 @@
   <data name="&gt;&gt;languageComboLabel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;languageComboLabel.Name" xml:space="preserve">
-    <value>languageComboLabel</value>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1430, 750</value>
   </data>
   <data name="&gt;&gt;currencyComboBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>hr</value>
   </metadata>
 </root>

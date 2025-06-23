@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FinanceApp.Forms;
 using FinanceApp.Models;
+using FinanceApp.Manager;
 
 namespace FinanceApp.Forms
 {
@@ -24,6 +25,8 @@ namespace FinanceApp.Forms
             userManager = new UserManager();
 
             FillOutData();
+
+            SettingsManager.ApplyTheme(this);
         }
 
         private void editBtn_Click(object sender, EventArgs e)

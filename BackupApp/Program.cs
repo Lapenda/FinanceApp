@@ -3,11 +3,17 @@ using System.IO;
 using FinanceApp.Managers;
 using System.Linq;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using FinanceApp.Models;
+using System.Threading;
+using System.Runtime.CompilerServices;
 
 namespace BackupApp
 {
     internal class Program
     {
+        private static float firstSum;
+        private static float secondSum;
 
         static int Main(string[] args)
         {
@@ -22,6 +28,7 @@ namespace BackupApp
                 int userId = int.Parse(args[0]);
                 var _transactionManager = new TransactionManager(userId);
                 var transactions = _transactionManager.GetAllTransactions().ToList();
+                
 
                 if (transactions == null || !transactions.Any())
                 {
@@ -29,11 +36,21 @@ namespace BackupApp
                     return -1;
                 }
 
-                float totalAverage = transactions.Average(t => t.Amount);
+                firstSum = 0;
+                secondSum = 0;
+
+                CountdownEvent countdownEvent = new CountdownEvent(2);
+
+                ThreadPool.QueueUserWorkItem(task => Thread1(transactions, countdownEvent));
+                ThreadPool.QueueUserWorkItem(task => Thread2(transactions, countdownEvent));
+
+                countdownEvent.Wait();
+
+                float totalAverage = (firstSum + secondSum) / transactions.Count();
 
                 var categoryAverages = transactions
                     .GroupBy(t => t.Category)
-                    .ToDictionary(g => g.Key.Name, g => g.Average(t => t.Amount));
+                    .ToDictionary(c => c.Key.Name, c => c.Average(t => t.Amount));
 
                 foreach (var kvp in categoryAverages)
                 {
@@ -61,6 +78,30 @@ namespace BackupApp
                 Console.WriteLine(ex.ToString());
                 return -1;
             }
+        }
+
+        private static void Thread1(List<Transaction> transactions, CountdownEvent countdownEvent)
+        {
+            int halfTransactions = transactions.Count / 2;
+
+            for(int i = 0; i < halfTransactions; i++) 
+            {
+                firstSum += transactions[i].Amount;
+            }
+
+            countdownEvent.Signal();
+        }
+
+        private static void Thread2(List<Transaction> transactions, CountdownEvent countdownEvent)
+        {
+            int halfTransactions = transactions.Count / 2;
+
+            for(int i = halfTransactions; i < transactions.Count; i++)
+            {
+                secondSum += transactions[i].Amount;
+            }
+
+            countdownEvent.Signal();
         }
     }
 }

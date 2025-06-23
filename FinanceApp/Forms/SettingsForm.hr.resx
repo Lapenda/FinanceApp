@@ -148,4 +148,7 @@
   <data name="label2.Text" xml:space="preserve">
     <value>Valuta:</value>
   </data>
+  <data name="jokeBtn.Text" xml:space="preserve">
+    <value>Šala dana</value>
+  </data>
 </root>
