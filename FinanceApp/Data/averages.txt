@@ -1,6 +1,7 @@
 Average of all transactions:
-9,375
+253,9167
 
 Average of transactions by category:
-roba:10,75
-kat 12:8
+kategorija 1:282,25
+kategorija 2:451
+kategorija 3:169,3333

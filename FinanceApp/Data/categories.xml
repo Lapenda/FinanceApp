@@ -84,4 +84,34 @@
     <Name>Savings</Name>
     <Description>E0D02O/OyVSHzisLugoSx1z33xZqs3gbyF2Joik2Xsx2CrQ9Z7+SFmLc5tKvxi0Bb72wIcFVYDqb4N8YyAev5g==</Description>
   </Category>
+  <Category>
+    <Id>16</Id>
+    <UserId>15</UserId>
+    <Name>Savings</Name>
+    <Description>GzCre7g5zqG1rOBpn7b1AseID0BpOBfqP360ADT6ATtpo7CFLYo2BG1/jem5dW3XxvjqyjB1HgNt/YYSHYzaTA==</Description>
+  </Category>
+  <Category>
+    <Id>17</Id>
+    <UserId>15</UserId>
+    <Name>kategorija 1</Name>
+    <Description>k9PmEfte4rukCb2KZcjt4j0QJfFUZfOUnKZcqDKfX4nGtYh41Pi4+4N1l4TETPMj</Description>
+  </Category>
+  <Category>
+    <Id>18</Id>
+    <UserId>15</UserId>
+    <Name>kategorija 2</Name>
+    <Description>kgKFTSiFGBl6A/BUV4KlmgtymLnITD5AiSFS118XU+RrnDcBfhKMuDILEiZJUVyY</Description>
+  </Category>
+  <Category>
+    <Id>19</Id>
+    <UserId>15</UserId>
+    <Name>kategorija 3</Name>
+    <Description>basHwNbMf/2wunfmjupQlVa1dLtoT9rbZCOND/SK7oRAY9TSBb/Ik76g7GwZM4TH</Description>
+  </Category>
+  <Category>
+    <Id>20</Id>
+    <UserId>15</UserId>
+    <Name>kategorija 4 </Name>
+    <Description>x3gSSueLVVVcvYTP3dnlA/jgRvGxy3DRYI7ArY8Mfws4jIWHsvIizJqwrO0Hf3a8</Description>
+  </Category>
 </Categories>

@@ -130,7 +130,7 @@ namespace FinanceApp.Forms
             else if(currentForm is UsersForm)
                 profileBtn.Enabled = false;
 
-            if(SessionManager.currentUserRole == "Unprivileged User")
+            if(SessionManager.currentUserRole == "Unprivileged User" || currentForm is BudgetForm)
             {
                 budgeBtn.Enabled = false;
             }

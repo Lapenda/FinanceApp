@@ -61,10 +61,9 @@ namespace FinanceApp.Forms
             summaryTextBox.Text = Properties.Resources.GenSummary;
             startAnalysisBtn.Enabled = false;
 
-            calculationCountdown.Reset(totalTasks - 2);
-            CalculateExpensesByCategory();
+            calculationCountdown.Reset(totalTasks - 1);
 
-            //ThreadPool.QueueUserWorkItem(task => CalculateExpensesByCategory());
+            ThreadPool.QueueUserWorkItem(task => CalculateExpensesByCategory());
             ThreadPool.QueueUserWorkItem(task => CalculateGoalProgress());
 
             ThreadPool.QueueUserWorkItem(task =>
@@ -196,8 +195,6 @@ namespace FinanceApp.Forms
                         {
                             report += $"{Properties.Resources.TotalSavings} {expensesByCategory["Savings"]}\r\n\r\n";
                         }
-
-                        tasksCompleted++;
                     }
                 }
 
@@ -212,17 +209,25 @@ namespace FinanceApp.Forms
                 this.Invoke((MethodInvoker)delegate
                 {
                     expensesLabel.Text = $"{Properties.Resources.Error}: {ex.Message}";
-                    lock(calculationLock)
+                    /*lock(calculationLock)
                     {
                         tasksCompleted++;
-                    }
+                    }*/
+                    //UpdateProgress();
+                });
+            }
+            finally
+            {
+                calculationCountdown.Signal();
+                lock (calculationLock)
+                {
+                    tasksCompleted++;
+                }
+                this.Invoke((MethodInvoker)delegate
+                {
                     UpdateProgress();
                 });
             }
-            /*finally
-            {
-                calculationCountdown.Signal();
-            }*/
         }
 
         private void CalculateGoalProgress()
