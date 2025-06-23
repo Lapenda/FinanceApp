@@ -1,6 +1,7 @@
 ﻿using FinanceApp.Encryption;
 using FinanceApp.Manager;
 using FinanceApp.Managers;
+using FinanceApp.Models;
 using iText.Kernel.Font;
 using iText.Kernel.Pdf;
 using iText.Layout;
@@ -9,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -25,9 +27,10 @@ namespace FinanceApp.Forms
         private Dictionary<string, float> expensesByCategory;
         private List<string> goalProgressSummaries;
         private int tasksCompleted = 0;
-        private readonly int totalTasks = 3;
+        private readonly int totalTasks = 6;
         private CountdownEvent calculationCountdown;
         string report;
+        List<Transaction> transactions;
 
         public DashboardForm()
         {
@@ -37,7 +40,7 @@ namespace FinanceApp.Forms
             expensesByCategory = new Dictionary<string, float>();
             goalProgressSummaries = new List<string>();
             progressBar.Maximum = totalTasks;
-            calculationCountdown = new CountdownEvent(2);
+            calculationCountdown = new CountdownEvent(totalTasks - 1);
 
             SettingsManager.ApplyTheme(this);
         }
@@ -58,11 +61,11 @@ namespace FinanceApp.Forms
             summaryTextBox.Text = Properties.Resources.GenSummary;
             startAnalysisBtn.Enabled = false;
 
-            calculationCountdown.Reset(2);
+            calculationCountdown.Reset(totalTasks - 2);
+            CalculateExpensesByCategory();
 
-            ThreadPool.QueueUserWorkItem(task => CalculateExpensesByCategory());
+            //ThreadPool.QueueUserWorkItem(task => CalculateExpensesByCategory());
             ThreadPool.QueueUserWorkItem(task => CalculateGoalProgress());
-
 
             ThreadPool.QueueUserWorkItem(task =>
             {
@@ -71,32 +74,116 @@ namespace FinanceApp.Forms
             });
         }
 
+        private void Calculate(int beginning, int count, CountdownEvent threadCountdown)
+        {
+            try
+            {
+                lock (calculationLock)
+                {
+                    for (int i = beginning; i < count; i++)
+                    {
+                        if (!expensesByCategory.ContainsKey(transactions[i].Category.Name))
+                        {
+                            expensesByCategory[transactions[i].Category.Name] = 0;
+                        }
+                        expensesByCategory[transactions[i].Category.Name] += transactions[i].Amount;
+                    }
+
+                    if(count < 3 && threadCountdown.InitialCount == 1)
+                    {
+                        tasksCompleted += 3;
+                    }
+                    else
+                    {
+                        tasksCompleted++;
+                    }
+
+                    threadCountdown.Signal();
+                }
+
+                this.Invoke((MethodInvoker)delegate
+                {
+                    UpdateProgress();
+                });
+            }
+            catch (Exception ex)
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.Error);
+                    lock (calculationLock)
+                    {
+                        tasksCompleted++;
+                    }
+                    UpdateProgress();
+                    threadCountdown.Signal();
+                });
+            }
+            finally
+            {
+                if(count < 3 && threadCountdown.InitialCount == 1)
+                {
+                    calculationCountdown.Signal();
+                    calculationCountdown.Signal();
+                    calculationCountdown.Signal();
+                }
+                else
+                {
+                    calculationCountdown.Signal();
+                }
+            }
+        }
+
+        private void Thread1(int count, CountdownEvent threadCountdown)
+        {
+            Calculate(0, count, threadCountdown);
+        }
+
+        private void Thread2(int count, CountdownEvent threadCountdown)
+        {
+            Calculate(count, count * 2, threadCountdown);
+        }
+
+        private void Thread3(int count, CountdownEvent threadCountdown)
+        {
+            Calculate(count * 2, transactions.Count(), threadCountdown);
+        }
+
         private void CalculateExpensesByCategory()
         {
             try
             {
-                var transactions = transactionManager.GetAllTransactions();
+                transactions = transactionManager.GetAllTransactions().ToList();
+
+                int threadCount = transactions.Count >= 3 ? 3 : 1;
+                CountdownEvent threadCountdown = new CountdownEvent(threadCount);
+
+                if(transactions.Count >= 3)
+                {
+                    int thirdOfTransactions = transactions.Count() / 3;
+
+                    ThreadPool.QueueUserWorkItem(task => Thread1(thirdOfTransactions, threadCountdown));
+                    ThreadPool.QueueUserWorkItem(task => Thread2(thirdOfTransactions, threadCountdown));
+                    ThreadPool.QueueUserWorkItem(task => Thread3(thirdOfTransactions, threadCountdown));
+                }
+                else
+                {
+                    ThreadPool.QueueUserWorkItem(task => Thread1(transactions.Count(), threadCountdown));
+                }
+
+                threadCountdown.Wait();
 
                 if (transactions.Any())
                 {
                     lock (calculationLock)
                     {
-                        foreach (var tx in transactions)
-                        {
-                            if (!expensesByCategory.ContainsKey(tx.Category.Name))
-                            {
-                                expensesByCategory[tx.Category.Name] = 0;
-                            }
-                            expensesByCategory[tx.Category.Name] += tx.Amount;
-                        }
-
                         if (expensesByCategory.Any())
                         {
                             report += "\r\n" + Properties.Resources.TotalExpCat + "\r\n";
                             foreach (var kvp in expensesByCategory)
                             {
                                 report += $"\r\n{kvp.Key}: {kvp.Value}\r\n";
-                                var categoryTransactions = transactionManager.GetAllTransactions().Where(t => t.Category.Name == kvp.Key).OrderBy(t => t.Date);
+                                var categoryTransactions = transactions.Where(t => t.Category.Name == kvp.Key).OrderBy(t => t.Date);
                                 foreach (var transaction in categoryTransactions)
                                 {
                                     report += $"  - {transaction.Description} {transaction.Date.ToString("d")}: {transaction.Amount} (ID: {transaction.Id})\r\n";
@@ -125,14 +212,17 @@ namespace FinanceApp.Forms
                 this.Invoke((MethodInvoker)delegate
                 {
                     expensesLabel.Text = $"{Properties.Resources.Error}: {ex.Message}";
-                    tasksCompleted++;
+                    lock(calculationLock)
+                    {
+                        tasksCompleted++;
+                    }
                     UpdateProgress();
                 });
             }
-            finally
+            /*finally
             {
                 calculationCountdown.Signal();
-            }
+            }*/
         }
 
         private void CalculateGoalProgress()
@@ -173,7 +263,10 @@ namespace FinanceApp.Forms
                 this.Invoke((MethodInvoker)delegate
                 {
                     goalsProgressLabel.Text = $"{Properties.Resources.Error}: {ex.Message}";
-                    tasksCompleted++;
+                    lock (calculationLock)
+                    {
+                        tasksCompleted++;
+                    }
                     UpdateProgress();
                 });
             }
@@ -226,7 +319,10 @@ namespace FinanceApp.Forms
                     this.Invoke((MethodInvoker)delegate
                     {
                         summaryTextBox.Text = $"{Properties.Resources.PDFGenErr} {ex.Message}";
-                        tasksCompleted++;
+                        lock (calculationLock)
+                        {
+                            tasksCompleted++;
+                        }
                         UpdateProgress();
                     });
                     return;
@@ -247,7 +343,10 @@ namespace FinanceApp.Forms
                 this.Invoke((MethodInvoker)delegate
                 {
                     summaryTextBox.Text = $"{Properties.Resources.Error}: {ex.Message}";
-                    tasksCompleted++;
+                    lock (calculationLock)
+                    {
+                        tasksCompleted++;
+                    }
                     UpdateProgress();
                 });
             }
@@ -264,18 +363,18 @@ namespace FinanceApp.Forms
 
         private void viewPdfBtn_Click(object sender, EventArgs e)
         {
-            string pdfFIlePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/financialSummaryReport.pdf");
+            string pdfFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/financialSummaryReport.pdf");
             string signaturePdfFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/financialSummaryReportPdf.signature");
 
             try
             {
-                if(!File.Exists(pdfFIlePath) || !File.Exists(signaturePdfFilePath))
+                if(!File.Exists(pdfFilePath) || !File.Exists(signaturePdfFilePath))
                 {
                     MessageBox.Show(Properties.Resources.PDFError);
                     return;
                 }
 
-                byte[] pdf = File.ReadAllBytes(pdfFIlePath);
+                byte[] pdf = File.ReadAllBytes(pdfFilePath);
                 byte[] signature = File.ReadAllBytes(signaturePdfFilePath);
 
                 bool isValid = RsaEncryptionHelper.VerifySignature(pdf, signature);
@@ -286,7 +385,7 @@ namespace FinanceApp.Forms
                     return;
                 }
 
-                Process.Start(new ProcessStartInfo(pdfFIlePath) { UseShellExecute = true });
+                Process.Start(new ProcessStartInfo(pdfFilePath) { UseShellExecute = true });
                 MessageBox.Show(Properties.Resources.PDFSuccess);
             }
             catch(Exception ex)

@@ -1,18 +1,19 @@
-Sažetak financijskog izviješća za borna
-Generirano: 22.6.2025. 22:52
+Financial Summary Report for user
+Generated on: 23.6.2025. 11:12
 
-Ukupni troškovi po kategorijama:
+Total expenses by Category:
 
-kateg 1: 2000
-  - hej 29.5.2025.: 900 (ID: 44)
-  - 100 20.6.2025.: 100 (ID: 74)
-  - transakcija 21.6.2025.: 1000 (ID: 75)
+roba: 43
+  - haha 2.5.2025.: 18 (ID: 39)
+  - majica 29.5.2025.: 10 (ID: 45)
+  - hlace 29.5.2025.: 5 (ID: 46)
+  - majica 2 29.5.2025.: 10 (ID: 47)
 
-Savings: 1000
-  - final 29.5.2025.: 1000 (ID: 58)
+kat 12: 32
+  - probaaa 31.5.2025.: 9 (ID: 62)
+  - slika 31.5.2025.: 10 (ID: 63)
+  - ds 31.5.2025.: 3 (ID: 64)
+  - 10 18.6.2025.: 10 (ID: 71)
 
-Ukupna ušteđevina: 1000
-
-Napredak financijskog cilja:
-mobitel: 120,00% (1200/1000)
-laptop: 81,25% (1300/1600)
+Financial Goal progress:
+auto: 16,35% (327/2000)
