@@ -28,7 +28,7 @@ namespace FinanceApp
             {
                 if (!createdNew)
                 {
-                    MessageBox.Show("FinanceApp is already running.");
+                    MessageBox.Show(Properties.Resources.AlreadyRunning);
                     return;
                 }
 

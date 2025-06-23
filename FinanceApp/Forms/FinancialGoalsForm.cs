@@ -52,19 +52,19 @@ namespace FinanceApp.Forms
             var curAmount = curAmountTextBox.Text;
 
             if(!float.TryParse(curAmount, out float currentAmount)){
-                MessageBox.Show("Please enter a valid current amount.");
+                MessageBox.Show(Properties.Resources.ValidCurrAm);
                 return;
             }
 
             if (!float.TryParse(tarAmount, out float targetAmount))
             {
-                MessageBox.Show("Please enter a valid target amount.");
+                MessageBox.Show(Properties.Resources.ValidTarAm);
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(name))
             {
-                MessageBox.Show("Please enter a valid name");
+                MessageBox.Show(Properties.Resources.ValidName);
                 return;
             }
 
@@ -72,7 +72,7 @@ namespace FinanceApp.Forms
 
             if(goals.Any(g => g.Name.Trim() == name.Trim()))
             {
-                MessageBox.Show($"Goal with that name already exists, please choose a different one");
+                MessageBox.Show(Properties.Resources.GoalExists);
                 return;
             }
 
@@ -87,7 +87,7 @@ namespace FinanceApp.Forms
         {
             if (goalsDataGridView.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Please select a goal to edit");
+                MessageBox.Show(Properties.Resources.SelectGoal);
                 return;
             }
 
@@ -99,19 +99,19 @@ namespace FinanceApp.Forms
 
             if (!float.TryParse(curAmount, out float currentAmount))
             {
-                MessageBox.Show("Please enter a valid current amount.");
+                MessageBox.Show(Properties.Resources.ValidCurrAm);
                 return;
             }
 
             if (!float.TryParse(tarAmount, out float targetAmount))
             {
-                MessageBox.Show("Please enter a valid target amount.");
+                MessageBox.Show(Properties.Resources.ValidTarAm);
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(name))
             {
-                MessageBox.Show("Please enter a valid name");
+                MessageBox.Show(Properties.Resources.ValidName);
                 return;
             }
 
@@ -130,7 +130,7 @@ namespace FinanceApp.Forms
         {
             if (goalsDataGridView.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Please select a goal to edit");
+                MessageBox.Show(Properties.Resources.SelectGoal);
                 return;
             }
 
@@ -138,7 +138,7 @@ namespace FinanceApp.Forms
 
             var goalName = selectedRow.Cells["Name"].Value.ToString();
 
-            var confirmResult = MessageBox.Show($"Are you sure you want to delete the goal '{goalName}'?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var confirmResult = MessageBox.Show($"{Properties.Resources.ConfirmGoalDelete} '{goalName}'?", Properties.Resources.Confirm, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirmResult != DialogResult.Yes)
             {
                 return;

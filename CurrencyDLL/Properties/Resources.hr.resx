@@ -123,7 +123,19 @@
   <data name="CurrencyInCountry" xml:space="preserve">
     <value>Valuta u odabranoj zemlji je:</value>
   </data>
+  <data name="EnterNum" xml:space="preserve">
+    <value>Molimo unesite broj!</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Greška</value>
+  </data>
   <data name="ISOMessage" xml:space="preserve">
     <value>Molimo unesite ime zemlje ili ISO kod.</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Valuta nije pronađena ili je zahtjev odbijen.</value>
+  </data>
+  <data name="UpdatedRate" xml:space="preserve">
+    <value>Zadnji datum kad je tečaj provjeren:</value>
   </data>
 </root>

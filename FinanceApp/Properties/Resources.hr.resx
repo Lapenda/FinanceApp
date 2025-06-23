@@ -120,6 +120,12 @@
   <data name="AllExpenses" xml:space="preserve">
     <value>Svi troškovi do sad:</value>
   </data>
+  <data name="AllTransactions" xml:space="preserve">
+    <value>Sve transakcije:</value>
+  </data>
+  <data name="AlreadyRunning" xml:space="preserve">
+    <value>FinanceApp je već pokrenuta.</value>
+  </data>
   <data name="ApplyLanguageButton" xml:space="preserve">
     <value>Potvrdi jezik</value>
   </data>
@@ -138,6 +144,21 @@
   <data name="BackButton" xml:space="preserve">
     <value>Natrag</value>
   </data>
+  <data name="BudgetError" xml:space="preserve">
+    <value>Greška u pronalaženju ispravnog budžeta.</value>
+  </data>
+  <data name="BudgetExceeded" xml:space="preserve">
+    <value>Budžet premašen!</value>
+  </data>
+  <data name="ByAmount" xml:space="preserve">
+    <value>Po iznosu</value>
+  </data>
+  <data name="ByDate" xml:space="preserve">
+    <value>Po datumu</value>
+  </data>
+  <data name="ByDesc" xml:space="preserve">
+    <value>Po opisu</value>
+  </data>
   <data name="CalcExpenses" xml:space="preserve">
     <value>Računam troškove....</value>
   </data>
@@ -146,6 +167,9 @@
   </data>
   <data name="Category" xml:space="preserve">
     <value>Kategorija:</value>
+  </data>
+  <data name="CommErr" xml:space="preserve">
+    <value>Greška u komunikaciji:</value>
   </data>
   <data name="ConfCatDel" xml:space="preserve">
     <value>Jeste li sigurni da želite izbrisati kategoriju</value>
@@ -161,6 +185,9 @@
   </data>
   <data name="ConfirmDelTrans" xml:space="preserve">
     <value>Jeste li sigurni da želite izbrisati transakciju</value>
+  </data>
+  <data name="ConfirmGoalDelete" xml:space="preserve">
+    <value>Jeste li sigurni da želite izbrisati cilj</value>
   </data>
   <data name="ConfNoReceiptImg" xml:space="preserve">
     <value>Niste unijeli sliku računa, želite li nastaviti?</value>
@@ -204,6 +231,9 @@
   <data name="German" xml:space="preserve">
     <value>Njemački (NJEM)</value>
   </data>
+  <data name="GoalExists" xml:space="preserve">
+    <value>Cilj s tim imenom već postoji, molimo odaberite drugo.</value>
+  </data>
   <data name="GoalProgress" xml:space="preserve">
     <value>Napredak financijskog cilja:</value>
   </data>
@@ -236,6 +266,9 @@
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>Svijetla tema</value>
+  </data>
+  <data name="LoadLanguageFail" xml:space="preserve">
+    <value>Pogreška u dohvaćanju jezika iz INI datoteke:</value>
   </data>
   <data name="LoginButton" xml:space="preserve">
     <value>Prijavi se</value>
@@ -306,8 +339,17 @@
   <data name="SelectLang" xml:space="preserve">
     <value>Molimo odaberite jezik</value>
   </data>
+  <data name="SetLanguageFail" xml:space="preserve">
+    <value>Pogreška u postavljanju jezika:</value>
+  </data>
   <data name="SettingsLabel" xml:space="preserve">
     <value>Postavke</value>
+  </data>
+  <data name="SortAscending" xml:space="preserve">
+    <value>Sortiraj uzlazno</value>
+  </data>
+  <data name="SortDescending" xml:space="preserve">
+    <value>Sortiraj silazno</value>
   </data>
   <data name="Spanish" xml:space="preserve">
     <value>Španjolski (ŠPA)</value>
@@ -330,14 +372,29 @@
   <data name="TransWellcome" xml:space="preserve">
     <value>Transakcije - Dobrodošli</value>
   </data>
+  <data name="UpdateLanguageFail" xml:space="preserve">
+    <value>Pogreška u ažuriranju jezika:</value>
+  </data>
   <data name="UsernameLabel" xml:space="preserve">
     <value>Korisničko ime:</value>
+  </data>
+  <data name="UsingDefaultLang" xml:space="preserve">
+    <value>Koristim zadanu vrijednost za jezik.</value>
   </data>
   <data name="ValidAmount" xml:space="preserve">
     <value>Unesite ispravan iznos!</value>
   </data>
+  <data name="ValidCurrAm" xml:space="preserve">
+    <value>Molimo unesite ispravnu trenutnu vrijednost.</value>
+  </data>
+  <data name="ValidName" xml:space="preserve">
+    <value>Molimo unesite ispravno ime.</value>
+  </data>
   <data name="ValidNameDesc" xml:space="preserve">
     <value>Molimo unesite ispravno ime i opis</value>
+  </data>
+  <data name="ValidTarAm" xml:space="preserve">
+    <value>Molimo unesite ispravnu konačnu cijenu.</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Da</value>

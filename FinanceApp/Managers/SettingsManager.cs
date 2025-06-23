@@ -51,7 +51,7 @@ namespace FinanceApp.Manager
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"Failed to set language: {ex.Message}");
+                MessageBox.Show($"{Resources.SetLanguageFail} {ex.Message}");
             }
         }
 
@@ -66,7 +66,7 @@ namespace FinanceApp.Manager
             catch (Exception ex)
             {
                 SetLanguage(Resources.English);
-                MessageBox.Show($"Failed to load language from INI: {ex.Message}. Using default language");
+                MessageBox.Show($"{Resources.LoadLanguageFail} {ex.Message}. {Resources.UsingDefaultLang}");
             }
         }
 
@@ -82,7 +82,7 @@ namespace FinanceApp.Manager
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to update form language: {ex.Message}");
+                MessageBox.Show($"{Resources.UpdateLanguageFail} {ex.Message}");
             }
         }
 

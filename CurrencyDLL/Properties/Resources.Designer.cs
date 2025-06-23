@@ -79,11 +79,47 @@ namespace CurrencyDLL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter a number!.
+        /// </summary>
+        internal static string EnterNum {
+            get {
+                return ResourceManager.GetString("EnterNum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter a country name or ISO code..
         /// </summary>
         internal static string ISOMessage {
             get {
                 return ResourceManager.GetString("ISOMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currency not found or API request failed..
+        /// </summary>
+        internal static string NotFound {
+            get {
+                return ResourceManager.GetString("NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last time rate was updated:.
+        /// </summary>
+        internal static string UpdatedRate {
+            get {
+                return ResourceManager.GetString("UpdatedRate", resourceCulture);
             }
         }
     }

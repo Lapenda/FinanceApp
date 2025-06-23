@@ -120,6 +120,12 @@
   <data name="AllExpenses" xml:space="preserve">
     <value>All expenses so far: </value>
   </data>
+  <data name="AllTransactions" xml:space="preserve">
+    <value>All transactions:</value>
+  </data>
+  <data name="AlreadyRunning" xml:space="preserve">
+    <value>FinanceApp is already running.</value>
+  </data>
   <data name="ApplyLanguageButton" xml:space="preserve">
     <value>Apply</value>
   </data>
@@ -138,6 +144,21 @@
   <data name="BackButton" xml:space="preserve">
     <value>Back</value>
   </data>
+  <data name="BudgetError" xml:space="preserve">
+    <value>Error in finding the correct budget.</value>
+  </data>
+  <data name="BudgetExceeded" xml:space="preserve">
+    <value>Budget exceeded!</value>
+  </data>
+  <data name="ByAmount" xml:space="preserve">
+    <value>By amount</value>
+  </data>
+  <data name="ByDate" xml:space="preserve">
+    <value>By date</value>
+  </data>
+  <data name="ByDesc" xml:space="preserve">
+    <value>By description</value>
+  </data>
   <data name="CalcExpenses" xml:space="preserve">
     <value>Calculating expenses....</value>
   </data>
@@ -146,6 +167,9 @@
   </data>
   <data name="Category" xml:space="preserve">
     <value>Category:</value>
+  </data>
+  <data name="CommErr" xml:space="preserve">
+    <value>Error in communication:</value>
   </data>
   <data name="ConfCatDel" xml:space="preserve">
     <value>Are you sure you want to delete the category</value>
@@ -161,6 +185,9 @@
   </data>
   <data name="ConfirmDelTrans" xml:space="preserve">
     <value>Are you sure you want to delete transaction</value>
+  </data>
+  <data name="ConfirmGoalDelete" xml:space="preserve">
+    <value>Are you sure you want to delete the goal</value>
   </data>
   <data name="ConfNoReceiptImg" xml:space="preserve">
     <value>You didn't enter a receipt image, do you want to continue?</value>
@@ -204,6 +231,9 @@
   <data name="German" xml:space="preserve">
     <value>German (GER)</value>
   </data>
+  <data name="GoalExists" xml:space="preserve">
+    <value>Goal with that name already exists, please choose a different one.</value>
+  </data>
   <data name="GoalProgress" xml:space="preserve">
     <value>Financial Goal progress:</value>
   </data>
@@ -236,6 +266,9 @@
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>Light</value>
+  </data>
+  <data name="LoadLanguageFail" xml:space="preserve">
+    <value>Failed to load language from INI:</value>
   </data>
   <data name="LoginButton" xml:space="preserve">
     <value>Login</value>
@@ -306,8 +339,17 @@
   <data name="SelectLang" xml:space="preserve">
     <value>Please select a language</value>
   </data>
+  <data name="SetLanguageFail" xml:space="preserve">
+    <value>Failed to set language:</value>
+  </data>
   <data name="SettingsLabel" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="SortAscending" xml:space="preserve">
+    <value>Sort ascending</value>
+  </data>
+  <data name="SortDescending" xml:space="preserve">
+    <value>Sort descending</value>
   </data>
   <data name="Spanish" xml:space="preserve">
     <value>Spanish (ES)</value>
@@ -330,14 +372,29 @@
   <data name="TransWellcome" xml:space="preserve">
     <value>Transaction Form - Welcome</value>
   </data>
+  <data name="UpdateLanguageFail" xml:space="preserve">
+    <value>Failed to update form language:</value>
+  </data>
   <data name="UsernameLabel" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="UsingDefaultLang" xml:space="preserve">
+    <value>Using default language.</value>
   </data>
   <data name="ValidAmount" xml:space="preserve">
     <value>Enter valid amount!</value>
   </data>
+  <data name="ValidCurrAm" xml:space="preserve">
+    <value>Please enter a valid current amount.</value>
+  </data>
+  <data name="ValidName" xml:space="preserve">
+    <value>Please enter a valid name.</value>
+  </data>
   <data name="ValidNameDesc" xml:space="preserve">
     <value>Please enter a valid name and description</value>
+  </data>
+  <data name="ValidTarAm" xml:space="preserve">
+    <value>Please enter a valid target amount.</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>

@@ -123,7 +123,19 @@
   <data name="CurrencyInCountry" xml:space="preserve">
     <value>Currency in the selected country is:</value>
   </data>
+  <data name="EnterNum" xml:space="preserve">
+    <value>Please enter a number!</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
   <data name="ISOMessage" xml:space="preserve">
     <value>Please enter a country name or ISO code.</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Currency not found or API request failed.</value>
+  </data>
+  <data name="UpdatedRate" xml:space="preserve">
+    <value>Last time rate was updated:</value>
   </data>
 </root>

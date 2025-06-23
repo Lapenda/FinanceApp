@@ -46,7 +46,7 @@ namespace FinanceApp.Models
         public void UpdateProgress(float amount)
         {
             CurrentAmount += amount;
-            MessageBox.Show($"Goal progress: {CurrentAmount}/{TargetAmount} => {Math.Floor(CurrentAmount/TargetAmount * 100)}%");
+            MessageBox.Show($"{Properties.Resources.GoalProgress} {CurrentAmount}/{TargetAmount} => {Math.Floor(CurrentAmount/TargetAmount * 100)}%");
             IsAchieved = IsGoalAchieved();
         }
 

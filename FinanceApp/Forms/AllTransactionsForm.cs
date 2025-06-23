@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -53,7 +54,7 @@ namespace FinanceApp.Forms
 
         private void InitializeSortComboBox()
         {
-            var sortingBy = new[] { "By description", "By amount", "By date" };
+            var sortingBy = new[] { Properties.Resources.ByDesc, Properties.Resources.ByAmount, Properties.Resources.ByDate };
             sortByComboBox.Items.Clear();
             sortByComboBox.Items.AddRange(sortingBy);
             sortByComboBox.SelectedIndex = 0;
@@ -254,24 +255,24 @@ namespace FinanceApp.Forms
         {
             var transactions = transactionManager.GetAllTransactions();
 
-            sortBtn.Text = ascendingSort ? "Sort ascending" : "Sort descending";
+            sortBtn.Text = ascendingSort ? Properties.Resources.SortAscending : Properties.Resources.SortDescending;
             ascendingSort = !ascendingSort;
 
-            if(sortByComboBox.SelectedItem.ToString() == "By amount")
+            if(sortByComboBox.SelectedItem.ToString() == Properties.Resources.ByAmount)
             {
                 var transactionsToShow = ascendingSort ? transactions.OrderBy(t => t.Amount).ToList() : transactions.OrderByDescending(t => t.Amount).ToList();
                 SetDataSource(transactionsToShow);
                 return;
             }
 
-            if (sortByComboBox.SelectedItem.ToString() == "By description")
+            if (sortByComboBox.SelectedItem.ToString() == Properties.Resources.ByDesc)
             {
                 var transactionsToShow = ascendingSort ? transactions.OrderBy(t => t.Description).ToList() : transactions.OrderByDescending(t => t.Description).ToList();
                 SetDataSource(transactionsToShow);
                 return;
             }
 
-            if (sortByComboBox.SelectedItem.ToString() == "By date")
+            if (sortByComboBox.SelectedItem.ToString() == Properties.Resources.ByDate)
             {
                 var transactionsToShow = ascendingSort ? transactions.OrderBy(t => t.Date).ToList() : transactions.OrderByDescending(t => t.Date).ToList();
                 SetDataSource(transactionsToShow);

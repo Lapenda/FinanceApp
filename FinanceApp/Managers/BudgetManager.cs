@@ -109,7 +109,7 @@ namespace FinanceApp.Managers
             budget.setId(newId);
             budgets.Add(budget);
             SaveBudgets(budgets);
-            MessageBox.Show("Budget created successfully.");
+            MessageBox.Show(Properties.Resources.Success);
         }
 
         public Budget UpdateBudget(Budget budget, float newLimit, float newSpent)
@@ -130,7 +130,7 @@ namespace FinanceApp.Managers
             }
             else
             {
-                MessageBox.Show("Errror in finding the correct budget.");
+                MessageBox.Show(Properties.Resources.BudgetError);
                 return null;
             }
         }
@@ -176,7 +176,7 @@ namespace FinanceApp.Managers
                     using (MemoryStream ms = new MemoryStream(transactionData))
                     {
                         var transactions = (List<Transaction>)formatter.Deserialize(ms);
-                        string message = "Budget exceeded!\n\nAll transactions:\n";
+                        string message = $"{Properties.Resources.BudgetExceeded}\n\n{Properties.Resources.AllTransactions}\n";
                         foreach (var t in transactions)
                         {
                             message += $"{t.Description} ({t.Amount} {t.Currency})\n";
@@ -184,18 +184,14 @@ namespace FinanceApp.Managers
                         MessageBox.Show(message);
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Budget not exceeded.");
-                }
 
                 stream.Close();
                 client.Close();
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Greška u komunikaciji: {ex.Message}");
-                MessageBox.Show($"Greška u komunikaciji: {ex.Message}");
+                Console.WriteLine($"Communication error: {ex.Message}");
+                MessageBox.Show($"{Properties.Resources.CommErr} {ex.Message}");
             }
         }
 
@@ -207,11 +203,11 @@ namespace FinanceApp.Managers
             {
                 budgets.Remove(existingBudget);
                 SaveBudgets(budgets);
-                MessageBox.Show("Succes in deleting the budget.");
+                MessageBox.Show(Properties.Resources.Success);
             }
             else
             {
-                MessageBox.Show("Error deleting the budget.");
+                MessageBox.Show(Properties.Resources.Error);
             }
         }
     }

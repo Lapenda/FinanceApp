@@ -60,7 +60,7 @@ namespace CurrencyDLL
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}");
+                MessageBox.Show($"{Resources.Error}: {ex.Message}");
             }
         }
 
@@ -77,7 +77,7 @@ namespace CurrencyDLL
 
             if(!isNumber)
             {
-                MessageBox.Show("Please enter a number!");
+                MessageBox.Show(Resources.EnterNum);
                 return;
             }
 
@@ -94,21 +94,21 @@ namespace CurrencyDLL
                         if(convertedAmount.Status == "success" && convertedAmount.Rates.TryGetValue(currTo, out var rateDetail))
                         {
                             resultTextBox.Text = $"{rateDetail.RateForAmount} {currTo}";
-                            dateLabel.Text = "Last time rate was updated: " + convertedAmount.UpdatedDate;
+                            dateLabel.Text = Resources.UpdatedRate + convertedAmount.UpdatedDate;
                         }
                         else
                         {
-                            MessageBox.Show("Currency not found or API request failed.");
+                            MessageBox.Show(Resources.NotFound);
                         }
                     }
                     else
                     {
-                        MessageBox.Show($"Error: {response.StatusCode}");
+                        MessageBox.Show($"{Resources.Error}: {response.StatusCode}");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error: {ex.Message}");
+                    MessageBox.Show($"{Resources.Error} : {ex.Message}");
                 }
             }
 
