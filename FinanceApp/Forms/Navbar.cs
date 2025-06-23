@@ -127,7 +127,7 @@ namespace FinanceApp.Forms
                 finGoalsBtn.Enabled = false;
             else if (currentForm is TransactionForm)
                 transactionsBtn.Enabled = false;
-            else if(currentForm is UsersForm)
+            else if(currentForm is UsersForm || currentForm is AdminForm)
                 profileBtn.Enabled = false;
 
             if(SessionManager.currentUserRole == "Unprivileged User" || currentForm is BudgetForm)

@@ -37,6 +37,7 @@
             this.viewPdfBtn = new System.Windows.Forms.Button();
             this.navbar1 = new FinanceApp.Forms.Navbar();
             this.calculateAvgTransactions = new System.Windows.Forms.Button();
+            this.numberOfTransLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // startAnalysisBtn
@@ -86,10 +87,16 @@
             this.calculateAvgTransactions.UseVisualStyleBackColor = true;
             this.calculateAvgTransactions.Click += new System.EventHandler(this.calculateAvgTransactions_Click);
             // 
+            // numberOfTransLabel
+            // 
+            resources.ApplyResources(this.numberOfTransLabel, "numberOfTransLabel");
+            this.numberOfTransLabel.Name = "numberOfTransLabel";
+            // 
             // DashboardForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.numberOfTransLabel);
             this.Controls.Add(this.calculateAvgTransactions);
             this.Controls.Add(this.viewPdfBtn);
             this.Controls.Add(this.navbar1);
@@ -114,5 +121,6 @@
         private Navbar navbar1;
         private System.Windows.Forms.Button viewPdfBtn;
         private System.Windows.Forms.Button calculateAvgTransactions;
+        private System.Windows.Forms.Label numberOfTransLabel;
     }
 }

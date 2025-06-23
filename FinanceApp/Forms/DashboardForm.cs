@@ -2,10 +2,12 @@
 using FinanceApp.Manager;
 using FinanceApp.Managers;
 using FinanceApp.Models;
+using iText.Commons.Utils;
 using iText.Kernel.Font;
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
+using iText.StyledXmlParser.Node;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,6 +15,7 @@ using System.Diagnostics;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.ServiceModel.Channels;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -23,14 +26,20 @@ namespace FinanceApp.Forms
         private readonly FinancialGoalManager financialGoalManager;
         private readonly TransactionManager transactionManager;
         private readonly object calculationLock = new object();
+        private readonly object numberOfTransLock = new object();
+        private readonly object tasksLock = new object();
         private readonly Mutex reportMutex = new Mutex(false, "FinanceAppSummaryReportMutex");
         private Dictionary<string, float> expensesByCategory;
         private List<string> goalProgressSummaries;
         private int tasksCompleted = 0;
-        private readonly int totalTasks = 6;
+        private readonly int totalTasks = 9;
         private CountdownEvent calculationCountdown;
         string report;
         List<Transaction> transactions;
+
+        int numberOfSmallTrans;
+        int numberOfLargeTrans;
+        int numberOfMediumTrans;
 
         public DashboardForm()
         {
@@ -51,6 +60,10 @@ namespace FinanceApp.Forms
 
             report = $"{Properties.Resources.ReportSum} {SessionManager.currentUsername}\r\n";
             report += $"{Properties.Resources.Generated} {DateTime.Now.ToString("g")}\r\n";
+
+            numberOfLargeTrans = 0;
+            numberOfMediumTrans = 0;
+            numberOfSmallTrans = 0;
 
             expensesByCategory.Clear();
             goalProgressSummaries.Clear();
@@ -112,7 +125,14 @@ namespace FinanceApp.Forms
                     MessageBox.Show(ex.Message, Properties.Resources.Error);
                     lock (calculationLock)
                     {
-                        tasksCompleted++;
+                        if (count < 3 && threadCountdown.InitialCount == 1)
+                        {
+                            tasksCompleted += 3;
+                        }
+                        else
+                        {
+                            tasksCompleted++;
+                        }
                     }
                     UpdateProgress();
                     threadCountdown.Signal();
@@ -148,26 +168,184 @@ namespace FinanceApp.Forms
             Calculate(count * 2, transactions.Count(), threadCountdown);
         }
 
+        private void PopulateTransNumbers(Transaction transaction)
+        {
+            if (transaction.Amount < 100)
+            {
+                lock (numberOfTransLock)
+                {
+                    numberOfSmallTrans++;
+                }
+            }
+            else if (transaction.Amount >= 100 && transaction.Amount < 1000)
+            {
+                lock (numberOfTransLock)
+                {
+                    numberOfMediumTrans++;
+                }
+            }
+            else
+            {
+                lock (numberOfTransLock)
+                {
+                    numberOfLargeTrans++;
+                }
+            }
+        }
+
+        private void CalculateSmallTransactionsThread(int count)
+        {
+            try {
+                for(int i = 0; i < count; i++)
+                {
+                    PopulateTransNumbers(transactions[i]);
+                }
+                lock (calculationLock)
+                {
+                    if(transactions.Count < 3)
+                    {
+                        tasksCompleted += 3;
+                    }
+                    else
+                    {
+                        tasksCompleted++;
+                    }
+                }
+                this.Invoke((MethodInvoker)delegate
+                {
+                    UpdateProgress();
+                });
+
+                if(transactions.Count() < 3)
+                {
+                    calculationCountdown.Signal();
+                    calculationCountdown.Signal();
+                    calculationCountdown.Signal();
+                }
+                else
+                {
+                    calculationCountdown.Signal();
+                }
+            }
+            catch(Exception ex)
+            {
+                lock (calculationLock)
+                {
+                    tasksCompleted++;
+                }
+                this.Invoke((MethodInvoker)delegate
+                {
+                    UpdateProgress();
+                });
+
+                if (transactions.Count() < 3)
+                {
+                    calculationCountdown.Signal();
+                    calculationCountdown.Signal();
+                    calculationCountdown.Signal();
+                }
+                else
+                {
+                    calculationCountdown.Signal();
+                }
+                MessageBox.Show(Properties.Resources.Error + ex.Message);
+            }
+        }
+
+        private void CalculateMediumTransactionsThread(int count)
+        {
+            try
+            {
+                for (int i = count; i < count * 2; i++)
+                {
+                    PopulateTransNumbers(transactions[i]);
+                }
+                lock (calculationLock)
+                {
+                    tasksCompleted++;
+                }
+                this.Invoke((MethodInvoker)delegate
+                {
+                    UpdateProgress();
+                });
+                calculationCountdown.Signal();
+            }
+            catch(Exception ex)
+            {
+                lock (calculationLock)
+                {
+                    tasksCompleted++;
+                }
+                this.Invoke((MethodInvoker)delegate
+                {
+                    UpdateProgress();
+                });
+                calculationCountdown.Signal();
+                MessageBox.Show(Properties.Resources.Error + ex.Message);
+            }
+            
+        }
+
+        private void CalculateLargeTransactionsThread(int count)
+        {
+            try
+            {
+                for (int i = count * 2; i < transactions.Count(); i++)
+                {
+                    PopulateTransNumbers(transactions[i]);
+                }
+                lock (calculationLock)
+                {
+                    tasksCompleted++;
+                }
+                this.Invoke((MethodInvoker)delegate
+                {
+                    UpdateProgress();
+                });
+
+                calculationCountdown.Signal();
+            }
+            catch (Exception ex)
+            {
+                lock (calculationLock)
+                {
+                    tasksCompleted++;
+                }
+                this.Invoke((MethodInvoker)delegate
+                {
+                    UpdateProgress();
+                });
+                calculationCountdown.Signal();
+                MessageBox.Show(Properties.Resources.Error + ex.Message);
+            }
+            
+        }
+
         private void CalculateExpensesByCategory()
         {
             try
             {
                 transactions = transactionManager.GetAllTransactions().ToList();
 
-                int threadCount = transactions.Count >= 3 ? 3 : 1;
+                int threadCount = transactions.Count() >= 3 ? 3 : 1;
                 CountdownEvent threadCountdown = new CountdownEvent(threadCount);
 
-                if(transactions.Count >= 3)
+                if(transactions.Count() >= 3)
                 {
                     int thirdOfTransactions = transactions.Count() / 3;
 
                     ThreadPool.QueueUserWorkItem(task => Thread1(thirdOfTransactions, threadCountdown));
                     ThreadPool.QueueUserWorkItem(task => Thread2(thirdOfTransactions, threadCountdown));
                     ThreadPool.QueueUserWorkItem(task => Thread3(thirdOfTransactions, threadCountdown));
+
+                    ThreadPool.QueueUserWorkItem(task => CalculateSmallTransactionsThread(thirdOfTransactions));
+                    ThreadPool.QueueUserWorkItem(task => CalculateMediumTransactionsThread(thirdOfTransactions));
+                    ThreadPool.QueueUserWorkItem(task => CalculateLargeTransactionsThread(thirdOfTransactions));
                 }
                 else
                 {
                     ThreadPool.QueueUserWorkItem(task => Thread1(transactions.Count(), threadCountdown));
+                    ThreadPool.QueueUserWorkItem(task => CalculateSmallTransactionsThread(transactions.Count()));
                 }
 
                 threadCountdown.Wait();
@@ -198,35 +376,31 @@ namespace FinanceApp.Forms
                     }
                 }
 
+                lock (calculationLock)
+                {
+                    tasksCompleted++;
+                }
+
                 this.Invoke((MethodInvoker)delegate
                 {
                     expensesLabel.Text = $"{Properties.Resources.ExpByCat} \n {string.Join("\n", expensesByCategory.Select(kvp => $"{kvp.Key}: {kvp.Value}"))}";
                     UpdateProgress();
                 });
 
-            }catch(Exception ex) 
+                calculationCountdown.Signal();
+            }
+            catch (Exception ex) 
             {
                 this.Invoke((MethodInvoker)delegate
                 {
                     expensesLabel.Text = $"{Properties.Resources.Error}: {ex.Message}";
-                    /*lock(calculationLock)
+                    lock(calculationLock)
                     {
                         tasksCompleted++;
-                    }*/
-                    //UpdateProgress();
-                });
-            }
-            finally
-            {
-                calculationCountdown.Signal();
-                lock (calculationLock)
-                {
-                    tasksCompleted++;
-                }
-                this.Invoke((MethodInvoker)delegate
-                {
+                    }
                     UpdateProgress();
                 });
+                calculationCountdown.Signal();
             }
         }
 
@@ -250,7 +424,7 @@ namespace FinanceApp.Forms
                     if (goalProgressSummaries.Any())
                     {
                         report += Properties.Resources.GoalProgress + "\r\n";
-                        report += string.Join("\r\n", goalProgressSummaries) + "\r\n";
+                        report += string.Join("\r\n", goalProgressSummaries) + "\r\n\r\n";
                     }
 
                     tasksCompleted++;
@@ -258,12 +432,13 @@ namespace FinanceApp.Forms
 
                 this.Invoke((MethodInvoker)delegate
                 {
-                    goalsProgressLabel.Text = Properties.Resources.GoalProgress +"\n" + (goalProgressSummaries.Any() ? string.Join("\n", goalProgressSummaries) : Properties.Resources.NoGoals);
+                    goalsProgressLabel.Text = Properties.Resources.GoalProgress + "\n" + (goalProgressSummaries.Any() ? string.Join("\n", goalProgressSummaries) : Properties.Resources.NoGoals);
                     UpdateProgress();
                 });
 
+                calculationCountdown.Signal();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 this.Invoke((MethodInvoker)delegate
                 {
@@ -274,9 +449,6 @@ namespace FinanceApp.Forms
                     }
                     UpdateProgress();
                 });
-            }
-            finally
-            {
                 calculationCountdown.Signal();
             }
         }
@@ -289,6 +461,22 @@ namespace FinanceApp.Forms
                 string pdfFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/financialSummaryReport.pdf");
                 string signaturePdfFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/financialSummaryReportPdf.signature");
                 string signatureTxtFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/financialSummaryReportTxt.signature");
+
+                string transText = 
+                    $"{Properties.Resources.SmallTrans} {numberOfSmallTrans}\r\n" +
+                    $"{Properties.Resources.MediumTrans} {numberOfMediumTrans}\r\n" +
+                    $"{Properties.Resources.LargeTrans} {numberOfLargeTrans}\r\n" +
+                    $"{Properties.Resources.TotalTrans} {numberOfSmallTrans + numberOfMediumTrans + numberOfLargeTrans}";
+
+                this.Invoke((MethodInvoker)delegate
+                {
+                    numberOfTransLabel.Text = transText;
+                });
+
+                lock(calculationLock)
+                {
+                    report += transText;
+                }
 
                 reportMutex.WaitOne();
                 try

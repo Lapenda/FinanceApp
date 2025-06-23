@@ -264,6 +264,9 @@
   <data name="LanguageComboLabel" xml:space="preserve">
     <value>Language:</value>
   </data>
+  <data name="LargeTrans" xml:space="preserve">
+    <value>Number of large transactions (&gt;=1000) is:</value>
+  </data>
   <data name="LightTheme" xml:space="preserve">
     <value>Light</value>
   </data>
@@ -278,6 +281,9 @@
   </data>
   <data name="LogOutConfirm" xml:space="preserve">
     <value>You updated your information, you will be Logged out. Do you want to continue?</value>
+  </data>
+  <data name="MediumTrans" xml:space="preserve">
+    <value>Number of medium transactions (&gt;=100 &amp;&amp; &lt;1000) is:</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
@@ -345,6 +351,9 @@
   <data name="SettingsLabel" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="SmallTrans" xml:space="preserve">
+    <value>Number of small transactions (&lt;100) is:</value>
+  </data>
   <data name="SortAscending" xml:space="preserve">
     <value>Sort ascending</value>
   </data>
@@ -368,6 +377,9 @@
   </data>
   <data name="TotalSavings" xml:space="preserve">
     <value>Total Savings:</value>
+  </data>
+  <data name="TotalTrans" xml:space="preserve">
+    <value>Total number of transactions is:</value>
   </data>
   <data name="TransWellcome" xml:space="preserve">
     <value>Transaction Form - Welcome</value>

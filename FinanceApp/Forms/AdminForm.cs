@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FinanceApp.Models;
 using System.Runtime.CompilerServices;
+using FinanceApp.Manager;
 
 namespace FinanceApp.Forms
 {
@@ -25,6 +26,8 @@ namespace FinanceApp.Forms
             FillOutData();
             InitializeDataGrid();
             InitializeComboBox();
+
+            SettingsManager.ApplyTheme(this);
         }
 
         private void InitializeComboBox()

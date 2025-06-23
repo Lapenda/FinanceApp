@@ -502,6 +502,15 @@ namespace FinanceApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Number of large transactions (&gt;=1000) is:.
+        /// </summary>
+        internal static string LargeTrans {
+            get {
+                return ResourceManager.GetString("LargeTrans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Light.
         /// </summary>
         internal static string LightTheme {
@@ -543,6 +552,15 @@ namespace FinanceApp.Properties {
         internal static string LogOutConfirm {
             get {
                 return ResourceManager.GetString("LogOutConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of medium transactions (&gt;=100 &amp;&amp; &lt;1000) is:.
+        /// </summary>
+        internal static string MediumTrans {
+            get {
+                return ResourceManager.GetString("MediumTrans", resourceCulture);
             }
         }
         
@@ -745,6 +763,15 @@ namespace FinanceApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Number of small transactions (&lt;100) is:.
+        /// </summary>
+        internal static string SmallTrans {
+            get {
+                return ResourceManager.GetString("SmallTrans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sort ascending.
         /// </summary>
         internal static string SortAscending {
@@ -813,6 +840,15 @@ namespace FinanceApp.Properties {
         internal static string TotalSavings {
             get {
                 return ResourceManager.GetString("TotalSavings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total number of transactions is:.
+        /// </summary>
+        internal static string TotalTrans {
+            get {
+                return ResourceManager.GetString("TotalTrans", resourceCulture);
             }
         }
         

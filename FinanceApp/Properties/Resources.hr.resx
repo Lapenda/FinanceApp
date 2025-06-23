@@ -264,6 +264,9 @@
   <data name="LanguageComboLabel" xml:space="preserve">
     <value>Izaberite jezik:</value>
   </data>
+  <data name="LargeTrans" xml:space="preserve">
+    <value>Broj velikih transakcija (iznos &gt;= 1000):</value>
+  </data>
   <data name="LightTheme" xml:space="preserve">
     <value>Svijetla tema</value>
   </data>
@@ -278,6 +281,9 @@
   </data>
   <data name="LogOutConfirm" xml:space="preserve">
     <value>Ažurirali ste svoje podatke, bit ćete odjavljeni. Želite li nastaviti?</value>
+  </data>
+  <data name="MediumTrans" xml:space="preserve">
+    <value>Broj srednjih transakcija (iznos &gt;= 100 i manji od 1000):</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>Ne</value>
@@ -345,6 +351,9 @@
   <data name="SettingsLabel" xml:space="preserve">
     <value>Postavke</value>
   </data>
+  <data name="SmallTrans" xml:space="preserve">
+    <value>Broj malih transakcija (iznos &lt; 100):</value>
+  </data>
   <data name="SortAscending" xml:space="preserve">
     <value>Sortiraj uzlazno</value>
   </data>
@@ -368,6 +377,9 @@
   </data>
   <data name="TotalSavings" xml:space="preserve">
     <value>Ukupna ušteđevina:</value>
+  </data>
+  <data name="TotalTrans" xml:space="preserve">
+    <value>Ukupan broj transakcija:</value>
   </data>
   <data name="TransWellcome" xml:space="preserve">
     <value>Transakcije - Dobrodošli</value>
