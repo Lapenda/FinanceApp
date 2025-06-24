@@ -1,25 +1,12 @@
-Sažetak financijskog izviješća za user
-Generirano: 24.6.2025. 1:54
+Sažetak financijskog izviješća za borna
+Generirano: 24.6.2025. 9:32
 
 Ukupni troškovi po kategorijama:
 
-roba: 45
-  - haha 2.5.2025.: 18 (ID: 39)
-  - majica 29.5.2025.: 10 (ID: 45)
-  - hlace 29.5.2025.: 5 (ID: 46)
-  - majica 2 29.5.2025.: 10 (ID: 47)
-  - nova transakcjia 23.6.2025.: 2 (ID: 94)
+kat admin: 8000
+  - prva admin 24.6.2025.: 8000 (ID: 109)
 
-kat 12: 32
-  - probaaa 31.5.2025.: 9 (ID: 62)
-  - slika 31.5.2025.: 10 (ID: 63)
-  - ds 31.5.2025.: 3 (ID: 64)
-  - 10 18.6.2025.: 10 (ID: 71)
-
-Napredak financijskog cilja:
-auto: 16,35% (327/2000)
-
-Broj malih transakcija (iznos < 100): 9
+Broj malih transakcija (iznos < 100): 0
 Broj srednjih transakcija (iznos >= 100 i manji od 1000): 0
-Broj velikih transakcija (iznos >= 1000): 0
-Ukupan broj transakcija: 9
+Broj velikih transakcija (iznos >= 1000): 1
+Ukupan broj transakcija: 1

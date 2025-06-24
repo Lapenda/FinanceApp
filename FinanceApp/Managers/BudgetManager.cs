@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections.Specialized;
+using MySqlX.XDevAPI;
 
 namespace FinanceApp.Managers
 {
@@ -120,9 +121,8 @@ namespace FinanceApp.Managers
             {
                 existingBudget.Spent = newSpent;
                 existingBudget.UpdateLimit(newLimit);
-                if(existingBudget.CalculateRemaining() < 0)
+                if(CheckBudgetExceeded(existingBudget))
                 {
-                    CheckBudgetExceeded(existingBudget);
                     return null;
                 }
                 SaveBudgets(budgets);
@@ -135,13 +135,13 @@ namespace FinanceApp.Managers
             }
         }
 
-        private void CheckBudgetExceeded(Budget budget)
+        private bool CheckBudgetExceeded(Budget budget)
         {
+            TcpClient client = new TcpClient("127.0.0.1", 13000);
+            NetworkStream stream = client.GetStream();
+
             try
             {
-                TcpClient client = new TcpClient("127.0.0.1", 13000);
-                NetworkStream stream = client.GetStream();
-
                 string request = $"{SessionManager.currentUserId},{budget.Limit},{budget.Spent},{budget.CategoryId}";
                 byte[] requestBytes = Encoding.UTF8.GetBytes(request);
                 stream.Write(requestBytes, 0, requestBytes.Length);
@@ -185,13 +185,27 @@ namespace FinanceApp.Managers
                     }
                 }
 
-                stream.Close();
-                client.Close();
+                if (exceeded)
+                {
+                    stream.Close();
+                    client.Close();
+                    return true;
+                }
+                else
+                {
+                    stream.Close();
+                    client.Close();
+                    return false;
+                }
+               
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Communication error: {ex.Message}");
                 MessageBox.Show($"{Properties.Resources.CommErr} {ex.Message}");
+                stream.Close();
+                client.Close();
+                return false;
             }
         }
 

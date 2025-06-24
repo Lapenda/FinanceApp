@@ -1,6 +1,5 @@
 Average of all transactions:
-8,555555
+8000
 
 Average of transactions by category:
-roba:9
-kat 12:8
+kat admin:8000
