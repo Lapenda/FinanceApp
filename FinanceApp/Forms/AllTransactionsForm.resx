@@ -149,6 +149,9 @@
   <data name="transDataGridView.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;currencyComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -167,6 +170,9 @@
   <data name="&gt;&gt;currencyComboBox.Name" xml:space="preserve">
     <value>currencyComboBox</value>
   </data>
+  <data name="currencyComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>62, 26</value>
   </data>
@@ -178,6 +184,9 @@
   </data>
   <data name="amountTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>187, 26</value>
+  </data>
+  <data name="&gt;&gt;currencyComboBox.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;categoryComboBox.Name" xml:space="preserve">
     <value>categoryComboBox</value>
@@ -212,9 +221,6 @@
   <data name="delBtn.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="editBtn.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Amount:</value>
   </data>
@@ -229,9 +235,6 @@
   </data>
   <data name="descTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>187, 26</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Currency:</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -266,11 +269,8 @@
   <data name="&gt;&gt;calculatedTextBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="amountTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 450</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>Filter:</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>101, 450</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -305,11 +305,14 @@
   <data name="&gt;&gt;transDataGridView.Name" xml:space="preserve">
     <value>transDataGridView</value>
   </data>
-  <data name="categoryComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 28</value>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Filter:</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 450</value>
+  <data name="&gt;&gt;descTextBox.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;filterTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -368,14 +371,8 @@
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>2100, 750</value>
   </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="sortBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 45</value>
-  </data>
-  <data name="sortByComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 59</value>
   </data>
   <data name="uploadReceiptBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>1605, 436</value>
@@ -395,20 +392,20 @@
   <data name="transDataGridView.RowHeadersWidth" type="System.Int32, mscorlib">
     <value>62</value>
   </data>
-  <data name="&gt;&gt;calculatedTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="receiptPictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1440, 26</value>
+  <data name="&gt;&gt;transDataGridView.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="uploadReceiptBtn.Text" xml:space="preserve">
     <value>Upload New Receipt</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="currencyComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 28</value>
   </data>
   <data name="&gt;&gt;delBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -427,6 +424,9 @@
   </data>
   <data name="editBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>1174, 442</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -470,11 +470,11 @@
   <data name="&gt;&gt;categoryComboBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;currencyComboBox.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="receiptPictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1440, 26</value>
   </data>
-  <data name="&gt;&gt;filterTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;delBtn.Parent" xml:space="preserve">
     <value>$this</value>
@@ -485,20 +485,11 @@
   <data name="&gt;&gt;sortByComboBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="amountTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
   <data name="&gt;&gt;sortByComboBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label7.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="filterTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 258</value>
-  </data>
-  <data name="&gt;&gt;transDataGridView.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -536,8 +527,8 @@
   <data name="sortByComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;dateTimePicker.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label7.Name" xml:space="preserve">
     <value>label7</value>
@@ -547,6 +538,9 @@
   </data>
   <data name="dateTimePicker.Location" type="System.Drawing.Point, System.Drawing">
     <value>896, 451</value>
+  </data>
+  <data name="returnBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>569, 603</value>
   </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
@@ -560,14 +554,20 @@
   <data name="&gt;&gt;transDataGridView.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="returnBtn.Text" xml:space="preserve">
+    <value>Return</value>
+  </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
+  </data>
+  <data name="&gt;&gt;editBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>Sort by:</value>
   </data>
-  <data name="currencyComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 28</value>
+  <data name="&gt;&gt;calculatedTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;amountTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -575,14 +575,14 @@
   <data name="receiptPictureBox.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
-  <data name="&gt;&gt;editBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Currency:</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 20</value>
   </data>
-  <data name="&gt;&gt;descTextBox.ZOrder" xml:space="preserve">
-    <value>13</value>
+  <data name="filterTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 258</value>
   </data>
   <data name="&gt;&gt;uploadReceiptBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -611,8 +611,8 @@
   <data name="filterTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>195, 26</value>
   </data>
-  <data name="&gt;&gt;dateTimePicker.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="amountTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>177, 450</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>18</value>
@@ -623,14 +623,11 @@
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
   </data>
-  <data name="dateTimePicker.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 26</value>
-  </data>
   <data name="label5.Text" xml:space="preserve">
     <value>Transaction Date:</value>
   </data>
-  <data name="currencyComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;categoryComboBox.ZOrder" xml:space="preserve">
     <value>12</value>
@@ -644,11 +641,14 @@
   <data name="delBtn.Text" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="categoryComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 28</value>
+  </data>
   <data name="&gt;&gt;mySqlCommand1.Name" xml:space="preserve">
     <value>mySqlCommand1</value>
   </data>
-  <data name="&gt;&gt;currencyComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="sortByComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 59</value>
   </data>
   <data name="calculatedTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>195, 26</value>
@@ -656,20 +656,20 @@
   <data name="&gt;&gt;label6.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="returnBtn.Text" xml:space="preserve">
-    <value>Return</value>
+  <data name="dateTimePicker.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 26</value>
   </data>
-  <data name="returnBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>569, 603</value>
+  <data name="editBtn.Text" xml:space="preserve">
+    <value>Edit</value>
   </data>
   <data name="&gt;&gt;receiptPictureBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
+  <data name="amountTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>hr</value>
+  <metadata name="mySqlCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -677,7 +677,7 @@
   <metadata name="mySqlCommand1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="mySqlCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>hr</value>
   </metadata>
 </root>

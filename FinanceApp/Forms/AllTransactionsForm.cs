@@ -316,5 +316,10 @@ namespace FinanceApp.Forms
                 }
             }
         }
+
+        private void calculatedTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

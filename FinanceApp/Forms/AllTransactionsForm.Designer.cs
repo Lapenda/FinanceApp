@@ -180,6 +180,7 @@
             resources.ApplyResources(this.calculatedTextBox, "calculatedTextBox");
             this.calculatedTextBox.Name = "calculatedTextBox";
             this.calculatedTextBox.ReadOnly = true;
+            this.calculatedTextBox.TextChanged += new System.EventHandler(this.calculatedTextBox_TextChanged);
             // 
             // receiptPictureBox
             // 

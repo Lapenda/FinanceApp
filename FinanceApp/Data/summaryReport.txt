@@ -1,12 +1,37 @@
-Sažetak financijskog izviješća za borna
-Generirano: 24.6.2025. 9:32
+Sažetak financijskog izviješća za test
+Generirano: 24.6.2025. 12:04
 
 Ukupni troškovi po kategorijama:
 
-kat admin: 8000
-  - prva admin 24.6.2025.: 8000 (ID: 109)
+kat1 user: 3367
+  - tr 1 24.6.2025.: 21 (ID: 98)
+  - tr 2 24.6.2025.: 2133 (ID: 100)
+  - tr 3 24.6.2025.: 432 (ID: 101)
+  - tr 5 24.6.2025.: 781 (ID: 102)
 
-Broj malih transakcija (iznos < 100): 0
-Broj srednjih transakcija (iznos >= 100 i manji od 1000): 0
+Savings: 100
+  - za mob 24.6.2025.: 100 (ID: 99)
+
+kat 3 user: 3
+  - 11 24.6.2025.: 1 (ID: 106)
+  - lab02 24.6.2025.: 2 (ID: 107)
+
+kat 4: 53
+  - proba 24.6.2025.: 43 (ID: 108)
+  - proba 2 24.6.2025.: 2 (ID: 110)
+  - proba 3 24.6.2025.: 8 (ID: 111)
+
+kat 2: 969
+  - kat 2 tr 1 24.6.2025.: 812 (ID: 103)
+  - kat 2 tr 2 24.6.2025.: 90 (ID: 104)
+  - 67 24.6.2025.: 67 (ID: 105)
+
+Ukupna ušteđevina: 100
+
+Napredak financijskog cilja:
+mobitel: 10,00% (100/1000)
+
+Broj malih transakcija (iznos < 100): 8
+Broj srednjih transakcija (iznos >= 100 i manji od 1000): 4
 Broj velikih transakcija (iznos >= 1000): 1
-Ukupan broj transakcija: 1
+Ukupan broj transakcija: 13
