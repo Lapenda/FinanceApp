@@ -203,11 +203,27 @@ namespace FinanceApp.Managers
             {
                 budgets.Remove(existingBudget);
                 SaveBudgets(budgets);
-                MessageBox.Show(Properties.Resources.Success);
+                //MessageBox.Show(Properties.Resources.Success);
             }
             else
             {
                 MessageBox.Show(Properties.Resources.Error);
+            }
+        }
+
+        public void DeleteUserBudgets(int id)
+        {
+            var budgets = ReadAllBudgets();
+            if(budgets.Count == 0)
+            {
+                return;
+            }
+            foreach (var budget in budgets)
+            {
+                if(budget.UserId == id)
+                {
+                    DeleteBudget(budget);
+                }
             }
         }
     }

@@ -104,11 +104,28 @@ namespace FinanceApp.Managers
             {
                 goals.Remove(existingGoal);
                 Save(goals);
-                MessageBox.Show(Properties.Resources.Success);
+                //MessageBox.Show(Properties.Resources.Success);
             }
             else
             {
                 throw new Exception($"Error finding goal: {goal}");
+            }
+        }
+
+        public void DeleteUserGoals(int id)
+        {
+            var goals = ReadAllGoals();
+            if(goals.Count == 0)
+            {
+                return;
+            }
+
+            foreach(var goal in goals) 
+            {
+                if(goal.UserId == id)
+                {
+                    DeleteGoal(goal);
+                }
             }
         }
     }

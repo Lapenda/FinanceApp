@@ -117,13 +117,30 @@ namespace FinanceApp.Managers
             {
                 categories.Remove(existingCategory);
                 SaveCategories(categories);
-                MessageBox.Show(Properties.Resources.Success);
+                //MessageBox.Show(Properties.Resources.Success);
 
                 transactionManager.DeleteTransactionsByCategory(existingCategory.Id);
             }
             else
             {
                 throw new Exception($"Category with ID {category.Id} not found");
+            }
+        }
+
+        public void DeleteAllUserCategories(int userId)
+        {
+            var categories = ReadAllCategories();
+            if (categories.Count == 0)
+            {
+                return;
+            }
+
+            foreach (var category in categories)
+            {
+                if(category.UserId == userId)
+                {
+                    DeleteCategory(category);
+                }
             }
         }
     }

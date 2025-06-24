@@ -17,7 +17,7 @@ namespace FinanceApp.Manager
         public string Language { get; set; } = Properties.Resources.Croatian;
         public string Theme { get; set; } = "Light";
         public string DefaultCurrency { get; set; } = "HRK";
-        public string LastTransactionCategory { get; set; } = "Food";
+        public string LastTransactionCategory { get; set; } = "Savings";
 
         public void Save()
         {
@@ -54,12 +54,12 @@ namespace FinanceApp.Manager
                     if (key != null)
                     {
                         DefaultCurrency = key.GetValue("DefaultCurrency", "HRK").ToString();
-                        LastTransactionCategory = key.GetValue("LastTransactionCategory", "Food").ToString();
+                        LastTransactionCategory = key.GetValue("LastTransactionCategory", "Savings").ToString();
                     }
                     else
                     {
                         DefaultCurrency = "HRK";
-                        LastTransactionCategory = "Food";
+                        LastTransactionCategory = "Savings";
                     }
                 }
             }
@@ -67,7 +67,7 @@ namespace FinanceApp.Manager
             {
                 System.Diagnostics.Debug.WriteLine($"Error loading from Registry: {ex.Message}");
                 DefaultCurrency = "HRK";
-                LastTransactionCategory = "Food";
+                LastTransactionCategory = "Savings";
             }
         }
     }

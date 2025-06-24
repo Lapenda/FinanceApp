@@ -19,6 +19,11 @@ namespace FinanceApp.Managers
         private readonly string jwtSecretKey;
         private readonly Dictionary<int, User> users = new Dictionary<int, User>();
 
+        private readonly TransactionManager transactionManager;
+        private readonly CategoryManager categoryManager;
+        private readonly FinancialGoalManager financialGoalManager;
+        private readonly BudgetManager budgetManager;
+
         public IReadOnlyCollection<User> GetAllUsers() => users.Values.ToList().AsReadOnly();
 
         public UserManager()
@@ -34,6 +39,11 @@ namespace FinanceApp.Managers
             }
 
             LoadUsersFromDatabase();
+
+            transactionManager = new TransactionManager();
+            categoryManager = new CategoryManager("categories.xml", transactionManager);
+            financialGoalManager = new FinancialGoalManager();
+            budgetManager = new BudgetManager();
         }
 
         public bool Register(string firstName, string lastName, string username, string password, string role)
@@ -199,6 +209,10 @@ namespace FinanceApp.Managers
                     command.ExecuteNonQuery();
                     connection.Close();
                 }
+
+                categoryManager.DeleteAllUserCategories(id);
+                financialGoalManager.DeleteUserGoals(id);
+                budgetManager.DeleteUserBudgets(id);
             }
             catch (Exception ex)
             {
